@@ -15,7 +15,7 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             overflow-x: hidden;
             scroll-behavior: smooth;
-            background: #fafafa;
+            background: white;
         }
 
         .hero-section {
@@ -26,7 +26,7 @@
             align-items: center;
             padding: 2rem;
             text-align: center;
-            background: #fafafa;
+            background: white;
             position: relative;
             overflow: hidden;
         }
@@ -34,7 +34,7 @@
         .floating-blob {
             position: absolute;
             border-radius: 50%;
-            opacity: 0.08;
+            opacity: 0.15;
             animation: float 20s infinite ease-in-out;
             z-index: 0;
         }
@@ -166,11 +166,35 @@
 
         .subtitle {
             font-size: clamp(1.1rem, 2vw, 1.5rem);
-            color: #666;
-            margin-bottom: 4rem;
+            color: #000;
+            margin-bottom: 2rem;
             animation: fadeIn 1s ease-out 0.4s backwards;
             position: relative;
             z-index: 1;
+        }
+
+        .cta-bubble {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: white;
+            background: linear-gradient(135deg, #6DD0FF, #4D6DFF);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(77, 109, 255, 0.3);
+            animation: fadeIn 1s ease-out 0.6s backwards;
+            position: relative;
+            z-index: 1;
+            border: none;
+            margin-bottom: 4rem;
+        }
+
+        .cta-bubble:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(77, 109, 255, 0.4);
+            background: linear-gradient(135deg, #5EA2FF, #4D6DFF);
         }
 
         .cards-container {
@@ -218,11 +242,6 @@
             animation-delay: 0.9s;
         }
 
-        .card:nth-child(5) {
-            background: linear-gradient(135deg, rgba(255, 202, 4, 0.5) 0%, rgba(251, 127, 34, 0.5) 100%);
-            animation-delay: 1s;
-        }
-
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -252,8 +271,7 @@
         }
 
         .card:nth-child(2) h2,
-        .card:nth-child(3) h2,
-        .card:nth-child(5) h2 {
+        .card:nth-child(3) h2 {
             color: white;
         }
 
@@ -268,8 +286,7 @@
         }
 
         .card:nth-child(2) p,
-        .card:nth-child(3) p,
-        .card:nth-child(5) p {
+        .card:nth-child(3) p {
             color: rgba(255, 255, 255, 0.9);
         }
 
@@ -299,15 +316,13 @@
         }
 
         .card:nth-child(2) .card-button,
-        .card:nth-child(3) .card-button,
-        .card:nth-child(5) .card-button {
+        .card:nth-child(3) .card-button {
             background: white;
             color: #000;
         }
 
         .card:nth-child(2) .card-button:hover,
-        .card:nth-child(3) .card-button:hover,
-        .card:nth-child(5) .card-button:hover {
+        .card:nth-child(3) .card-button:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
@@ -327,7 +342,7 @@
             border-radius: 16px;
             padding: 1.5rem;
             margin-bottom: 1.5rem;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
         }
 
         .input-preview-text {
@@ -404,9 +419,43 @@
             margin-bottom: 1.5rem;
         }
 
+        .waitlist-section {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 4rem 2rem;
+            background: white;
+            position: relative;
+        }
+
+        .waitlist-container {
+            max-width: 800px;
+            width: 100%;
+            background: white;
+            padding: 3rem;
+            border-radius: 32px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .waitlist-container h2 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            color: #000;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .waitlist-container > p {
+            font-size: 1.25rem;
+            color: #666;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
         label {
             display: block;
-            color: white;
+            color: #000;
             font-weight: 600;
             margin-bottom: 0.5rem;
             font-size: 0.95rem;
@@ -417,23 +466,22 @@
         input, textarea {
             width: 100%;
             padding: 1rem 1.25rem;
-            background: rgba(255, 255, 255, 0.1);
-            border: 2px solid rgba(255, 255, 255, 0.2);
+            background: white;
+            border: 2px solid #e0e0e0;
             border-radius: 12px;
-            color: white;
+            color: #000;
             font-size: 1rem;
             transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
         }
 
         input::placeholder, textarea::placeholder {
-            color: rgba(255, 255, 255, 0.5);
+            color: #999;
         }
 
         input:focus, textarea:focus {
             outline: none;
             border-color: #6DD0FF;
-            background: rgba(255, 255, 255, 0.15);
+            background: white;
         }
 
         textarea {
@@ -447,7 +495,7 @@
             padding: 1.25rem;
             font-size: 1.1rem;
             font-weight: 600;
-            color: #0a0a0a;
+            color: white;
             background: linear-gradient(135deg, rgba(109, 208, 255, 0.8), rgba(255, 202, 4, 0.8));
             border: none;
             border-radius: 12px;
@@ -506,8 +554,9 @@
             <div class="logo-text">Addlee</div>
         </div>
 
-        <h1>Consider yourself limitless.</h1>
-        <p class="subtitle">If you can describe it, you can build it.</p>
+        <h1>Hotel marketing is outdated. Let's update it!</h1>
+        <p class="subtitle">Meet the AI matching platform bringing hotels & creators together.</p>
+        <button class="cta-bubble">Join Our Movement</button>
 
         <div class="cards-container">
             <div class="card">
@@ -515,7 +564,7 @@
                     <h2>Dream big. Build fast.</h2>
                     <p>Just describe it - Addlee helps you build it, host it, and get it ready to launch. No code. No setup. Just go.</p>
                 </div>
-                <button class="card-button" onclick="document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' })">Start building</button>
+                <button class="card-button">Start building</button>
             </div>
 
             <div class="card">
@@ -537,7 +586,7 @@
                     <h2>About Addlee</h2>
                     <p>We believe in empowering everyone to bring their ideas to life. Addlee is more than a platform—it's a movement to democratize creation and make innovation accessible to all.</p>
                 </div>
-                <button class="card-button" onclick="document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' })">Learn more</button>
+                <button class="card-button">Learn more</button>
             </div>
 
             <div class="card">
@@ -545,39 +594,12 @@
                     <h2>Join our movement</h2>
                     <p>Be part of a community that's redefining what's possible. Connect with creators, innovators, and dreamers.</p>
                 </div>
-                <button class="card-button" onclick="document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' })">Get started</button>
+                <button class="card-button">Get started</button>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="contact-section">
-        <div class="contact-container">
-            <h2>Get In Touch</h2>
-            <p>Ready to join the movement? Let's connect.</p>
-            <form>
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" placeholder="Your name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="your@email.com" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" placeholder="Tell us about yourself..." required></textarea>
-                </div>
-                <button type="submit" class="submit-button">Send Message</button>
-            </form>
-        </div>
-    </section>
-
     <script>
-        document.querySelector('form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thanks for reaching out! We\'ll be in touch soon.');
-            this.reset();
-        });
     </script>
 </body>
 </html>
