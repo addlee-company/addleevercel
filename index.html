@@ -535,6 +535,24 @@
                 height: 30px;
             }
         }
+
+        .manifesto-text {
+            max-width: 800px;
+            text-align: center;
+            margin: 0 auto 4rem auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+            animation: fadeIn 1s ease-out 0.8s backwards;
+        }
+
+        .manifesto-text p {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            line-height: 1.8;
+            color: #000;
+            margin: 0;
+            white-space: pre-line;
+        }
     </style>
 </head>
 <body>
@@ -557,6 +575,23 @@
         <h1>Hotel marketing is outdated.<br>Let's update it!</h1>
         <p class="subtitle">Meet the AI matching platform bringing hotels & creators together.</p>
         <button class="cta-bubble">Join Our Movement</button>
+
+        <div class="manifesto-text">
+            <p>For years, hotel content has been broken.
+Agencies decided which creators got work.
+Brands relied on guesswork.
+Content was inconsistent.
+Creators were undervalued.
+
+That era is ending with Addlee.
+
+Hotels and creators can connect directly.
+AI matches the right creators with the right hotels.
+
+The future is simple.
+Hotels get the content they need.
+Creators get the work they deserve.</p>
+        </div>
 
         <div class="cards-container">
             <div class="card">
