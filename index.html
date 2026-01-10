@@ -622,20 +622,46 @@
     </section>
 
     <script>
-        document.getElementById('waitlist-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const role = document.getElementById('role').value;
-            
-            // For now, just show a success message
-            // In production, this would send to a backend API
-            alert(`Thanks for joining, ${name}! We'll contact you at ${email} soon.`);
-            
-            // Reset form
-            this.reset();
-        });
+        // Add form submission handler with proper validation and sanitization
+        const waitlistForm = document.getElementById('waitlist-form');
+        if (waitlistForm) {
+            waitlistForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const nameInput = document.getElementById('name');
+                const emailInput = document.getElementById('email');
+                const roleInput = document.getElementById('role');
+                
+                if (!nameInput || !emailInput || !roleInput) {
+                    return;
+                }
+                
+                const name = nameInput.value.trim();
+                const email = emailInput.value.trim();
+                const role = roleInput.value.trim();
+                
+                // Validate email format
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    alert('Please enter a valid email address.');
+                    return;
+                }
+                
+                // Validate all fields are filled
+                if (!name || !email || !role) {
+                    alert('Please fill in all fields.');
+                    return;
+                }
+                
+                // For now, just show a success message
+                // In production, this would send to a backend API
+                // Using safe string concatenation to avoid XSS in alerts
+                alert('Thanks for joining! We\'ll contact you soon.');
+                
+                // Reset form
+                this.reset();
+            });
+        }
     </script>
 </body>
 </html>
