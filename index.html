@@ -275,51 +275,12 @@
             color: rgba(255, 255, 255, 0.95);
         }
 
-        .hero-section-new {
-            min-height: 100vh;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            padding: 4rem 6rem;
-            align-items: center;
-            width: 100%;
-            max-width: 1400px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-left {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        .hero-title {
-            font-size: 4rem;
-            font-weight: 600;
-            line-height: 1.1;
-            color: #1a1a1a;
-            letter-spacing: -0.02em;
-        }
-
-        .hero-subtitle {
-            font-size: 1.5rem;
-            color: #4a5568;
-            line-height: 1.5;
-            max-width: 520px;
-        }
-
-        .hero-right {
-            position: relative;
-            height: 500px;
-        }
-
         .prompt-card {
             background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 50%, #ffa600 100%);
             border-radius: 24px;
             padding: 2.5rem;
-            width: 550px;
+            max-width: 550px;
+            width: 100%;
             box-shadow: 0 20px 60px rgba(255, 107, 53, 0.3);
             display: flex;
             flex-direction: column;
@@ -383,7 +344,8 @@
             background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
             border-radius: 20px;
             padding: 2rem;
-            width: 420px;
+            max-width: 420px;
+            width: 100%;
             box-shadow: 0 20px 60px rgba(74, 144, 226, 0.3);
         }
 
@@ -805,35 +767,6 @@
             .matching-preview {
                 width: 100%;
                 max-width: 400px;
-            }
-
-            .hero-section-new {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-                padding: 3rem;
-            }
-
-            .hero-title {
-                font-size: 3rem;
-            }
-
-            .hero-right {
-                height: 600px;
-                margin-top: 2rem;
-            }
-
-            .prompt-card {
-                width: 100%;
-                max-width: 500px;
-            }
-
-            .matching-preview {
-                position: relative;
-                left: 0;
-                bottom: 0;
-                width: 100%;
-                max-width: 400px;
-                margin-top: 2rem;
             }
         }
 
