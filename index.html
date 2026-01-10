@@ -197,16 +197,220 @@
             background: linear-gradient(135deg, #5EA2FF, #4D6DFF);
         }
 
-        .cards-container {
+        .cta-button {
+            background: #000;
+            color: #fff;
+            border: none;
+            padding: 1.25rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 500;
+            border-radius: 50px;
+            cursor: pointer;
+            width: fit-content;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .hero-section-new {
+            min-height: 100vh;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            padding: 4rem 6rem;
+            align-items: center;
             width: 100%;
             max-width: 1400px;
-            padding: 0 2rem;
-            margin-bottom: 6rem;
+            margin: 0 auto;
             position: relative;
             z-index: 1;
+        }
+
+        .hero-left {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 600;
+            line-height: 1.1;
+            color: #1a1a1a;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: #4a5568;
+            line-height: 1.5;
+            max-width: 520px;
+        }
+
+        .hero-right {
+            position: relative;
+            height: 500px;
+        }
+
+        .prompt-card {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 50%, #ffa600 100%);
+            border-radius: 24px;
+            padding: 2.5rem;
+            width: 550px;
+            height: 400px;
+            box-shadow: 0 20px 60px rgba(255, 107, 53, 0.3);
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .prompt-input {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .prompt-text {
+            color: #1a1a1a;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .prompt-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .action-button {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: transparent;
+            border: none;
+            color: #ff6b35;
+            font-size: 0.95rem;
+            font-weight: 500;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .generate-button {
+            background: #ff6b35;
+            color: white;
+            border: none;
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            margin-left: auto;
+            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+            transition: all 0.2s ease;
+        }
+
+        .generate-button:hover {
+            transform: scale(1.05);
+        }
+
+        .matching-preview {
+            position: absolute;
+            bottom: -50px;
+            left: -50px;
+            background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+            border-radius: 20px;
+            padding: 2rem;
+            width: 420px;
+            box-shadow: 0 20px 60px rgba(74, 144, 226, 0.3);
+        }
+
+        .preview-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .preview-icon {
+            width: 32px;
+            height: 32px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .match-item {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            animation: slideIn 0.5s ease forwards;
+            opacity: 0;
+        }
+
+        .match-item:nth-child(2) { animation-delay: 0.2s; }
+        .match-item:nth-child(3) { animation-delay: 0.4s; }
+        .match-item:nth-child(4) { animation-delay: 0.6s; }
+        .match-item:nth-child(5) { animation-delay: 0.8s; }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .check-icon {
+            width: 24px;
+            height: 24px;
+            background: #4ade80;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.75rem;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .match-content {
+            flex: 1;
+        }
+
+        .match-title {
+            color: white;
+            font-weight: 500;
+            font-size: 0.95rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .match-subtitle {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.85rem;
         }
 
         .card {
@@ -534,6 +738,35 @@
                 width: 30px;
                 height: 30px;
             }
+
+            .hero-section-new {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                padding: 3rem;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .hero-right {
+                height: 600px;
+                margin-top: 2rem;
+            }
+
+            .prompt-card {
+                width: 100%;
+                max-width: 500px;
+            }
+
+            .matching-preview {
+                position: relative;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                max-width: 400px;
+                margin-top: 2rem;
+            }
         }
 
         .manifesto-text {
@@ -593,45 +826,72 @@ Hotels get the content they need.
 Creators get the work they deserve.</p>
         </div>
 
-        <div class="cards-container">
-            <div class="card">
-                <div>
-                    <h2>Dream big. Build fast.</h2>
-                    <p>Just describe it - Addlee helps you build it, host it, and get it ready to launch. No code. No setup. Just go.</p>
-                </div>
-                <button class="card-button">Start building</button>
+        <section class="hero-section-new">
+            <div class="hero-left">
+                <h1 class="hero-title">Find creators. Build trust. Drive bookings.</h1>
+                <p class="hero-subtitle">Just describe your hotel - Addlee matches you with vetted creators who fit your brand. No DMs. No guesswork. Just go.</p>
+                <button class="cta-button">Start matching</button>
             </div>
 
-            <div class="card">
-                <div class="input-preview">
-                    <p class="input-preview-text">Create an app that helps people keep track of their subscriptions and alerts them to upcoming renewals</p>
-                    <div class="input-actions">
-                        <span class="input-icon">+ <span style="color: #FB7F22;">✏️</span> Add styling</span>
-                        <button class="arrow-button">↑</button>
+            <div class="hero-right">
+                <div class="prompt-card">
+                    <div class="prompt-input">
+                        <p class="prompt-text">Match my 65-room boutique hotel in SoHo with wellness-focused creators who drive direct bookings</p>
+                        <div class="prompt-actions">
+                            <button class="action-button">
+                                <span>+</span>
+                                Add targeting
+                            </button>
+                            <button class="generate-button">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </button>
+                        </div>
                     </div>
                 </div>
-                <div>
-                    <h2>Turn ideas into reality</h2>
-                    <p>Describe your vision and watch it come to life instantly.</p>
-                </div>
-            </div>
 
-            <div class="card">
-                <div>
-                    <h2>About Addlee</h2>
-                    <p>We believe in empowering everyone to bring their ideas to life. Addlee is more than a platform—it's a movement to democratize creation and make innovation accessible to all.</p>
+                <div class="matching-preview">
+                    <div class="preview-header">
+                        <div class="preview-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 6v6l4 2"/>
+                            </svg>
+                        </div>
+                        Matching your hotel with creators
+                    </div>
+                    <div class="match-item">
+                        <div class="check-icon">✓</div>
+                        <div class="match-content">
+                            <div class="match-title">Analyzing brand fit</div>
+                            <div class="match-subtitle">Hotel aesthetic & values</div>
+                        </div>
+                    </div>
+                    <div class="match-item">
+                        <div class="check-icon">✓</div>
+                        <div class="match-content">
+                            <div class="match-title">Checking creator reliability</div>
+                            <div class="match-subtitle">Past deliverables & follow-through</div>
+                        </div>
+                    </div>
+                    <div class="match-item">
+                        <div class="check-icon">✓</div>
+                        <div class="match-content">
+                            <div class="match-title">Matching audience overlap</div>
+                            <div class="match-subtitle">Target guest demographics</div>
+                        </div>
+                    </div>
+                    <div class="match-item">
+                        <div class="check-icon">✓</div>
+                        <div class="match-content">
+                            <div class="match-title">5 creators ready to review</div>
+                            <div class="match-subtitle">Vetted & available</div>
+                        </div>
+                    </div>
                 </div>
-                <button class="card-button">Learn more</button>
             </div>
-
-            <div class="card">
-                <div>
-                    <h2>Join our movement</h2>
-                    <p>Be part of a community that's redefining what's possible. Connect with creators, innovators, and dreamers.</p>
-                </div>
-                <button class="card-button">Get started</button>
-            </div>
-        </div>
+        </section>
     </section>
 
     <section class="waitlist-section">
