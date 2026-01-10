@@ -26,11 +26,136 @@
             padding: 2rem;
         }
         
+        .page {
+            display: none;
+        }
+        
+        .page.active {
+            display: block;
+            animation: fadeInUp 1s ease-out;
+        }
+        
         h1 {
             font-size: 3.5rem;
             font-weight: 700;
             margin-bottom: 1rem;
-            animation: fadeInUp 1s ease-out;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+        
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .cta-button {
+            background: white;
+            color: #667eea;
+            padding: 1rem 2.5rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin-top: 2rem;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        form {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        input, textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            color: #333;
+        }
+        
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        button[type="submit"] {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 100%;
+        }
+        
+        button[type="submit"]:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .success-message {
+            display: none;
+            background: #d4edda;
+            color: #155724;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            border: 1px solid #c3e6cb;
+            text-align: center;
+        }
+        
+        .back-button {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: 2px solid white;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+        
+        .back-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
         }
         
         @keyframes fadeInUp {
@@ -48,12 +173,74 @@
             h1 {
                 font-size: 2.5rem;
             }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            p {
+                font-size: 1rem;
+            }
+            
+            .cta-button {
+                font-size: 1rem;
+                padding: 0.875rem 2rem;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Welcome to Addlee</h1>
+        <div id="home" class="page active">
+            <h1>Welcome to Addlee</h1>
+            <button class="cta-button" onclick="showPage('waitlist')">Join our movement</button>
+        </div>
+        
+        <div id="waitlist" class="page">
+            <h2>Join the waitlist</h2>
+            <p>Be the first to know when we launch. Sign up for early access and exclusive updates.</p>
+            <form id="waitlistForm" onsubmit="handleWaitlistSubmit(event)">
+                <div class="form-group">
+                    <label for="waitlist-name">Name *</label>
+                    <input type="text" id="waitlist-name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="waitlist-email">Email *</label>
+                    <input type="email" id="waitlist-email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="waitlist-interest">What interests you most?</label>
+                    <textarea id="waitlist-interest" name="interest"></textarea>
+                </div>
+                <button type="submit">Join Waitlist</button>
+                <div class="success-message" id="waitlist-success">
+                    Thank you for joining our waitlist! We'll be in touch soon.
+                </div>
+            </form>
+            <button class="back-button" onclick="showPage('home')">Back to Home</button>
+        </div>
     </div>
+    
+    <script>
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page');
+            
+            pages.forEach(page => page.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+        }
+        
+        function handleWaitlistSubmit(event) {
+            event.preventDefault();
+            const form = event.target;
+            const successMsg = document.getElementById('waitlist-success');
+            
+            successMsg.style.display = 'block';
+            form.reset();
+            
+            setTimeout(() => {
+                successMsg.style.display = 'none';
+            }, 5000);
+        }
+    </script>
 </body>
 </html>
