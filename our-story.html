@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Story - Addlee</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: #f8f9fa;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .story-container {
+            max-width: 800px;
+            background: white;
+            padding: 4rem;
+            border-radius: 32px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            justify-content: center;
+        }
+
+        .logo-circles {
+            position: relative;
+            width: 60px;
+            height: 60px;
+        }
+
+        .circle-large {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #FFCA04 0%, #FB7F22 50%, #F52347 100%);
+        }
+
+        .circle-small {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #6DD0FF 0%, #5EA2FF 50%, #4D6DFF 100%);
+            bottom: 0;
+            right: -8px;
+        }
+
+        .logo-text {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #000;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #000;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .story-text {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: #000;
+            text-align: center;
+            white-space: pre-line;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-top: 3rem;
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: white;
+            background: linear-gradient(135deg, #6DD0FF, #4D6DFF);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(77, 109, 255, 0.3);
+            border: none;
+            text-decoration: none;
+        }
+
+        .back-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(77, 109, 255, 0.4);
+            background: linear-gradient(135deg, #5EA2FF, #4D6DFF);
+        }
+
+        .button-container {
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .story-container {
+                padding: 2rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .story-text {
+                font-size: 1.1rem;
+            }
+
+            .logo-text {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="story-container">
+        <div class="logo">
+            <div class="logo-circles">
+                <div class="circle-large"></div>
+                <div class="circle-small"></div>
+            </div>
+            <div class="logo-text">Addlee</div>
+        </div>
+
+        <h1>Our Story</h1>
+
+        <p class="story-text">For years, hotel content has been broken.
+Agencies decided which creators got work.
+Brands relied on guesswork.
+Content was inconsistent.
+Creators were undervalued.
+
+That era is ending with Addlee.
+
+Hotels and creators can connect directly.
+AI matches the right creators with the right hotels.
+
+The future is simple.
+Hotels get the content they need.
+Creators get the work they deserve.</p>
+
+        <div class="button-container">
+            <a href="index.html" class="back-button">Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>
