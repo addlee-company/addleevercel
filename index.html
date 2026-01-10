@@ -599,7 +599,43 @@
         </div>
     </section>
 
+    <section class="waitlist-section">
+        <div class="waitlist-container">
+            <h2>Join Our Movement</h2>
+            <p>Be the first to experience the future of hotel marketing. Sign up for our waitlist and get early access.</p>
+            <form id="waitlist-form">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="role">I am a...</label>
+                    <input type="text" id="role" name="role" placeholder="e.g., Hotel Manager, Content Creator" required>
+                </div>
+                <button type="submit" class="submit-button">Join the Waitlist</button>
+            </form>
+        </div>
+    </section>
+
     <script>
+        document.getElementById('waitlist-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const role = document.getElementById('role').value;
+            
+            // For now, just show a success message
+            // In production, this would send to a backend API
+            alert(`Thanks for joining, ${name}! We'll contact you at ${email} soon.`);
+            
+            // Reset form
+            this.reset();
+        });
     </script>
 </body>
 </html>
