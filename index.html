@@ -535,6 +535,24 @@
                 height: 30px;
             }
         }
+
+        .manifesto-text {
+            max-width: 800px;
+            text-align: center;
+            margin: 0 auto 4rem auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+            animation: fadeIn 1s ease-out 0.8s backwards;
+        }
+
+        .manifesto-text p {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            line-height: 1.8;
+            color: #000;
+            margin: 0;
+            white-space: pre-line;
+        }
     </style>
 </head>
 <body>
@@ -554,9 +572,26 @@
             <div class="logo-text">Addlee</div>
         </div>
 
-        <h1>Hotel marketing is outdated. Let's update it!</h1>
+        <h1>Hotel marketing is outdated.<br>Let's update it!</h1>
         <p class="subtitle">Meet the AI matching platform bringing hotels & creators together.</p>
         <button class="cta-bubble">Join Our Movement</button>
+
+        <div class="manifesto-text">
+            <p>For years, hotel content has been broken.
+Agencies decided which creators got work.
+Brands relied on guesswork.
+Content was inconsistent.
+Creators were undervalued.
+
+That era is ending with Addlee.
+
+Hotels and creators can connect directly.
+AI matches the right creators with the right hotels.
+
+The future is simple.
+Hotels get the content they need.
+Creators get the work they deserve.</p>
+        </div>
 
         <div class="cards-container">
             <div class="card">
@@ -599,7 +634,69 @@
         </div>
     </section>
 
+    <section class="waitlist-section">
+        <div class="waitlist-container">
+            <h2>Join Our Movement</h2>
+            <p>Be the first to experience the future of hotel marketing. Sign up for our waitlist and get early access.</p>
+            <form id="waitlist-form">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="role">I am a...</label>
+                    <input type="text" id="role" name="role" placeholder="e.g., Hotel Manager, Content Creator" required>
+                </div>
+                <button type="submit" class="submit-button">Join the Waitlist</button>
+            </form>
+        </div>
+    </section>
+
     <script>
+        // Add form submission handler with proper validation and sanitization
+        const waitlistForm = document.getElementById('waitlist-form');
+        if (waitlistForm) {
+            waitlistForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const nameInput = document.getElementById('name');
+                const emailInput = document.getElementById('email');
+                const roleInput = document.getElementById('role');
+                
+                if (!nameInput || !emailInput || !roleInput) {
+                    return;
+                }
+                
+                const name = nameInput.value.trim();
+                const email = emailInput.value.trim();
+                const role = roleInput.value.trim();
+                
+                // Validate email format
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    alert('Please enter a valid email address.');
+                    return;
+                }
+                
+                // Validate all fields are filled
+                if (!name || !email || !role) {
+                    alert('Please fill in all fields.');
+                    return;
+                }
+                
+                // For now, just show a success message
+                // In production, this would send to a backend API
+                // Using safe string concatenation to avoid XSS in alerts
+                alert('Thanks for joining! We\'ll contact you soon.');
+                
+                // Reset form
+                this.reset();
+            });
+        }
     </script>
 </body>
 </html>
