@@ -266,6 +266,48 @@
             animation: fadeIn 1s ease-out 0.8s backwards;
         }
 
+        .arrow-connector {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 200px;
+        }
+
+        .arrow {
+            width: 40px;
+            height: 40px;
+            position: relative;
+        }
+
+        .arrow svg {
+            width: 100%;
+            height: 100%;
+            stroke: #4D6DFF;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            fill: none;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .arrow:nth-child(2) svg {
+            transform: rotate(180deg);
+            stroke: #ff6b35;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 0.6;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.1);
+            }
+        }
+
         .outdated-section {
             min-height: 60vh;
             display: flex;
@@ -297,8 +339,9 @@
             background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 50%, #ffa600 100%);
             border-radius: 24px;
             padding: 2.5rem;
-            max-width: 550px;
+            max-width: 450px;
             width: 100%;
+            min-height: 500px;
             box-shadow: 0 20px 60px rgba(255, 107, 53, 0.3);
             display: flex;
             flex-direction: column;
@@ -360,10 +403,11 @@
 
         .matching-preview {
             background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
-            border-radius: 20px;
-            padding: 2rem;
-            max-width: 420px;
+            border-radius: 24px;
+            padding: 2.5rem;
+            max-width: 450px;
             width: 100%;
+            min-height: 500px;
             box-shadow: 0 20px 60px rgba(74, 144, 226, 0.3);
         }
 
@@ -780,6 +824,20 @@
                 align-items: center;
             }
 
+            .arrow-connector {
+                flex-direction: row;
+                margin-top: 0;
+                margin: 1rem 0;
+            }
+
+            .arrow {
+                transform: rotate(90deg);
+            }
+
+            .arrow:nth-child(2) {
+                transform: rotate(90deg);
+            }
+
             .prompt-card {
                 width: 100%;
                 max-width: 500px;
@@ -787,7 +845,7 @@
 
             .matching-preview {
                 width: 100%;
-                max-width: 400px;
+                max-width: 500px;
             }
         }
 
@@ -837,58 +895,65 @@
 
         <div class="boxes-container">
             <div class="prompt-card">
-                <div class="prompt-input">
-                    <p class="prompt-text">Match my 65-room boutique hotel in SoHo with wellness-focused creators who drive direct bookings</p>
-                    <div class="prompt-actions">
-                        <button class="action-button">
-                            <span>+</span>
-                            Add targeting
-                        </button>
-                        <button class="generate-button">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M5 12h14M12 5l7 7-7 7"/>
-                            </svg>
-                        </button>
+                <h3 style="color: white; font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">Find Your Perfect Hotel Match</h3>
+                <p style="color: rgba(255, 255, 255, 0.95); font-size: 1rem; line-height: 1.6; margin-bottom: 1.5rem;">
+                    Discover hotels that align with your brand and audience. Get matched with properties that fit your style and preferences.
+                </p>
+                <div style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); border-radius: 12px; padding: 1.25rem; margin-bottom: 1rem;">
+                    <p style="color: white; font-size: 0.95rem; font-weight: 500; margin-bottom: 0.75rem;">Set Your Preferences:</p>
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <div style="color: rgba(255, 255, 255, 0.9); font-size: 0.9rem;">• Boutique or luxury hotels</div>
+                        <div style="color: rgba(255, 255, 255, 0.9); font-size: 0.9rem;">• Wellness-focused properties</div>
+                        <div style="color: rgba(255, 255, 255, 0.9); font-size: 0.9rem;">• Urban or resort locations</div>
+                        <div style="color: rgba(255, 255, 255, 0.9); font-size: 0.9rem;">• Sustainable & eco-friendly</div>
                     </div>
+                </div>
+                <div style="background: rgba(255, 255, 255, 0.2); border-radius: 12px; padding: 1rem; margin-top: auto;">
+                    <p style="color: white; font-size: 0.85rem; font-style: italic;">Possible hotels ready to collaborate with creators like you</p>
+                </div>
+            </div>
+
+            <div class="arrow-connector">
+                <div class="arrow">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
+                    </svg>
+                </div>
+                <div class="arrow">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
+                    </svg>
                 </div>
             </div>
 
             <div class="matching-preview">
-                <div class="preview-header">
-                    <div class="preview-icon">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="10"/>
-                            <path d="M12 6v6l4 2"/>
-                        </svg>
-                    </div>
-                    Matching your hotel with creators
-                </div>
+                <h3 style="color: white; font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem;">Matching Your Hotel with Creators</h3>
                 <div class="match-item">
                     <div class="check-icon">✓</div>
                     <div class="match-content">
                         <div class="match-title">Analyzing brand fit</div>
-                        <div class="match-subtitle">Hotel aesthetic & values</div>
+                        <div class="match-subtitle">Ensuring aesthetic & value alignment</div>
                     </div>
                 </div>
                 <div class="match-item">
                     <div class="check-icon">✓</div>
                     <div class="match-content">
                         <div class="match-title">Checking creator reliability</div>
-                        <div class="match-subtitle">Past deliverables & follow-through</div>
+                        <div class="match-subtitle">Verified track record & deliverables</div>
                     </div>
                 </div>
                 <div class="match-item">
                     <div class="check-icon">✓</div>
                     <div class="match-content">
                         <div class="match-title">Matching audience overlap</div>
-                        <div class="match-subtitle">Target guest demographics</div>
+                        <div class="match-subtitle">Target demographics & reach</div>
                     </div>
                 </div>
                 <div class="match-item">
                     <div class="check-icon">✓</div>
                     <div class="match-content">
-                        <div class="match-title">5 creators ready to review</div>
-                        <div class="match-subtitle">Vetted & available</div>
+                        <div class="match-title">Creators ready to review</div>
+                        <div class="match-subtitle">Pre-vetted & available talent</div>
                     </div>
                 </div>
             </div>
