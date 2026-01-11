@@ -955,10 +955,16 @@
             font-size: clamp(1.75rem, 3vw, 2.25rem);
             font-weight: 600;
             color: #333;
-            margin-bottom: 2rem;
-            margin-top: 4rem;
+            margin-bottom: 0;
+            margin-top: 0;
             position: relative;
             z-index: 1;
+        }
+
+        .match-section {
+            background: white;
+            padding: 4rem 2rem;
+            text-align: center;
         }
 
         .verified-items {
@@ -1000,11 +1006,15 @@
         .split-screen {
             display: flex;
             width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
             min-height: 60vh;
             position: relative;
             z-index: 1;
             animation: fadeIn 1s ease-out 0.8s backwards;
             margin-bottom: 8rem;
+            gap: 2rem;
+            padding: 2rem;
         }
 
         .split-side {
@@ -1015,6 +1025,7 @@
             align-items: center;
             padding: 4rem 3rem;
             text-align: center;
+            border-radius: 24px;
         }
 
         .split-side.creators {
@@ -1126,22 +1137,10 @@
             <a href="our-story.html" class="cta-bubble cta-secondary">Our Story</a>
         </div>
 
+    </section>
+
+    <section class="match-section">
         <h2 class="match-section-heading">Find your perfect match</h2>
-        
-        <div class="verified-items">
-            <div class="verified-item">
-                <span class="verified-check">
-                    <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </span>
-                <span>Verified creators</span>
-            </div>
-            <div class="verified-item">
-                <span class="verified-check">
-                    <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </span>
-                <span>Verified</span>
-            </div>
-        </div>
     </section>
 
     <section class="split-screen">
