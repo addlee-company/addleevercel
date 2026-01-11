@@ -1132,5 +1132,44 @@
             <a href="https://tally.so/r/dWaLDD" class="waitlist-cta-button" target="_blank" rel="noopener noreferrer nofollow">Join Our Movement</a>
         </div>
     </section>
+
+    <script>
+        // Slow smooth scroll for "Join Our Movement" button
+        document.addEventListener('DOMContentLoaded', function() {
+            var joinButton = document.querySelector('.cta-bubble[href="#waitlist"]');
+            if (!joinButton) return;
+            
+            joinButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                var targetElement = document.getElementById('waitlist');
+                if (!targetElement) return;
+                
+                var targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                var startPosition = window.pageYOffset;
+                var distance = targetPosition - startPosition;
+                var duration = 3000; // 3 seconds for a slow, readable scroll
+                var startTime = null;
+                
+                function easeInOutQuad(t) {
+                    return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+                }
+                
+                function scrollAnimation(currentTime) {
+                    if (startTime === null) startTime = currentTime;
+                    var timeElapsed = currentTime - startTime;
+                    var progress = Math.min(timeElapsed / duration, 1);
+                    
+                    window.scrollTo(0, startPosition + distance * easeInOutQuad(progress));
+                    
+                    if (progress < 1) {
+                        requestAnimationFrame(scrollAnimation);
+                    }
+                }
+                
+                requestAnimationFrame(scrollAnimation);
+            });
+        });
+    </script>
 </body>
 </html>
