@@ -321,7 +321,7 @@
             justify-content: center;
             align-items: center;
             padding: 6rem 2rem;
-            background: linear-gradient(135deg, #E6B800 0%, #E67A1E 50%, #E6A600 100%);
+            background: linear-gradient(135deg, #FFD54F 0%, #FFB347 50%, #FFCC80 100%);
         }
 
         .outdated-container {
@@ -885,8 +885,111 @@
             font-weight: 600;
             color: #333;
             margin-bottom: 2rem;
+            margin-top: 4rem;
             position: relative;
             z-index: 1;
+        }
+
+        .split-screen {
+            display: flex;
+            width: 100%;
+            min-height: 60vh;
+            position: relative;
+            z-index: 1;
+            animation: fadeIn 1s ease-out 0.8s backwards;
+        }
+
+        .split-side {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 4rem 3rem;
+            text-align: center;
+        }
+
+        .split-side.creators {
+            background: linear-gradient(135deg, #FFB347 0%, #FF8C42 50%, #FF7043 100%);
+        }
+
+        .split-side.hotels {
+            background: linear-gradient(135deg, #7DD3FC 0%, #60A5FA 50%, #3B82F6 100%);
+        }
+
+        .split-side h3 {
+            color: white;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 2rem;
+            line-height: 1.4;
+        }
+
+        .split-side p {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            line-height: 2;
+            margin-bottom: 1.5rem;
+            max-width: 400px;
+        }
+
+        .split-side .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .split-side .feature-list li {
+            color: white;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            line-height: 1.6;
+        }
+
+        .split-side .feature-list li::before {
+            content: '✓';
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: rgba(255, 255, 255, 0.25);
+            border-radius: 50%;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+
+        .split-side .cta-btn {
+            margin-top: 2rem;
+            padding: 1rem 2.5rem;
+            background: white;
+            color: #333;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .split-side .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .split-screen {
+                flex-direction: column;
+            }
+
+            .split-side {
+                padding: 3rem 2rem;
+                min-height: 50vh;
+            }
         }
     </style>
 </head>
@@ -916,99 +1019,30 @@
         </div>
 
         <h2 class="match-section-heading">Find your perfect match</h2>
-        
-        <div class="boxes-container">
-            <div class="prompt-card">
-                <h3 style="color: white; font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem;">Find Your Perfect Hotel Match</h3>
-                
-                <!-- Search Input -->
-                <div style="background: white; border-radius: 12px; padding: 1rem; margin-bottom: 1rem; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
-                    <input type="text" id="hotel-search" placeholder="Search for hotels by location, style, or amenities..." aria-label="Search for hotels by location, style, or amenities" style="width: 100%; border: none; outline: none; font-size: 0.95rem; color: #333; background: transparent;" />
-                </div>
+    </section>
 
-                <!-- Filter Section -->
-                <div style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); border-radius: 12px; padding: 1.25rem;">
-                    <p style="color: white; font-size: 0.95rem; font-weight: 600; margin-bottom: 0.75rem;">Add Your Preferences:</p>
-                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
-                        <label style="display: flex; align-items: center; gap: 0.5rem; background: rgba(255, 255, 255, 0.2); padding: 0.5rem 0.75rem; border-radius: 8px; cursor: pointer; font-size: 0.85rem; color: white;">
-                            <input type="checkbox" name="preference" value="boutique" aria-label="Boutique hotels" style="width: 16px; height: 16px; cursor: pointer;" />
-                            Boutique
-                        </label>
-                        <label style="display: flex; align-items: center; gap: 0.5rem; background: rgba(255, 255, 255, 0.2); padding: 0.5rem 0.75rem; border-radius: 8px; cursor: pointer; font-size: 0.85rem; color: white;">
-                            <input type="checkbox" name="preference" value="luxury" aria-label="Luxury hotels" style="width: 16px; height: 16px; cursor: pointer;" />
-                            Luxury
-                        </label>
-                        <label style="display: flex; align-items: center; gap: 0.5rem; background: rgba(255, 255, 255, 0.2); padding: 0.5rem 0.75rem; border-radius: 8px; cursor: pointer; font-size: 0.85rem; color: white;">
-                            <input type="checkbox" name="preference" value="wellness" aria-label="Wellness-focused hotels" style="width: 16px; height: 16px; cursor: pointer;" />
-                            Wellness
-                        </label>
-                        <label style="display: flex; align-items: center; gap: 0.5rem; background: rgba(255, 255, 255, 0.2); padding: 0.5rem 0.75rem; border-radius: 8px; cursor: pointer; font-size: 0.85rem; color: white;">
-                            <input type="checkbox" name="preference" value="urban" aria-label="Urban hotels" style="width: 16px; height: 16px; cursor: pointer;" />
-                            Urban
-                        </label>
-                        <label style="display: flex; align-items: center; gap: 0.5rem; background: rgba(255, 255, 255, 0.2); padding: 0.5rem 0.75rem; border-radius: 8px; cursor: pointer; font-size: 0.85rem; color: white;">
-                            <input type="checkbox" name="preference" value="resort" aria-label="Resort hotels" style="width: 16px; height: 16px; cursor: pointer;" />
-                            Resort
-                        </label>
-                        <label style="display: flex; align-items: center; gap: 0.5rem; background: rgba(255, 255, 255, 0.2); padding: 0.5rem 0.75rem; border-radius: 8px; cursor: pointer; font-size: 0.85rem; color: white;">
-                            <input type="checkbox" name="preference" value="eco-friendly" aria-label="Eco-friendly hotels" style="width: 16px; height: 16px; cursor: pointer;" />
-                            Eco-friendly
-                        </label>
-                    </div>
-                </div>
-
-                <!-- Search Button -->
-                <button type="button" aria-label="Search for hotels based on selected preferences" style="background: white; color: #E67A1E; border: none; padding: 0.875rem 1.5rem; border-radius: 10px; font-weight: 600; font-size: 0.95rem; cursor: pointer; width: 100%; margin-top: auto; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); transition: all 0.2s ease;">
-                    Search Hotels
-                </button>
-            </div>
-
-            <div class="arrow-connector">
-                <div class="arrow">
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
-                    </svg>
-                </div>
-                <div class="arrow">
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M10.5 4.5L3 12m0 0l7.5 7.5M3 12H21"/>
-                    </svg>
-                </div>
-            </div>
-
-            <div class="matching-preview">
-                <h3 style="color: white; font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem;">Matching Your Hotel with Creators</h3>
-                <div class="match-items-wrapper">
-                    <div class="match-item">
-                        <div class="check-icon">✓</div>
-                        <div class="match-content">
-                            <div class="match-title">Analyzing brand fit</div>
-                            <div class="match-subtitle">Ensuring aesthetic & value alignment</div>
-                        </div>
-                    </div>
-                    <div class="match-item">
-                        <div class="check-icon">✓</div>
-                        <div class="match-content">
-                            <div class="match-title">Checking creator reliability</div>
-                            <div class="match-subtitle">Verified track record & deliverables</div>
-                        </div>
-                    </div>
-                    <div class="match-item">
-                        <div class="check-icon">✓</div>
-                        <div class="match-content">
-                            <div class="match-title">Matching audience overlap</div>
-                            <div class="match-subtitle">Target demographics & reach</div>
-                        </div>
-                    </div>
-                    <div class="match-item">
-                        <div class="check-icon">✓</div>
-                        <div class="match-content">
-                            <div class="match-title">Creators ready to review</div>
-                            <div class="match-subtitle">Pre-vetted & available talent</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <section class="split-screen">
+        <div class="split-side creators">
+            <h3>Creators</h3>
+            <p>Find amazing hotel partnerships that match your style and audience.</p>
+            <ul class="feature-list">
+                <li>Discover unique hotel opportunities</li>
+                <li>Match with brands you love</li>
+                <li>Build lasting partnerships</li>
+                <li>Grow your portfolio</li>
+            </ul>
+            <button class="cta-btn" onclick="document.getElementById('waitlist').scrollIntoView({behavior: 'smooth'})">Join as Creator</button>
+        </div>
+        <div class="split-side hotels">
+            <h3>Hotels</h3>
+            <p>Connect with vetted creators who fit your brand perfectly.</p>
+            <ul class="feature-list">
+                <li>Find pre-vetted creators</li>
+                <li>Ensure brand alignment</li>
+                <li>Drive authentic bookings</li>
+                <li>Build trust with audiences</li>
+            </ul>
+            <button class="cta-btn" onclick="document.getElementById('waitlist').scrollIntoView({behavior: 'smooth'})">Join as Hotel</button>
         </div>
     </section>
 
