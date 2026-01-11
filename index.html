@@ -188,7 +188,7 @@
         .subtitle {
             font-size: clamp(1.1rem, 2vw, 1.5rem);
             color: #000;
-            margin-bottom: 2rem;
+            margin-bottom: 4rem;
             animation: fadeIn 1s ease-out 0.4s backwards;
             position: relative;
             z-index: 1;
@@ -728,10 +728,9 @@
         }
 
         .waitlist-container {
-            max-width: 800px;
-            width: 100%;
+            width: auto;
             background: white;
-            padding: 3rem;
+            padding: 3rem 4rem;
             border-radius: 32px;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
             position: relative;
@@ -798,12 +797,6 @@
         .waitlist-cta-button:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 40px rgba(230, 122, 30, 0.5);
-        }
-
-        .waitlist-container iframe {
-            border: none;
-            margin: 0;
-            margin-top: 2rem;
         }
 
         .waitlist-container h2 {
@@ -1100,7 +1093,6 @@
                 <li>Build lasting partnerships</li>
                 <li>Grow your portfolio</li>
             </ul>
-            <button class="cta-btn" onclick="document.getElementById('waitlist').scrollIntoView({behavior: 'smooth'})">Join as Creator</button>
         </div>
         <div class="split-side hotels">
             <h3>Hotels</h3>
@@ -1111,7 +1103,6 @@
                 <li>Drive authentic bookings</li>
                 <li>Build trust with audiences</li>
             </ul>
-            <button class="cta-btn" onclick="document.getElementById('waitlist').scrollIntoView({behavior: 'smooth'})">Join as Hotel</button>
         </div>
     </section>
 
@@ -1139,43 +1130,7 @@
                 <div class="logo-text">Addlee</div>
             </div>
             <a href="https://tally.so/r/dWaLDD" class="waitlist-cta-button" target="_blank" rel="noopener noreferrer nofollow">Join Our Movement</a>
-            <iframe 
-                data-tally-src="https://tally.so/embed/dWaLDD?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" 
-                loading="lazy" 
-                width="100%" 
-                height="872" 
-                title="Join Our Movement - Hotel marketing is Outdated. Let's update it!">
-            </iframe>
         </div>
     </section>
-
-    <script>
-        // Tally.so embed script - loads the Tally widget and initializes embedded forms
-        // When the script loads, it finds all iframes with data-tally-src and sets their src attribute
-        (function() {
-            var doc = document;
-            var widgetScriptUrl = "https://tally.so/widgets/embed.js";
-            
-            var loadEmbeds = function() {
-                if (typeof Tally !== "undefined") {
-                    Tally.loadEmbeds();
-                } else {
-                    doc.querySelectorAll("iframe[data-tally-src]:not([src])").forEach(function(iframe) {
-                        iframe.src = iframe.dataset.tallySrc;
-                    });
-                }
-            };
-            
-            if (typeof Tally !== "undefined") {
-                loadEmbeds();
-            } else if (doc.querySelector('script[src="' + widgetScriptUrl + '"]') == null) {
-                var script = doc.createElement("script");
-                script.src = widgetScriptUrl;
-                script.onload = loadEmbeds;
-                script.onerror = loadEmbeds;
-                doc.body.appendChild(script);
-            }
-        })();
-    </script>
 </body>
 </html>
