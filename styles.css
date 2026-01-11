@@ -110,12 +110,18 @@ body {
 }
 
 .search-card {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(10px);
   border-radius: 12px;
   padding: 20px;
   margin-bottom: 24px;
   border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+@supports not (backdrop-filter: blur(10px)) {
+  .search-card {
+    background: rgba(255, 255, 255, 0.35);
+  }
 }
 
 .search-text {
@@ -148,6 +154,11 @@ body {
   background: rgba(255, 255, 255, 0.3);
 }
 
+.prefs:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.6);
+  outline-offset: 2px;
+}
+
 .search-btn {
   width: 44px;
   height: 44px;
@@ -166,6 +177,11 @@ body {
   background: rgba(255, 255, 255, 0.35);
 }
 
+.search-btn:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.6);
+  outline-offset: 2px;
+}
+
 .results {
   display: flex;
   flex-direction: column;
@@ -173,7 +189,7 @@ body {
 }
 
 .result {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(10px);
   border-radius: 12px;
   padding: 16px;
@@ -183,6 +199,12 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.2);
   transition: all 0.2s;
   cursor: pointer;
+}
+
+@supports not (backdrop-filter: blur(10px)) {
+  .result {
+    background: rgba(255, 255, 255, 0.35);
+  }
 }
 
 .result:hover {
