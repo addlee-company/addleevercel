@@ -19,11 +19,21 @@
             overflow-x: hidden;
         }
 
+        .bubbles-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+
         .floating-blob {
-            position: fixed;
+            position: absolute;
             opacity: 0.20;
             animation: float 12s infinite ease-in-out;
-            z-index: 0;
             filter: blur(8px);
         }
 
@@ -32,7 +42,7 @@
             height: 300px;
             background: radial-gradient(ellipse at center, rgba(255, 200, 0, 0.55) 0%, rgba(255, 130, 30, 0.35) 40%, rgba(230, 40, 70, 0.2) 70%, transparent 100%);
             border-radius: 60% 40% 70% 30% / 40% 50% 60% 50%;
-            top: -5%;
+            top: 2%;
             left: 2%;
             animation-delay: 0s;
         }
@@ -42,7 +52,7 @@
             height: 160px;
             background: radial-gradient(ellipse at center, rgba(80, 190, 255, 0.55) 0%, rgba(60, 140, 255, 0.35) 40%, rgba(50, 90, 255, 0.2) 70%, transparent 100%);
             border-radius: 40% 60% 30% 70% / 60% 30% 70% 40%;
-            top: 8%;
+            top: 5%;
             right: 5%;
             animation-delay: 1.5s;
         }
@@ -52,8 +62,8 @@
             height: 230px;
             background: radial-gradient(ellipse at center, rgba(255, 130, 30, 0.55) 0%, rgba(230, 40, 70, 0.35) 40%, transparent 100%);
             border-radius: 70% 30% 50% 50% / 30% 60% 40% 70%;
-            bottom: 10%;
-            left: 20%;
+            top: 18%;
+            left: 60%;
             animation-delay: 3s;
         }
 
@@ -62,8 +72,8 @@
             height: 130px;
             background: radial-gradient(ellipse at center, rgba(50, 90, 255, 0.55) 0%, rgba(60, 140, 255, 0.35) 40%, transparent 100%);
             border-radius: 50% 50% 70% 30% / 50% 70% 30% 50%;
-            bottom: 15%;
-            right: 3%;
+            top: 25%;
+            left: 8%;
             animation-delay: 0.5s;
         }
 
@@ -72,8 +82,8 @@
             height: 180px;
             background: radial-gradient(ellipse at center, rgba(255, 200, 0, 0.55) 0%, rgba(255, 130, 30, 0.35) 40%, transparent 100%);
             border-radius: 30% 70% 40% 60% / 70% 30% 60% 40%;
-            top: 2%;
-            left: 35%;
+            top: 35%;
+            right: 10%;
             animation-delay: 2s;
         }
 
@@ -82,9 +92,59 @@
             height: 250px;
             background: radial-gradient(ellipse at center, rgba(80, 190, 255, 0.55) 0%, rgba(50, 90, 255, 0.35) 40%, transparent 100%);
             border-radius: 60% 40% 50% 50% / 40% 60% 50% 50%;
-            bottom: 5%;
-            right: 25%;
+            top: 45%;
+            left: 15%;
             animation-delay: 4s;
+        }
+
+        .blob-7 {
+            width: 220px;
+            height: 200px;
+            background: radial-gradient(ellipse at center, rgba(255, 200, 0, 0.55) 0%, rgba(255, 130, 30, 0.35) 40%, transparent 100%);
+            border-radius: 45% 55% 60% 40% / 55% 45% 50% 50%;
+            top: 55%;
+            right: 20%;
+            animation-delay: 1s;
+        }
+
+        .blob-8 {
+            width: 190px;
+            height: 170px;
+            background: radial-gradient(ellipse at center, rgba(80, 190, 255, 0.55) 0%, rgba(60, 140, 255, 0.35) 40%, transparent 100%);
+            border-radius: 55% 45% 40% 60% / 40% 60% 55% 45%;
+            top: 65%;
+            left: 5%;
+            animation-delay: 2.5s;
+        }
+
+        .blob-9 {
+            width: 300px;
+            height: 270px;
+            background: radial-gradient(ellipse at center, rgba(255, 130, 30, 0.55) 0%, rgba(230, 40, 70, 0.35) 40%, transparent 100%);
+            border-radius: 50% 50% 45% 55% / 60% 40% 55% 45%;
+            top: 75%;
+            right: 8%;
+            animation-delay: 3.5s;
+        }
+
+        .blob-10 {
+            width: 170px;
+            height: 150px;
+            background: radial-gradient(ellipse at center, rgba(50, 90, 255, 0.55) 0%, rgba(60, 140, 255, 0.35) 40%, transparent 100%);
+            border-radius: 60% 40% 55% 45% / 45% 55% 40% 60%;
+            top: 85%;
+            left: 40%;
+            animation-delay: 0s;
+        }
+
+        .blob-11 {
+            width: 240px;
+            height: 210px;
+            background: radial-gradient(ellipse at center, rgba(255, 200, 0, 0.55) 0%, rgba(255, 130, 30, 0.35) 40%, transparent 100%);
+            border-radius: 40% 60% 50% 50% / 50% 50% 60% 40%;
+            top: 92%;
+            left: 70%;
+            animation-delay: 1.5s;
         }
 
         @keyframes float {
@@ -269,12 +329,12 @@
                 opacity: 0.25;
             }
 
-            .blob-1, .blob-3, .blob-5 {
+            .blob-1, .blob-3, .blob-5, .blob-7, .blob-9, .blob-11 {
                 width: 100px;
                 height: 80px;
             }
 
-            .blob-2, .blob-4, .blob-6 {
+            .blob-2, .blob-4, .blob-6, .blob-8, .blob-10 {
                 width: 80px;
                 height: 70px;
             }
@@ -282,12 +342,19 @@
     </style>
 </head>
 <body>
-    <div class="floating-blob blob-1"></div>
-    <div class="floating-blob blob-2"></div>
-    <div class="floating-blob blob-3"></div>
-    <div class="floating-blob blob-4"></div>
-    <div class="floating-blob blob-5"></div>
-    <div class="floating-blob blob-6"></div>
+    <div class="bubbles-container">
+        <div class="floating-blob blob-1"></div>
+        <div class="floating-blob blob-2"></div>
+        <div class="floating-blob blob-3"></div>
+        <div class="floating-blob blob-4"></div>
+        <div class="floating-blob blob-5"></div>
+        <div class="floating-blob blob-6"></div>
+        <div class="floating-blob blob-7"></div>
+        <div class="floating-blob blob-8"></div>
+        <div class="floating-blob blob-9"></div>
+        <div class="floating-blob blob-10"></div>
+        <div class="floating-blob blob-11"></div>
+    </div>
 
     <header class="header">
         <div class="logo">
