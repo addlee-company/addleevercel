@@ -1062,67 +1062,44 @@
         <div class="floating-blob blob-7"></div>
 
         <div class="waitlist-container">
-            <h2>Join Our Movement</h2>
-            <p>Be the first to experience the future of hotel marketing. Sign up for our waitlist and get early access.</p>
-            <form id="waitlist-form">
-                <div class="form-group">
-                    <label for="name">Your Name</label>
-                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" placeholder="you@example.com" required>
-                </div>
-                <div class="form-group">
-                    <label for="role">I am a...</label>
-                    <input type="text" id="role" name="role" placeholder="e.g., Hotel Manager, Content Creator" required>
-                </div>
-                <button type="submit" class="submit-button">Join the Waitlist</button>
-            </form>
+            <iframe 
+                data-tally-src="https://tally.so/embed/dWaLDD?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" 
+                loading="lazy" 
+                width="100%" 
+                height="872" 
+                style="border: none; margin: 0;"
+                title="Join Our Movement - Hotel marketing is Outdated. Let's update it!">
+            </iframe>
         </div>
     </section>
 
     <script>
-        // Add form submission handler with proper validation and sanitization
-        const waitlistForm = document.getElementById('waitlist-form');
-        if (waitlistForm) {
-            waitlistForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                const nameInput = document.getElementById('name');
-                const emailInput = document.getElementById('email');
-                const roleInput = document.getElementById('role');
-                
-                if (!nameInput || !emailInput || !roleInput) {
-                    return;
+        // Tally.so embed script - loads the Tally widget and initializes embedded forms
+        // When the script loads, it finds all iframes with data-tally-src and sets their src attribute
+        (function() {
+            var doc = document;
+            var widgetScriptUrl = "https://tally.so/widgets/embed.js";
+            
+            var loadEmbeds = function() {
+                if (typeof Tally !== "undefined") {
+                    Tally.loadEmbeds();
+                } else {
+                    doc.querySelectorAll("iframe[data-tally-src]:not([src])").forEach(function(iframe) {
+                        iframe.src = iframe.dataset.tallySrc;
+                    });
                 }
-                
-                const name = nameInput.value.trim();
-                const email = emailInput.value.trim();
-                const role = roleInput.value.trim();
-                
-                // Validate email format
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!emailRegex.test(email)) {
-                    alert('Please enter a valid email address.');
-                    return;
-                }
-                
-                // Validate all fields are filled
-                if (!name || !email || !role) {
-                    alert('Please fill in all fields.');
-                    return;
-                }
-                
-                // For now, just show a success message
-                // In production, this would send to a backend API
-                // Using safe string concatenation to avoid XSS in alerts
-                alert('Thanks for joining! We\'ll contact you soon.');
-                
-                // Reset form
-                this.reset();
-            });
-        }
+            };
+            
+            if (typeof Tally !== "undefined") {
+                loadEmbeds();
+            } else if (doc.querySelector('script[src="' + widgetScriptUrl + '"]') == null) {
+                var script = doc.createElement("script");
+                script.src = widgetScriptUrl;
+                script.onload = loadEmbeds;
+                script.onerror = loadEmbeds;
+                doc.body.appendChild(script);
+            }
+        })();
     </script>
 </body>
 </html>
