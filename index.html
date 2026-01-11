@@ -296,9 +296,12 @@
             animation: pulse 2s ease-in-out infinite;
         }
 
-        .arrow:nth-child(2) svg {
-            transform: rotate(180deg);
+        .arrow:nth-child(1) svg {
             stroke: #E67A1E;
+        }
+
+        .arrow:nth-child(2) svg {
+            stroke: #3D5CE6;
         }
 
         @keyframes pulse {
@@ -847,10 +850,6 @@
                 transform: rotate(90deg);
             }
 
-            .arrow:nth-child(2) svg {
-                transform: rotate(180deg);
-            }
-
             .prompt-card {
                 width: 100%;
                 max-width: 500px;
@@ -906,6 +905,8 @@
             <a href="our-story.html" class="cta-bubble cta-secondary">Our Story</a>
         </div>
 
+        <h2 style="text-align: center; font-size: clamp(1.75rem, 3vw, 2.25rem); font-weight: 600; color: #333; margin-bottom: 2rem; position: relative; z-index: 1;">Find your perfect match</h2>
+        
         <div class="boxes-container">
             <div class="prompt-card">
                 <h3 style="color: white; font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem;">Find Your Perfect Hotel Match</h3>
@@ -960,7 +961,7 @@
                 </div>
                 <div class="arrow">
                     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
+                        <path d="M10.5 4.5L3 12m0 0l7.5 7.5M3 12H21"/>
                     </svg>
                 </div>
             </div>
