@@ -12,54 +12,176 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-            background: linear-gradient(135deg, #FFB347 0%, #FF8C42 25%, #FF7043 50%, #FF8C42 75%, #FFB347 100%);
-            background-size: 400% 400%;
-            animation: gradientMove 15s ease infinite;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #f8f9fa;
+            color: #000;
+            position: relative;
+            overflow-x: hidden;
         }
 
-        @keyframes gradientMove {
-            0% {
-                background-position: 0% 50%;
+        .bubbles-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .floating-blob {
+            position: absolute;
+            opacity: 0.20;
+            animation: float 12s infinite ease-in-out;
+            filter: blur(8px);
+        }
+
+        .blob-1 {
+            width: 340px;
+            height: 300px;
+            background: radial-gradient(ellipse at center, rgba(255, 200, 0, 0.55) 0%, rgba(255, 130, 30, 0.35) 40%, rgba(230, 40, 70, 0.2) 70%, transparent 100%);
+            border-radius: 60% 40% 70% 30% / 40% 50% 60% 50%;
+            top: 2%;
+            left: 2%;
+            animation-delay: 0s;
+        }
+
+        .blob-2 {
+            width: 180px;
+            height: 160px;
+            background: radial-gradient(ellipse at center, rgba(80, 190, 255, 0.55) 0%, rgba(60, 140, 255, 0.35) 40%, rgba(50, 90, 255, 0.2) 70%, transparent 100%);
+            border-radius: 40% 60% 30% 70% / 60% 30% 70% 40%;
+            top: 5%;
+            right: 5%;
+            animation-delay: 1.5s;
+        }
+
+        .blob-3 {
+            width: 260px;
+            height: 230px;
+            background: radial-gradient(ellipse at center, rgba(255, 130, 30, 0.55) 0%, rgba(230, 40, 70, 0.35) 40%, transparent 100%);
+            border-radius: 70% 30% 50% 50% / 30% 60% 40% 70%;
+            top: 18%;
+            left: 60%;
+            animation-delay: 3s;
+        }
+
+        .blob-4 {
+            width: 150px;
+            height: 130px;
+            background: radial-gradient(ellipse at center, rgba(50, 90, 255, 0.55) 0%, rgba(60, 140, 255, 0.35) 40%, transparent 100%);
+            border-radius: 50% 50% 70% 30% / 50% 70% 30% 50%;
+            top: 25%;
+            left: 8%;
+            animation-delay: 0.5s;
+        }
+
+        .blob-5 {
+            width: 200px;
+            height: 180px;
+            background: radial-gradient(ellipse at center, rgba(255, 200, 0, 0.55) 0%, rgba(255, 130, 30, 0.35) 40%, transparent 100%);
+            border-radius: 30% 70% 40% 60% / 70% 30% 60% 40%;
+            top: 35%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+
+        .blob-6 {
+            width: 280px;
+            height: 250px;
+            background: radial-gradient(ellipse at center, rgba(80, 190, 255, 0.55) 0%, rgba(50, 90, 255, 0.35) 40%, transparent 100%);
+            border-radius: 60% 40% 50% 50% / 40% 60% 50% 50%;
+            top: 45%;
+            left: 15%;
+            animation-delay: 4s;
+        }
+
+        .blob-7 {
+            width: 220px;
+            height: 200px;
+            background: radial-gradient(ellipse at center, rgba(255, 200, 0, 0.55) 0%, rgba(255, 130, 30, 0.35) 40%, transparent 100%);
+            border-radius: 45% 55% 60% 40% / 55% 45% 50% 50%;
+            top: 55%;
+            right: 20%;
+            animation-delay: 1s;
+        }
+
+        .blob-8 {
+            width: 190px;
+            height: 170px;
+            background: radial-gradient(ellipse at center, rgba(80, 190, 255, 0.55) 0%, rgba(60, 140, 255, 0.35) 40%, transparent 100%);
+            border-radius: 55% 45% 40% 60% / 40% 60% 55% 45%;
+            top: 65%;
+            left: 5%;
+            animation-delay: 2.5s;
+        }
+
+        .blob-9 {
+            width: 300px;
+            height: 270px;
+            background: radial-gradient(ellipse at center, rgba(255, 130, 30, 0.55) 0%, rgba(230, 40, 70, 0.35) 40%, transparent 100%);
+            border-radius: 50% 50% 45% 55% / 60% 40% 55% 45%;
+            top: 75%;
+            right: 8%;
+            animation-delay: 3.5s;
+        }
+
+        .blob-10 {
+            width: 170px;
+            height: 150px;
+            background: radial-gradient(ellipse at center, rgba(50, 90, 255, 0.55) 0%, rgba(60, 140, 255, 0.35) 40%, transparent 100%);
+            border-radius: 60% 40% 55% 45% / 45% 55% 40% 60%;
+            top: 85%;
+            left: 40%;
+            animation-delay: 0s;
+        }
+
+        .blob-11 {
+            width: 240px;
+            height: 210px;
+            background: radial-gradient(ellipse at center, rgba(255, 200, 0, 0.55) 0%, rgba(255, 130, 30, 0.35) 40%, transparent 100%);
+            border-radius: 40% 60% 50% 50% / 50% 50% 60% 40%;
+            top: 92%;
+            left: 70%;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg) scale(1);
             }
-            50% {
-                background-position: 100% 50%;
+            20% {
+                transform: translate(15px, -20px) rotate(5deg) scale(1.05);
             }
-            100% {
-                background-position: 0% 50%;
+            40% {
+                transform: translate(-10px, -35px) rotate(-3deg) scale(0.98);
+            }
+            60% {
+                transform: translate(20px, -15px) rotate(4deg) scale(1.02);
+            }
+            80% {
+                transform: translate(-5px, -25px) rotate(-2deg) scale(1.03);
             }
         }
 
-        .story-container {
-            max-width: 800px;
-            background: white;
-            padding: 4rem;
-            border-radius: 32px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-            animation: fadeIn 0.6s ease-out;
+        .header {
+            text-align: center;
+            padding: 4rem 2rem 2rem;
+            position: relative;
+            z-index: 1;
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .header h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 600;
+            margin-bottom: 1rem;
         }
 
         .logo {
             display: flex;
             align-items: center;
-            gap: 1rem;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
             justify-content: center;
         }
 
@@ -87,26 +209,71 @@
             right: -8px;
         }
 
-        .logo-text {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #000;
+        .story-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            position: relative;
+            z-index: 1;
         }
 
-        h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #000;
-            margin-bottom: 2rem;
-            text-align: center;
+        .story-row {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            margin-bottom: 6rem;
+        }
+
+        .story-row.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .story-image {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .story-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
         }
 
         .story-text {
-            font-size: 1.3rem;
-            line-height: 2.7;
-            color: #000;
+            flex: 1;
+            min-width: 0;
+        }
+
+        .story-text p {
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            line-height: 2.2;
+            color: #333;
+        }
+
+        .center-text {
             text-align: center;
-            white-space: pre-line;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 600;
+            margin: 6rem 0;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .final-message {
+            text-align: center;
+            padding: 6rem 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .final-message p {
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+            line-height: 2.2;
+            color: #333;
+            margin-bottom: 1rem;
         }
 
         .back-button {
@@ -133,57 +300,105 @@
 
         .button-container {
             text-align: center;
+            padding-bottom: 4rem;
+            position: relative;
+            z-index: 1;
         }
 
         @media (max-width: 768px) {
-            .story-container {
-                padding: 2rem;
+            .story-row,
+            .story-row.reverse {
+                flex-direction: column;
+                gap: 2rem;
+                margin-bottom: 4rem;
             }
 
-            h1 {
-                font-size: 2rem;
+            .story-image img {
+                height: 300px;
             }
 
-            .story-text {
-                font-size: 1.1rem;
+            .center-text {
+                margin: 4rem 0;
             }
 
-            .logo-text {
-                font-size: 2rem;
+            .final-message {
+                padding: 4rem 2rem;
+            }
+
+            .floating-blob {
+                opacity: 0.25;
+            }
+
+            .blob-1, .blob-3, .blob-5, .blob-7, .blob-9, .blob-11 {
+                width: 100px;
+                height: 80px;
+            }
+
+            .blob-2, .blob-4, .blob-6, .blob-8, .blob-10 {
+                width: 80px;
+                height: 70px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="story-container">
+    <div class="bubbles-container">
+        <div class="floating-blob blob-1"></div>
+        <div class="floating-blob blob-2"></div>
+        <div class="floating-blob blob-3"></div>
+        <div class="floating-blob blob-4"></div>
+        <div class="floating-blob blob-5"></div>
+        <div class="floating-blob blob-6"></div>
+        <div class="floating-blob blob-7"></div>
+        <div class="floating-blob blob-8"></div>
+        <div class="floating-blob blob-9"></div>
+        <div class="floating-blob blob-10"></div>
+        <div class="floating-blob blob-11"></div>
+    </div>
+
+    <header class="header">
         <div class="logo">
             <div class="logo-circles">
                 <div class="circle-large"></div>
                 <div class="circle-small"></div>
             </div>
-            <div class="logo-text">Addlee</div>
         </div>
-
         <h1>Our Story</h1>
+    </header>
 
-        <p class="story-text">For years, hotel content has been broken.
-Agencies decided which creators got work.
-Brands relied on guesswork.
-Content was inconsistent.
-Creators were undervalued.
-
-That era is ending with Addlee.
-
-Hotels and creators can connect directly.
-AI matches the right creators with the right hotels.
-
-The future is simple.
-Hotels get the content they need.
-Creators get the work they deserve.</p>
-
-        <div class="button-container">
-            <a href="index.html" class="back-button">Back to Home</a>
+    <section class="story-section">
+        <div class="story-row">
+            <div class="story-image">
+                <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800" alt="Hotel exterior">
+            </div>
+            <div class="story-text">
+                <p>For years, hotel content has been broken. Agencies decided which creators got work. Brands relied on guesswork. Content was inconsistent. Creators were undervalued.</p>
+            </div>
         </div>
+
+        <div class="story-row reverse">
+            <div class="story-image">
+                <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=800" alt="Hotel lobby">
+            </div>
+            <div class="story-text">
+                <p>That era is ending with Addlee. Hotels and creators can connect directly. AI matches the right creators with the right hotels.</p>
+            </div>
+        </div>
+
+        <p class="center-text">The future is simple.</p>
+
+        <div class="story-row">
+            <div class="story-image">
+                <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800" alt="Hotel room">
+            </div>
+            <div class="story-text">
+                <p>Hotels get the content they need. Creators get the work they deserve.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="button-container">
+        <a href="index.html" class="back-button">Back to Home</a>
     </div>
 </body>
 </html>
