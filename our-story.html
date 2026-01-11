@@ -13,13 +13,103 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: #fafafa;
+            background: #f8f9fa;
             color: #000;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .floating-blob {
+            position: fixed;
+            opacity: 0.20;
+            animation: float 12s infinite ease-in-out;
+            z-index: 0;
+            filter: blur(8px);
+        }
+
+        .blob-1 {
+            width: 340px;
+            height: 300px;
+            background: radial-gradient(ellipse at center, rgba(255, 200, 0, 0.55) 0%, rgba(255, 130, 30, 0.35) 40%, rgba(230, 40, 70, 0.2) 70%, transparent 100%);
+            border-radius: 60% 40% 70% 30% / 40% 50% 60% 50%;
+            top: -5%;
+            left: 2%;
+            animation-delay: 0s;
+        }
+
+        .blob-2 {
+            width: 180px;
+            height: 160px;
+            background: radial-gradient(ellipse at center, rgba(80, 190, 255, 0.55) 0%, rgba(60, 140, 255, 0.35) 40%, rgba(50, 90, 255, 0.2) 70%, transparent 100%);
+            border-radius: 40% 60% 30% 70% / 60% 30% 70% 40%;
+            top: 8%;
+            right: 5%;
+            animation-delay: 1.5s;
+        }
+
+        .blob-3 {
+            width: 260px;
+            height: 230px;
+            background: radial-gradient(ellipse at center, rgba(255, 130, 30, 0.55) 0%, rgba(230, 40, 70, 0.35) 40%, transparent 100%);
+            border-radius: 70% 30% 50% 50% / 30% 60% 40% 70%;
+            bottom: 10%;
+            left: 20%;
+            animation-delay: 3s;
+        }
+
+        .blob-4 {
+            width: 150px;
+            height: 130px;
+            background: radial-gradient(ellipse at center, rgba(50, 90, 255, 0.55) 0%, rgba(60, 140, 255, 0.35) 40%, transparent 100%);
+            border-radius: 50% 50% 70% 30% / 50% 70% 30% 50%;
+            bottom: 15%;
+            right: 3%;
+            animation-delay: 0.5s;
+        }
+
+        .blob-5 {
+            width: 200px;
+            height: 180px;
+            background: radial-gradient(ellipse at center, rgba(255, 200, 0, 0.55) 0%, rgba(255, 130, 30, 0.35) 40%, transparent 100%);
+            border-radius: 30% 70% 40% 60% / 70% 30% 60% 40%;
+            top: 2%;
+            left: 35%;
+            animation-delay: 2s;
+        }
+
+        .blob-6 {
+            width: 280px;
+            height: 250px;
+            background: radial-gradient(ellipse at center, rgba(80, 190, 255, 0.55) 0%, rgba(50, 90, 255, 0.35) 40%, transparent 100%);
+            border-radius: 60% 40% 50% 50% / 40% 60% 50% 50%;
+            bottom: 5%;
+            right: 25%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg) scale(1);
+            }
+            20% {
+                transform: translate(15px, -20px) rotate(5deg) scale(1.05);
+            }
+            40% {
+                transform: translate(-10px, -35px) rotate(-3deg) scale(0.98);
+            }
+            60% {
+                transform: translate(20px, -15px) rotate(4deg) scale(1.02);
+            }
+            80% {
+                transform: translate(-5px, -25px) rotate(-2deg) scale(1.03);
+            }
         }
 
         .header {
             text-align: center;
             padding: 4rem 2rem 2rem;
+            position: relative;
+            z-index: 1;
         }
 
         .header h1 {
@@ -31,7 +121,6 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 1rem;
             margin-bottom: 2rem;
             justify-content: center;
         }
@@ -60,16 +149,12 @@
             right: -8px;
         }
 
-        .logo-text {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #000;
-        }
-
         .story-section {
             max-width: 1200px;
             margin: 0 auto;
             padding: 3rem 2rem;
+            position: relative;
+            z-index: 1;
         }
 
         .story-row {
@@ -103,7 +188,7 @@
 
         .story-text p {
             font-size: clamp(1.1rem, 2vw, 1.3rem);
-            line-height: 1.8;
+            line-height: 2.2;
             color: #333;
         }
 
@@ -113,6 +198,8 @@
             font-weight: 600;
             margin: 6rem 0;
             padding: 0 2rem;
+            position: relative;
+            z-index: 1;
         }
 
         .final-message {
@@ -124,7 +211,7 @@
 
         .final-message p {
             font-size: clamp(1.2rem, 2.5vw, 1.5rem);
-            line-height: 1.8;
+            line-height: 2.2;
             color: #333;
             margin-bottom: 1rem;
         }
@@ -154,6 +241,8 @@
         .button-container {
             text-align: center;
             padding-bottom: 4rem;
+            position: relative;
+            z-index: 1;
         }
 
         @media (max-width: 768px) {
@@ -176,20 +265,36 @@
                 padding: 4rem 2rem;
             }
 
-            .logo-text {
-                font-size: 2rem;
+            .floating-blob {
+                opacity: 0.25;
+            }
+
+            .blob-1, .blob-3, .blob-5 {
+                width: 100px;
+                height: 80px;
+            }
+
+            .blob-2, .blob-4, .blob-6 {
+                width: 80px;
+                height: 70px;
             }
         }
     </style>
 </head>
 <body>
+    <div class="floating-blob blob-1"></div>
+    <div class="floating-blob blob-2"></div>
+    <div class="floating-blob blob-3"></div>
+    <div class="floating-blob blob-4"></div>
+    <div class="floating-blob blob-5"></div>
+    <div class="floating-blob blob-6"></div>
+
     <header class="header">
         <div class="logo">
             <div class="logo-circles">
                 <div class="circle-large"></div>
                 <div class="circle-small"></div>
             </div>
-            <div class="logo-text">Addlee</div>
         </div>
         <h1>Our Story</h1>
     </header>
