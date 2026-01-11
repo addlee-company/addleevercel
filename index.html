@@ -93,6 +93,24 @@
             animation-delay: 5s;
         }
 
+        .blob-7 {
+            width: 130px;
+            height: 130px;
+            background: linear-gradient(135deg, #F52347, #FB7F22);
+            top: 35%;
+            right: 5%;
+            animation-delay: 2.5s;
+        }
+
+        .blob-8 {
+            width: 95px;
+            height: 95px;
+            background: linear-gradient(135deg, #5EA2FF, #6DD0FF);
+            bottom: 20%;
+            left: 10%;
+            animation-delay: 4.5s;
+        }
+
         @keyframes float {
             0%, 100% {
                 transform: translate(0, 0) scale(1);
@@ -646,6 +664,7 @@
             padding: 4rem 2rem;
             background: white;
             position: relative;
+            overflow: hidden;
         }
 
         .waitlist-container {
@@ -655,6 +674,8 @@
             padding: 3rem;
             border-radius: 32px;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1;
         }
 
         .waitlist-container h2 {
@@ -882,6 +903,15 @@
     </section>
 
     <section id="waitlist" class="waitlist-section">
+        <div class="floating-blob blob-1"></div>
+        <div class="floating-blob blob-2"></div>
+        <div class="floating-blob blob-3"></div>
+        <div class="floating-blob blob-4"></div>
+        <div class="floating-blob blob-5"></div>
+        <div class="floating-blob blob-6"></div>
+        <div class="floating-blob blob-7"></div>
+        <div class="floating-blob blob-8"></div>
+        
         <div class="waitlist-container">
             <h2>Join Our Movement</h2>
             <p>Be the first to experience the future of hotel marketing. Sign up for our waitlist and get early access.</p>
