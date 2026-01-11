@@ -24,7 +24,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 2rem;
+            padding: 4rem 2rem;
             text-align: center;
             background: white;
             position: relative;
@@ -42,7 +42,7 @@
         .blob-1 {
             width: 150px;
             height: 150px;
-            background: linear-gradient(135deg, #FFCA04, #FB7F22, #F52347);
+            background: linear-gradient(135deg, #E6B800, #E67A1E, #D1203A);
             top: 10%;
             left: 5%;
             animation-delay: 0s;
@@ -51,7 +51,7 @@
         .blob-2 {
             width: 100px;
             height: 100px;
-            background: linear-gradient(135deg, #6DD0FF, #5EA2FF, #4D6DFF);
+            background: linear-gradient(135deg, #5BB8E6, #4A8FE6, #3D5CE6);
             top: 20%;
             right: 10%;
             animation-delay: 2s;
@@ -60,7 +60,7 @@
         .blob-3 {
             width: 120px;
             height: 120px;
-            background: linear-gradient(135deg, #FB7F22, #F52347);
+            background: linear-gradient(135deg, #E67A1E, #D1203A);
             bottom: 15%;
             left: 15%;
             animation-delay: 4s;
@@ -69,7 +69,7 @@
         .blob-4 {
             width: 80px;
             height: 80px;
-            background: linear-gradient(135deg, #4D6DFF, #5EA2FF);
+            background: linear-gradient(135deg, #3D5CE6, #4A8FE6);
             bottom: 25%;
             right: 8%;
             animation-delay: 1s;
@@ -78,7 +78,7 @@
         .blob-5 {
             width: 110px;
             height: 110px;
-            background: linear-gradient(135deg, #FFCA04, #FB7F22);
+            background: linear-gradient(135deg, #E6B800, #E67A1E);
             top: 50%;
             left: 8%;
             animation-delay: 3s;
@@ -87,7 +87,7 @@
         .blob-6 {
             width: 90px;
             height: 90px;
-            background: linear-gradient(135deg, #6DD0FF, #4D6DFF);
+            background: linear-gradient(135deg, #5BB8E6, #3D5CE6);
             top: 60%;
             right: 12%;
             animation-delay: 5s;
@@ -96,7 +96,7 @@
         .blob-7 {
             width: 130px;
             height: 130px;
-            background: linear-gradient(135deg, #F52347, #FB7F22);
+            background: linear-gradient(135deg, #D1203A, #E67A1E);
             top: 35%;
             right: 5%;
             animation-delay: 2.5s;
@@ -105,7 +105,7 @@
         .blob-8 {
             width: 95px;
             height: 95px;
-            background: linear-gradient(135deg, #5EA2FF, #6DD0FF);
+            background: linear-gradient(135deg, #4A8FE6, #5BB8E6);
             bottom: 20%;
             left: 10%;
             animation-delay: 4.5s;
@@ -129,39 +129,41 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 1rem;
-            margin-bottom: 4rem;
+            gap: 0.75rem;
+            margin-bottom: 3rem;
             animation: fadeIn 1s ease-out;
             position: relative;
             z-index: 1;
+            cursor: pointer;
+            text-decoration: none;
         }
 
         .logo-circles {
             position: relative;
-            width: 80px;
-            height: 80px;
+            width: 50px;
+            height: 50px;
         }
 
         .circle-large {
             position: absolute;
-            width: 80px;
-            height: 80px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #FFCA04 0%, #FB7F22 50%, #F52347 100%);
+            background: linear-gradient(135deg, #E6B800 0%, #E67A1E 50%, #D1203A 100%);
         }
 
         .circle-small {
             position: absolute;
-            width: 40px;
-            height: 40px;
+            width: 25px;
+            height: 25px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #6DD0FF 0%, #5EA2FF 50%, #4D6DFF 100%);
+            background: linear-gradient(135deg, #5BB8E6 0%, #4A8FE6 50%, #3D5CE6 100%);
             bottom: 0;
-            right: -10px;
+            right: -6px;
         }
 
         .logo-text {
-            font-size: 3rem;
+            font-size: 2rem;
             font-weight: 700;
             color: #000;
         }
@@ -172,14 +174,15 @@
         }
 
         h1 {
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
             font-weight: 600;
-            color: #000;
+            color: #333;
             margin-bottom: 1.5rem;
-            line-height: 1.2;
+            line-height: 1.3;
             animation: fadeIn 1s ease-out 0.2s backwards;
             position: relative;
             z-index: 1;
+            white-space: nowrap;
         }
 
         .subtitle {
@@ -209,19 +212,19 @@
             font-size: 1.1rem;
             font-weight: 600;
             color: white;
-            background: linear-gradient(135deg, #6DD0FF, #4D6DFF);
+            background: linear-gradient(135deg, #5BB8E6, #3D5CE6);
             border-radius: 50px;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(77, 109, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(61, 92, 230, 0.25);
             border: none;
             text-decoration: none;
         }
 
         .cta-bubble:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(77, 109, 255, 0.4);
-            background: linear-gradient(135deg, #5EA2FF, #4D6DFF);
+            box-shadow: 0 15px 40px rgba(61, 92, 230, 0.35);
+            background: linear-gradient(135deg, #4A8FE6, #3D5CE6);
         }
 
         .cta-secondary {
@@ -264,6 +267,49 @@
             position: relative;
             z-index: 1;
             animation: fadeIn 1s ease-out 0.8s backwards;
+            margin-top: 3rem;
+        }
+
+        .arrow-connector {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 15rem;
+        }
+
+        .arrow {
+            width: 40px;
+            height: 40px;
+            position: relative;
+        }
+
+        .arrow svg {
+            width: 100%;
+            height: 100%;
+            stroke: #3D5CE6;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            fill: none;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .arrow:nth-child(2) svg {
+            transform: rotate(180deg);
+            stroke: #E67A1E;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 0.6;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.1);
+            }
         }
 
         .outdated-section {
@@ -271,35 +317,37 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 4rem 2rem;
-            background: linear-gradient(135deg, #FFCA04 0%, #FB7F22 50%, #ffa600 100%);
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, #E6B800 0%, #E67A1E 50%, #E6A600 100%);
         }
 
         .outdated-container {
-            max-width: 800px;
+            max-width: 900px;
             width: 100%;
             text-align: center;
         }
 
         .outdated-container h2 {
-            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-size: clamp(1.75rem, 4vw, 2.75rem);
             font-weight: 700;
             color: white;
             margin-bottom: 1rem;
+            white-space: nowrap;
         }
 
         .outdated-container p {
-            font-size: 1.5rem;
+            font-size: 1.25rem;
             color: rgba(255, 255, 255, 0.95);
         }
 
         .prompt-card {
-            background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 50%, #ffa600 100%);
+            background: linear-gradient(135deg, #E67A1E 0%, #E68C3A 50%, #E6A600 100%);
             border-radius: 24px;
             padding: 2.5rem;
-            max-width: 550px;
+            max-width: 450px;
             width: 100%;
-            box-shadow: 0 20px 60px rgba(255, 107, 53, 0.3);
+            height: 550px;
+            box-shadow: 0 20px 60px rgba(230, 122, 30, 0.25);
             display: flex;
             flex-direction: column;
             gap: 1.5rem;
@@ -331,7 +379,7 @@
             gap: 0.5rem;
             background: transparent;
             border: none;
-            color: #ff6b35;
+            color: #E67A1E;
             font-size: 0.95rem;
             font-weight: 500;
             cursor: pointer;
@@ -339,7 +387,7 @@
         }
 
         .generate-button {
-            background: #ff6b35;
+            background: #E67A1E;
             color: white;
             border: none;
             width: 48px;
@@ -350,7 +398,7 @@
             justify-content: center;
             cursor: pointer;
             margin-left: auto;
-            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+            box-shadow: 0 4px 12px rgba(230, 122, 30, 0.25);
             transition: all 0.2s ease;
         }
 
@@ -359,12 +407,22 @@
         }
 
         .matching-preview {
-            background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
-            border-radius: 20px;
-            padding: 2rem;
-            max-width: 420px;
+            background: linear-gradient(135deg, #4A8FE6 0%, #3D7ABD 100%);
+            border-radius: 24px;
+            padding: 2.5rem;
+            max-width: 450px;
             width: 100%;
-            box-shadow: 0 20px 60px rgba(74, 144, 226, 0.3);
+            height: 550px;
+            box-shadow: 0 20px 60px rgba(74, 143, 230, 0.25);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .match-items-wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex: 1;
         }
 
         .preview-header {
@@ -392,7 +450,6 @@
             backdrop-filter: blur(10px);
             border-radius: 12px;
             padding: 1rem;
-            margin-bottom: 0.75rem;
             display: flex;
             align-items: center;
             gap: 0.75rem;
@@ -400,10 +457,10 @@
             opacity: 0;
         }
 
-        .match-item:nth-child(2) { animation-delay: 0.2s; }
-        .match-item:nth-child(3) { animation-delay: 0.4s; }
-        .match-item:nth-child(4) { animation-delay: 0.6s; }
-        .match-item:nth-child(5) { animation-delay: 0.8s; }
+        .match-items-wrapper .match-item:nth-child(1) { animation-delay: 0s; }
+        .match-items-wrapper .match-item:nth-child(2) { animation-delay: 0.2s; }
+        .match-items-wrapper .match-item:nth-child(3) { animation-delay: 0.4s; }
+        .match-items-wrapper .match-item:nth-child(4) { animation-delay: 0.6s; }
 
         @keyframes slideIn {
             from {
@@ -661,7 +718,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 4rem 2rem;
+            padding: 6rem 2rem;
             background: white;
             position: relative;
             overflow: hidden;
@@ -720,7 +777,7 @@
 
         input:focus, textarea:focus {
             outline: none;
-            border-color: #6DD0FF;
+            border-color: #5BB8E6;
             background: white;
         }
 
@@ -736,7 +793,7 @@
             font-size: 1.1rem;
             font-weight: 600;
             color: white;
-            background: linear-gradient(135deg, rgba(109, 208, 255, 0.8), rgba(251, 127, 34, 0.8));
+            background: linear-gradient(135deg, rgba(91, 184, 230, 0.8), rgba(230, 122, 30, 0.8));
             border: none;
             border-radius: 12px;
             cursor: pointer;
@@ -748,7 +805,7 @@
 
         .submit-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(109, 208, 255, 0.4);
+            box-shadow: 0 15px 40px rgba(91, 184, 230, 0.35);
         }
 
         @media (max-width: 768px) {
@@ -780,6 +837,20 @@
                 align-items: center;
             }
 
+            .arrow-connector {
+                flex-direction: row;
+                margin-top: 0;
+                margin: 1rem 0;
+            }
+
+            .arrow {
+                transform: rotate(90deg);
+            }
+
+            .arrow:nth-child(2) svg {
+                transform: rotate(180deg);
+            }
+
             .prompt-card {
                 width: 100%;
                 max-width: 500px;
@@ -787,7 +858,7 @@
 
             .matching-preview {
                 width: 100%;
-                max-width: 400px;
+                max-width: 500px;
             }
         }
 
@@ -819,15 +890,15 @@
         <div class="floating-blob blob-5"></div>
         <div class="floating-blob blob-6"></div>
         
-        <div class="logo">
+        <a href="#" class="logo" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">
             <div class="logo-circles">
                 <div class="circle-large"></div>
                 <div class="circle-small"></div>
             </div>
             <div class="logo-text">Addlee</div>
-        </div>
+        </a>
 
-        <h1>Find creators. Build trust.<br>Drive bookings.</h1>
+        <h1>Find creators. Build trust. Drive bookings.</h1>
         <p class="subtitle">Just describe your hotel - Addlee matches you with vetted creators who fit your brand. No DMs. No guesswork. Just go.</p>
         
         <div class="hero-buttons">
@@ -837,58 +908,93 @@
 
         <div class="boxes-container">
             <div class="prompt-card">
-                <div class="prompt-input">
-                    <p class="prompt-text">Match my 65-room boutique hotel in SoHo with wellness-focused creators who drive direct bookings</p>
-                    <div class="prompt-actions">
-                        <button class="action-button">
-                            <span>+</span>
-                            Add targeting
-                        </button>
-                        <button class="generate-button">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M5 12h14M12 5l7 7-7 7"/>
-                            </svg>
-                        </button>
+                <h3 style="color: white; font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem;">Find Your Perfect Hotel Match</h3>
+                
+                <!-- Search Input -->
+                <div style="background: white; border-radius: 12px; padding: 1rem; margin-bottom: 1rem; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
+                    <input type="text" id="hotel-search" placeholder="Search for hotels by location, style, or amenities..." aria-label="Search for hotels by location, style, or amenities" style="width: 100%; border: none; outline: none; font-size: 0.95rem; color: #333; background: transparent;" />
+                </div>
+
+                <!-- Filter Section -->
+                <div style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); border-radius: 12px; padding: 1.25rem;">
+                    <p style="color: white; font-size: 0.95rem; font-weight: 600; margin-bottom: 0.75rem;">Add Your Preferences:</p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                        <label style="display: flex; align-items: center; gap: 0.5rem; background: rgba(255, 255, 255, 0.2); padding: 0.5rem 0.75rem; border-radius: 8px; cursor: pointer; font-size: 0.85rem; color: white;">
+                            <input type="checkbox" name="preference" value="boutique" aria-label="Boutique hotels" style="width: 16px; height: 16px; cursor: pointer;" />
+                            Boutique
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 0.5rem; background: rgba(255, 255, 255, 0.2); padding: 0.5rem 0.75rem; border-radius: 8px; cursor: pointer; font-size: 0.85rem; color: white;">
+                            <input type="checkbox" name="preference" value="luxury" aria-label="Luxury hotels" style="width: 16px; height: 16px; cursor: pointer;" />
+                            Luxury
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 0.5rem; background: rgba(255, 255, 255, 0.2); padding: 0.5rem 0.75rem; border-radius: 8px; cursor: pointer; font-size: 0.85rem; color: white;">
+                            <input type="checkbox" name="preference" value="wellness" aria-label="Wellness-focused hotels" style="width: 16px; height: 16px; cursor: pointer;" />
+                            Wellness
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 0.5rem; background: rgba(255, 255, 255, 0.2); padding: 0.5rem 0.75rem; border-radius: 8px; cursor: pointer; font-size: 0.85rem; color: white;">
+                            <input type="checkbox" name="preference" value="urban" aria-label="Urban hotels" style="width: 16px; height: 16px; cursor: pointer;" />
+                            Urban
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 0.5rem; background: rgba(255, 255, 255, 0.2); padding: 0.5rem 0.75rem; border-radius: 8px; cursor: pointer; font-size: 0.85rem; color: white;">
+                            <input type="checkbox" name="preference" value="resort" aria-label="Resort hotels" style="width: 16px; height: 16px; cursor: pointer;" />
+                            Resort
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 0.5rem; background: rgba(255, 255, 255, 0.2); padding: 0.5rem 0.75rem; border-radius: 8px; cursor: pointer; font-size: 0.85rem; color: white;">
+                            <input type="checkbox" name="preference" value="eco-friendly" aria-label="Eco-friendly hotels" style="width: 16px; height: 16px; cursor: pointer;" />
+                            Eco-friendly
+                        </label>
                     </div>
+                </div>
+
+                <!-- Search Button -->
+                <button type="button" aria-label="Search for hotels based on selected preferences" style="background: white; color: #E67A1E; border: none; padding: 0.875rem 1.5rem; border-radius: 10px; font-weight: 600; font-size: 0.95rem; cursor: pointer; width: 100%; margin-top: auto; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); transition: all 0.2s ease;">
+                    Search Hotels
+                </button>
+            </div>
+
+            <div class="arrow-connector">
+                <div class="arrow">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
+                    </svg>
+                </div>
+                <div class="arrow">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
+                    </svg>
                 </div>
             </div>
 
             <div class="matching-preview">
-                <div class="preview-header">
-                    <div class="preview-icon">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="10"/>
-                            <path d="M12 6v6l4 2"/>
-                        </svg>
+                <h3 style="color: white; font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem;">Matching Your Hotel with Creators</h3>
+                <div class="match-items-wrapper">
+                    <div class="match-item">
+                        <div class="check-icon">✓</div>
+                        <div class="match-content">
+                            <div class="match-title">Analyzing brand fit</div>
+                            <div class="match-subtitle">Ensuring aesthetic & value alignment</div>
+                        </div>
                     </div>
-                    Matching your hotel with creators
-                </div>
-                <div class="match-item">
-                    <div class="check-icon">✓</div>
-                    <div class="match-content">
-                        <div class="match-title">Analyzing brand fit</div>
-                        <div class="match-subtitle">Hotel aesthetic & values</div>
+                    <div class="match-item">
+                        <div class="check-icon">✓</div>
+                        <div class="match-content">
+                            <div class="match-title">Checking creator reliability</div>
+                            <div class="match-subtitle">Verified track record & deliverables</div>
+                        </div>
                     </div>
-                </div>
-                <div class="match-item">
-                    <div class="check-icon">✓</div>
-                    <div class="match-content">
-                        <div class="match-title">Checking creator reliability</div>
-                        <div class="match-subtitle">Past deliverables & follow-through</div>
+                    <div class="match-item">
+                        <div class="check-icon">✓</div>
+                        <div class="match-content">
+                            <div class="match-title">Matching audience overlap</div>
+                            <div class="match-subtitle">Target demographics & reach</div>
+                        </div>
                     </div>
-                </div>
-                <div class="match-item">
-                    <div class="check-icon">✓</div>
-                    <div class="match-content">
-                        <div class="match-title">Matching audience overlap</div>
-                        <div class="match-subtitle">Target guest demographics</div>
-                    </div>
-                </div>
-                <div class="match-item">
-                    <div class="check-icon">✓</div>
-                    <div class="match-content">
-                        <div class="match-title">5 creators ready to review</div>
-                        <div class="match-subtitle">Vetted & available</div>
+                    <div class="match-item">
+                        <div class="check-icon">✓</div>
+                        <div class="match-content">
+                            <div class="match-title">Creators ready to review</div>
+                            <div class="match-subtitle">Pre-vetted & available talent</div>
+                        </div>
                     </div>
                 </div>
             </div>
