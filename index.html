@@ -177,7 +177,7 @@
             font-size: clamp(1.5rem, 4vw, 2.5rem);
             font-weight: 600;
             color: #333;
-            margin-bottom: 1.5rem;
+            margin-bottom: 4rem;
             line-height: 1.3;
             animation: fadeIn 1s ease-out 0.2s backwards;
             position: relative;
@@ -188,7 +188,7 @@
         .subtitle {
             font-size: clamp(1.1rem, 2vw, 1.5rem);
             color: #000;
-            margin-bottom: 2rem;
+            margin-bottom: 4rem;
             animation: fadeIn 1s ease-out 0.4s backwards;
             position: relative;
             z-index: 1;
@@ -728,14 +728,75 @@
         }
 
         .waitlist-container {
-            max-width: 800px;
-            width: 100%;
+            width: auto;
             background: white;
-            padding: 3rem;
+            padding: 3rem 4rem;
             border-radius: 32px;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
             position: relative;
             z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .waitlist-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+        }
+
+        .waitlist-logo .logo-circles {
+            position: relative;
+            width: 60px;
+            height: 60px;
+        }
+
+        .waitlist-logo .circle-large {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #E6B800 0%, #E67A1E 50%, #D1203A 100%);
+        }
+
+        .waitlist-logo .circle-small {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #5BB8E6 0%, #4A8FE6 50%, #3D5CE6 100%);
+            bottom: 0;
+            right: -8px;
+        }
+
+        .waitlist-logo .logo-text {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .waitlist-cta-button {
+            display: inline-block;
+            padding: 1.5rem 4rem;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: white;
+            background: linear-gradient(135deg, #E6B800 0%, #E67A1E 50%, #D1203A 100%);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(230, 122, 30, 0.35);
+            border: none;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .waitlist-cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(230, 122, 30, 0.5);
         }
 
         .waitlist-container h2 {
@@ -897,6 +958,7 @@
             position: relative;
             z-index: 1;
             animation: fadeIn 1s ease-out 0.8s backwards;
+            margin-bottom: 6rem;
         }
 
         .split-side {
@@ -1031,7 +1093,6 @@
                 <li>Build lasting partnerships</li>
                 <li>Grow your portfolio</li>
             </ul>
-            <button class="cta-btn" onclick="document.getElementById('waitlist').scrollIntoView({behavior: 'smooth'})">Join as Creator</button>
         </div>
         <div class="split-side hotels">
             <h3>Hotels</h3>
@@ -1042,7 +1103,6 @@
                 <li>Drive authentic bookings</li>
                 <li>Build trust with audiences</li>
             </ul>
-            <button class="cta-btn" onclick="document.getElementById('waitlist').scrollIntoView({behavior: 'smooth'})">Join as Hotel</button>
         </div>
     </section>
 
@@ -1062,67 +1122,15 @@
         <div class="floating-blob blob-7"></div>
 
         <div class="waitlist-container">
-            <h2>Join Our Movement</h2>
-            <p>Be the first to experience the future of hotel marketing. Sign up for our waitlist and get early access.</p>
-            <form id="waitlist-form">
-                <div class="form-group">
-                    <label for="name">Your Name</label>
-                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            <div class="waitlist-logo">
+                <div class="logo-circles">
+                    <div class="circle-large"></div>
+                    <div class="circle-small"></div>
                 </div>
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" placeholder="you@example.com" required>
-                </div>
-                <div class="form-group">
-                    <label for="role">I am a...</label>
-                    <input type="text" id="role" name="role" placeholder="e.g., Hotel Manager, Content Creator" required>
-                </div>
-                <button type="submit" class="submit-button">Join the Waitlist</button>
-            </form>
+                <div class="logo-text">Addlee</div>
+            </div>
+            <a href="https://tally.so/r/dWaLDD" class="waitlist-cta-button" target="_blank" rel="noopener noreferrer nofollow">Join Our Movement</a>
         </div>
     </section>
-
-    <script>
-        // Add form submission handler with proper validation and sanitization
-        const waitlistForm = document.getElementById('waitlist-form');
-        if (waitlistForm) {
-            waitlistForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                const nameInput = document.getElementById('name');
-                const emailInput = document.getElementById('email');
-                const roleInput = document.getElementById('role');
-                
-                if (!nameInput || !emailInput || !roleInput) {
-                    return;
-                }
-                
-                const name = nameInput.value.trim();
-                const email = emailInput.value.trim();
-                const role = roleInput.value.trim();
-                
-                // Validate email format
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!emailRegex.test(email)) {
-                    alert('Please enter a valid email address.');
-                    return;
-                }
-                
-                // Validate all fields are filled
-                if (!name || !email || !role) {
-                    alert('Please fill in all fields.');
-                    return;
-                }
-                
-                // For now, just show a success message
-                // In production, this would send to a backend API
-                // Using safe string concatenation to avoid XSS in alerts
-                alert('Thanks for joining! We\'ll contact you soon.');
-                
-                // Reset form
-                this.reset();
-            });
-        }
-    </script>
 </body>
 </html>
