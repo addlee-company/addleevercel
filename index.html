@@ -895,22 +895,48 @@
 
         <div class="boxes-container">
             <div class="prompt-card">
-                <h3 style="color: white; font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">Find Your Perfect Hotel Match</h3>
-                <p style="color: rgba(255, 255, 255, 0.95); font-size: 1rem; line-height: 1.6; margin-bottom: 1.5rem;">
-                    Discover hotels that align with your brand and audience. Get matched with properties that fit your style and preferences.
-                </p>
-                <div style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); border-radius: 12px; padding: 1.25rem; margin-bottom: 1rem;">
-                    <p style="color: white; font-size: 0.95rem; font-weight: 500; margin-bottom: 0.75rem;">Set Your Preferences:</p>
-                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-                        <div style="color: rgba(255, 255, 255, 0.9); font-size: 0.9rem;">• Boutique or luxury hotels</div>
-                        <div style="color: rgba(255, 255, 255, 0.9); font-size: 0.9rem;">• Wellness-focused properties</div>
-                        <div style="color: rgba(255, 255, 255, 0.9); font-size: 0.9rem;">• Urban or resort locations</div>
-                        <div style="color: rgba(255, 255, 255, 0.9); font-size: 0.9rem;">• Sustainable & eco-friendly</div>
+                <h3 style="color: white; font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem;">Find Your Perfect Hotel Match</h3>
+                
+                <!-- Search Input -->
+                <div style="background: white; border-radius: 12px; padding: 1rem; margin-bottom: 1rem; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
+                    <input type="text" placeholder="Search for hotels by location, style, or amenities..." style="width: 100%; border: none; outline: none; font-size: 0.95rem; color: #333; background: transparent;" />
+                </div>
+
+                <!-- Filter Section -->
+                <div style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); border-radius: 12px; padding: 1.25rem;">
+                    <p style="color: white; font-size: 0.95rem; font-weight: 600; margin-bottom: 0.75rem;">Add Your Preferences:</p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                        <label style="display: flex; align-items: center; gap: 0.5rem; background: rgba(255, 255, 255, 0.2); padding: 0.5rem 0.75rem; border-radius: 8px; cursor: pointer; font-size: 0.85rem; color: white;">
+                            <input type="checkbox" style="width: 16px; height: 16px; cursor: pointer;" />
+                            Boutique
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 0.5rem; background: rgba(255, 255, 255, 0.2); padding: 0.5rem 0.75rem; border-radius: 8px; cursor: pointer; font-size: 0.85rem; color: white;">
+                            <input type="checkbox" style="width: 16px; height: 16px; cursor: pointer;" />
+                            Luxury
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 0.5rem; background: rgba(255, 255, 255, 0.2); padding: 0.5rem 0.75rem; border-radius: 8px; cursor: pointer; font-size: 0.85rem; color: white;">
+                            <input type="checkbox" style="width: 16px; height: 16px; cursor: pointer;" />
+                            Wellness
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 0.5rem; background: rgba(255, 255, 255, 0.2); padding: 0.5rem 0.75rem; border-radius: 8px; cursor: pointer; font-size: 0.85rem; color: white;">
+                            <input type="checkbox" style="width: 16px; height: 16px; cursor: pointer;" />
+                            Urban
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 0.5rem; background: rgba(255, 255, 255, 0.2); padding: 0.5rem 0.75rem; border-radius: 8px; cursor: pointer; font-size: 0.85rem; color: white;">
+                            <input type="checkbox" style="width: 16px; height: 16px; cursor: pointer;" />
+                            Resort
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 0.5rem; background: rgba(255, 255, 255, 0.2); padding: 0.5rem 0.75rem; border-radius: 8px; cursor: pointer; font-size: 0.85rem; color: white;">
+                            <input type="checkbox" style="width: 16px; height: 16px; cursor: pointer;" />
+                            Eco-friendly
+                        </label>
                     </div>
                 </div>
-                <div style="background: rgba(255, 255, 255, 0.2); border-radius: 12px; padding: 1rem; margin-top: auto;">
-                    <p style="color: white; font-size: 0.85rem; font-style: italic;">Possible hotels ready to collaborate with creators like you</p>
-                </div>
+
+                <!-- Search Button -->
+                <button style="background: white; color: #ff6b35; border: none; padding: 0.875rem 1.5rem; border-radius: 10px; font-weight: 600; font-size: 0.95rem; cursor: pointer; width: 100%; margin-top: auto; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); transition: all 0.2s ease;">
+                    Search Hotels
+                </button>
             </div>
 
             <div class="arrow-connector">
