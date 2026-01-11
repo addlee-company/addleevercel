@@ -331,15 +331,15 @@
         }
 
         .outdated-container h2 {
-            font-size: clamp(1.75rem, 4vw, 2.75rem);
+            font-size: clamp(2.5rem, 5vw, 4rem);
             font-weight: 700;
             color: white;
-            margin-bottom: 1rem;
-            white-space: nowrap;
+            margin-bottom: 1.5rem;
+            white-space: normal;
         }
 
         .outdated-container p {
-            font-size: 1.25rem;
+            font-size: clamp(1.25rem, 2.5vw, 1.75rem);
             color: rgba(255, 255, 255, 0.95);
         }
 
@@ -962,7 +962,7 @@
         }
 
         .match-section {
-            background: white;
+            background: #f8f9fa;
             padding: 4rem 2rem;
             text-align: center;
         }
@@ -1012,9 +1012,8 @@
             position: relative;
             z-index: 1;
             animation: fadeIn 1s ease-out 0.8s backwards;
-            margin-bottom: 8rem;
             gap: 2rem;
-            padding: 2rem;
+            padding: 2rem 0;
         }
 
         .split-side {
@@ -1141,29 +1140,28 @@
 
     <section class="match-section">
         <h2 class="match-section-heading">Find your perfect match</h2>
-    </section>
-
-    <section class="split-screen">
-        <div class="split-side creators">
-            <h3>UGC Creators</h3>
-            <p>Find amazing hotel partnerships that match your style and audience.</p>
-            <ul class="feature-list">
-                <li>Discover unique hotel opportunities</li>
-                <li>Match with brands you love</li>
-                <li>Build lasting partnerships</li>
-                <li>Grow your portfolio</li>
-            </ul>
-        </div>
-        <div class="split-side hotels">
-            <h3>Hotels</h3>
-            <p>Connect with vetted UGC creators who fit your brand perfectly.</p>
-            <ul class="feature-list">
-                <li>Find pre-vetted creators</li>
-                <li>Verified stays</li>
-                <li>Ensure brand alignment</li>
-                <li>Drive authentic bookings</li>
-                <li>Build trust with audiences</li>
-            </ul>
+        <div class="split-screen">
+            <div class="split-side creators">
+                <h3>UGC Creators</h3>
+                <p>Find amazing hotel partnerships that match your style and audience.</p>
+                <ul class="feature-list">
+                    <li>Discover unique hotel opportunities</li>
+                    <li>Match with brands you love</li>
+                    <li>Build lasting partnerships</li>
+                    <li>Grow your portfolio</li>
+                </ul>
+            </div>
+            <div class="split-side hotels">
+                <h3>Hotels</h3>
+                <p>Connect with vetted UGC creators who fit your brand perfectly.</p>
+                <ul class="feature-list">
+                    <li>Find pre-vetted creators</li>
+                    <li>Verified stays</li>
+                    <li>Ensure brand alignment</li>
+                    <li>Drive authentic bookings</li>
+                    <li>Build trust with audiences</li>
+                </ul>
+            </div>
         </div>
     </section>
 
