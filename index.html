@@ -413,6 +413,13 @@
             flex-direction: column;
         }
 
+        .match-items-wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex: 1;
+        }
+
         .preview-header {
             display: flex;
             align-items: center;
@@ -438,7 +445,6 @@
             backdrop-filter: blur(10px);
             border-radius: 12px;
             padding: 1rem;
-            margin-bottom: 0.75rem;
             display: flex;
             align-items: center;
             gap: 0.75rem;
@@ -956,32 +962,34 @@
 
             <div class="matching-preview">
                 <h3 style="color: white; font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem;">Matching Your Hotel with Creators</h3>
-                <div class="match-item">
-                    <div class="check-icon">✓</div>
-                    <div class="match-content">
-                        <div class="match-title">Analyzing brand fit</div>
-                        <div class="match-subtitle">Ensuring aesthetic & value alignment</div>
+                <div class="match-items-wrapper">
+                    <div class="match-item">
+                        <div class="check-icon">✓</div>
+                        <div class="match-content">
+                            <div class="match-title">Analyzing brand fit</div>
+                            <div class="match-subtitle">Ensuring aesthetic & value alignment</div>
+                        </div>
                     </div>
-                </div>
-                <div class="match-item">
-                    <div class="check-icon">✓</div>
-                    <div class="match-content">
-                        <div class="match-title">Checking creator reliability</div>
-                        <div class="match-subtitle">Verified track record & deliverables</div>
+                    <div class="match-item">
+                        <div class="check-icon">✓</div>
+                        <div class="match-content">
+                            <div class="match-title">Checking creator reliability</div>
+                            <div class="match-subtitle">Verified track record & deliverables</div>
+                        </div>
                     </div>
-                </div>
-                <div class="match-item">
-                    <div class="check-icon">✓</div>
-                    <div class="match-content">
-                        <div class="match-title">Matching audience overlap</div>
-                        <div class="match-subtitle">Target demographics & reach</div>
+                    <div class="match-item">
+                        <div class="check-icon">✓</div>
+                        <div class="match-content">
+                            <div class="match-title">Matching audience overlap</div>
+                            <div class="match-subtitle">Target demographics & reach</div>
+                        </div>
                     </div>
-                </div>
-                <div class="match-item">
-                    <div class="check-icon">✓</div>
-                    <div class="match-content">
-                        <div class="match-title">Creators ready to review</div>
-                        <div class="match-subtitle">Pre-vetted & available talent</div>
+                    <div class="match-item">
+                        <div class="check-icon">✓</div>
+                        <div class="match-content">
+                            <div class="match-title">Creators ready to review</div>
+                            <div class="match-subtitle">Pre-vetted & available talent</div>
+                        </div>
                     </div>
                 </div>
             </div>
