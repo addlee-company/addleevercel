@@ -951,6 +951,42 @@
             z-index: 1;
         }
 
+        .verified-items {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .verified-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        .verified-check {
+            width: 22px;
+            height: 22px;
+            background: #22c55e;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .verified-check svg {
+            width: 14px;
+            height: 14px;
+            stroke: white;
+            stroke-width: 3;
+            fill: none;
+        }
+
         .split-screen {
             display: flex;
             width: 100%;
@@ -1073,7 +1109,7 @@
         </a>
 
         <h1>Find creators. Build trust. Drive bookings.</h1>
-        <p class="subtitle">Just describe your hotel - Addlee matches you with vetted creators who fit your brand. No DMs. No guesswork. Just go.</p>
+        <p class="subtitle">Addlee is the AI‑powered creator matchmaking platform built specifically for hotels</p>
         
         <div class="hero-buttons">
             <a href="#waitlist" class="cta-bubble" role="button">Join Our Movement</a>
@@ -1081,11 +1117,26 @@
         </div>
 
         <h2 class="match-section-heading">Find your perfect match</h2>
+        
+        <div class="verified-items">
+            <div class="verified-item">
+                <span class="verified-check">
+                    <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </span>
+                <span>Verified creators</span>
+            </div>
+            <div class="verified-item">
+                <span class="verified-check">
+                    <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </span>
+                <span>Verified</span>
+            </div>
+        </div>
     </section>
 
     <section class="split-screen">
         <div class="split-side creators">
-            <h3>Creators</h3>
+            <h3>UGC Creators</h3>
             <p>Find amazing hotel partnerships that match your style and audience.</p>
             <ul class="feature-list">
                 <li>Discover unique hotel opportunities</li>
@@ -1096,7 +1147,7 @@
         </div>
         <div class="split-side hotels">
             <h3>Hotels</h3>
-            <p>Connect with vetted creators who fit your brand perfectly.</p>
+            <p>Connect with vetted UGC creators who fit your brand perfectly.</p>
             <ul class="feature-list">
                 <li>Find pre-vetted creators</li>
                 <li>Verified stays</li>
