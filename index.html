@@ -34,7 +34,7 @@
         .floating-blob {
             position: absolute;
             opacity: 0.20;
-            animation: float 30s infinite ease-in-out;
+            animation: float 20s infinite ease-in-out;
             z-index: 0;
             filter: blur(8px);
         }
@@ -42,7 +42,7 @@
         .blob-1 {
             width: 300px;
             height: 260px;
-            background: radial-gradient(ellipse at center, rgba(230, 184, 0, 0.6) 0%, rgba(230, 122, 30, 0.3) 40%, rgba(209, 32, 58, 0.1) 70%, transparent 100%);
+            background: radial-gradient(ellipse at center, rgba(230, 184, 0, 0.75) 0%, rgba(230, 122, 30, 0.45) 40%, rgba(209, 32, 58, 0.2) 70%, transparent 100%);
             border-radius: 60% 40% 70% 30% / 40% 50% 60% 50%;
             top: 5%;
             left: 0%;
@@ -52,7 +52,7 @@
         .blob-2 {
             width: 260px;
             height: 220px;
-            background: radial-gradient(ellipse at center, rgba(91, 184, 230, 0.6) 0%, rgba(74, 143, 230, 0.3) 40%, rgba(61, 92, 230, 0.1) 70%, transparent 100%);
+            background: radial-gradient(ellipse at center, rgba(91, 184, 230, 0.75) 0%, rgba(74, 143, 230, 0.45) 40%, rgba(61, 92, 230, 0.2) 70%, transparent 100%);
             border-radius: 40% 60% 30% 70% / 60% 30% 70% 40%;
             top: 10%;
             right: 2%;
@@ -62,7 +62,7 @@
         .blob-3 {
             width: 280px;
             height: 240px;
-            background: radial-gradient(ellipse at center, rgba(230, 122, 30, 0.6) 0%, rgba(209, 32, 58, 0.3) 40%, transparent 100%);
+            background: radial-gradient(ellipse at center, rgba(230, 122, 30, 0.75) 0%, rgba(209, 32, 58, 0.45) 40%, transparent 100%);
             border-radius: 70% 30% 50% 50% / 30% 60% 40% 70%;
             bottom: 8%;
             left: 5%;
@@ -72,7 +72,7 @@
         .blob-4 {
             width: 220px;
             height: 190px;
-            background: radial-gradient(ellipse at center, rgba(61, 92, 230, 0.6) 0%, rgba(74, 143, 230, 0.3) 40%, transparent 100%);
+            background: radial-gradient(ellipse at center, rgba(61, 92, 230, 0.75) 0%, rgba(74, 143, 230, 0.45) 40%, transparent 100%);
             border-radius: 50% 50% 70% 30% / 50% 70% 30% 50%;
             bottom: 18%;
             right: 3%;
@@ -82,7 +82,7 @@
         .blob-5 {
             width: 250px;
             height: 220px;
-            background: radial-gradient(ellipse at center, rgba(230, 184, 0, 0.6) 0%, rgba(230, 122, 30, 0.3) 40%, transparent 100%);
+            background: radial-gradient(ellipse at center, rgba(230, 184, 0, 0.75) 0%, rgba(230, 122, 30, 0.45) 40%, transparent 100%);
             border-radius: 30% 70% 40% 60% / 70% 30% 60% 40%;
             top: 40%;
             left: 2%;
@@ -92,7 +92,7 @@
         .blob-6 {
             width: 230px;
             height: 200px;
-            background: radial-gradient(ellipse at center, rgba(91, 184, 230, 0.6) 0%, rgba(61, 92, 230, 0.3) 40%, transparent 100%);
+            background: radial-gradient(ellipse at center, rgba(91, 184, 230, 0.75) 0%, rgba(61, 92, 230, 0.45) 40%, transparent 100%);
             border-radius: 60% 40% 50% 50% / 40% 60% 50% 50%;
             top: 50%;
             right: 5%;
@@ -102,7 +102,7 @@
         .blob-7 {
             width: 290px;
             height: 250px;
-            background: radial-gradient(ellipse at center, rgba(209, 32, 58, 0.6) 0%, rgba(230, 122, 30, 0.3) 40%, transparent 100%);
+            background: radial-gradient(ellipse at center, rgba(209, 32, 58, 0.75) 0%, rgba(230, 122, 30, 0.45) 40%, transparent 100%);
             border-radius: 40% 60% 60% 40% / 50% 40% 60% 50%;
             top: 25%;
             right: 0%;
@@ -112,7 +112,7 @@
         .blob-8 {
             width: 240px;
             height: 210px;
-            background: radial-gradient(ellipse at center, rgba(74, 143, 230, 0.6) 0%, rgba(91, 184, 230, 0.3) 40%, transparent 100%);
+            background: radial-gradient(ellipse at center, rgba(74, 143, 230, 0.75) 0%, rgba(91, 184, 230, 0.45) 40%, transparent 100%);
             border-radius: 50% 50% 30% 70% / 60% 40% 70% 30%;
             bottom: 15%;
             left: 3%;
@@ -1062,9 +1062,9 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: flex-start;
+            align-items: center;
             padding: 4rem 3rem;
-            text-align: left;
+            text-align: center;
             border-radius: 24px;
         }
 
@@ -1150,6 +1150,8 @@
             .split-side {
                 padding: 2rem 1.5rem;
                 min-height: auto;
+                text-align: left;
+                align-items: flex-start;
             }
 
             .split-side h3 {
