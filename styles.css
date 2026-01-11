@@ -40,7 +40,7 @@ body {
 }
 
 .panel-title {
-  font-size: 20px;
+  font-size: 26px;
   font-weight: 700;
   margin-bottom: 28px;
   display: flex;
@@ -98,13 +98,13 @@ body {
 }
 
 .item-title {
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 600;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 
 .item-sub {
-  font-size: 13px;
+  font-size: 15px;
   opacity: 0.85;
   font-weight: 300;
 }
