@@ -33,96 +33,107 @@
 
         .floating-blob {
             position: absolute;
-            border-radius: 50%;
-            opacity: 0.15;
-            animation: float 20s infinite ease-in-out;
+            opacity: 0.12;
+            animation: float 30s infinite ease-in-out;
             z-index: 0;
+            filter: blur(2px);
         }
 
         .blob-1 {
-            width: 150px;
-            height: 150px;
+            width: 220px;
+            height: 180px;
             background: linear-gradient(135deg, #E6B800, #E67A1E, #D1203A);
-            top: 10%;
-            left: 5%;
+            border-radius: 60% 40% 70% 30% / 40% 50% 60% 50%;
+            top: 8%;
+            left: 3%;
             animation-delay: 0s;
         }
 
         .blob-2 {
-            width: 100px;
-            height: 100px;
+            width: 160px;
+            height: 140px;
             background: linear-gradient(135deg, #5BB8E6, #4A8FE6, #3D5CE6);
-            top: 20%;
-            right: 10%;
+            border-radius: 40% 60% 30% 70% / 60% 30% 70% 40%;
+            top: 15%;
+            right: 8%;
             animation-delay: 2s;
         }
 
         .blob-3 {
-            width: 120px;
-            height: 120px;
+            width: 180px;
+            height: 160px;
             background: linear-gradient(135deg, #E67A1E, #D1203A);
-            bottom: 15%;
-            left: 15%;
+            border-radius: 70% 30% 50% 50% / 30% 60% 40% 70%;
+            bottom: 12%;
+            left: 12%;
             animation-delay: 4s;
         }
 
         .blob-4 {
-            width: 80px;
-            height: 80px;
+            width: 140px;
+            height: 120px;
             background: linear-gradient(135deg, #3D5CE6, #4A8FE6);
-            bottom: 25%;
-            right: 8%;
+            border-radius: 50% 50% 70% 30% / 50% 70% 30% 50%;
+            bottom: 22%;
+            right: 6%;
             animation-delay: 1s;
         }
 
         .blob-5 {
-            width: 110px;
-            height: 110px;
+            width: 170px;
+            height: 150px;
             background: linear-gradient(135deg, #E6B800, #E67A1E);
-            top: 50%;
-            left: 8%;
+            border-radius: 30% 70% 40% 60% / 70% 30% 60% 40%;
+            top: 45%;
+            left: 5%;
             animation-delay: 3s;
         }
 
         .blob-6 {
-            width: 90px;
-            height: 90px;
+            width: 150px;
+            height: 130px;
             background: linear-gradient(135deg, #5BB8E6, #3D5CE6);
-            top: 60%;
-            right: 12%;
+            border-radius: 60% 40% 50% 50% / 40% 60% 50% 50%;
+            top: 55%;
+            right: 10%;
             animation-delay: 5s;
         }
 
         .blob-7 {
-            width: 130px;
-            height: 130px;
+            width: 200px;
+            height: 170px;
             background: linear-gradient(135deg, #D1203A, #E67A1E);
-            top: 35%;
-            right: 5%;
+            border-radius: 40% 60% 60% 40% / 50% 40% 60% 50%;
+            top: 30%;
+            right: 3%;
             animation-delay: 2.5s;
         }
 
         .blob-8 {
-            width: 95px;
-            height: 95px;
+            width: 160px;
+            height: 140px;
             background: linear-gradient(135deg, #4A8FE6, #5BB8E6);
-            bottom: 20%;
-            left: 10%;
+            border-radius: 50% 50% 30% 70% / 60% 40% 70% 30%;
+            bottom: 18%;
+            left: 8%;
             animation-delay: 4.5s;
         }
 
         @keyframes float {
             0%, 100% {
-                transform: translate(0, 0) scale(1);
+                transform: translate(0, 0) rotate(0deg) scale(1);
             }
-            25% {
-                transform: translate(20px, -30px) scale(1.1);
+            20% {
+                transform: translate(15px, -20px) rotate(5deg) scale(1.05);
             }
-            50% {
-                transform: translate(-15px, -50px) scale(0.9);
+            40% {
+                transform: translate(-10px, -35px) rotate(-3deg) scale(0.98);
             }
-            75% {
-                transform: translate(30px, -20px) scale(1.05);
+            60% {
+                transform: translate(20px, -15px) rotate(4deg) scale(1.02);
+            }
+            80% {
+                transform: translate(-5px, -25px) rotate(-2deg) scale(1.03);
             }
         }
 
@@ -976,7 +987,7 @@
 
         .match-section {
             background: #f8f9fa;
-            padding: 4rem 2rem;
+            padding: 0;
             text-align: center;
         }
 
