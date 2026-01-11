@@ -899,7 +899,7 @@
                 
                 <!-- Search Input -->
                 <div style="background: white; border-radius: 12px; padding: 1rem; margin-bottom: 1rem; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
-                    <input type="text" placeholder="Search for hotels by location, style, or amenities..." style="width: 100%; border: none; outline: none; font-size: 0.95rem; color: #333; background: transparent;" />
+                    <input type="text" id="hotel-search" placeholder="Search for hotels by location, style, or amenities..." aria-label="Search for hotels by location, style, or amenities" style="width: 100%; border: none; outline: none; font-size: 0.95rem; color: #333; background: transparent;" />
                 </div>
 
                 <!-- Filter Section -->
@@ -907,34 +907,34 @@
                     <p style="color: white; font-size: 0.95rem; font-weight: 600; margin-bottom: 0.75rem;">Add Your Preferences:</p>
                     <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
                         <label style="display: flex; align-items: center; gap: 0.5rem; background: rgba(255, 255, 255, 0.2); padding: 0.5rem 0.75rem; border-radius: 8px; cursor: pointer; font-size: 0.85rem; color: white;">
-                            <input type="checkbox" style="width: 16px; height: 16px; cursor: pointer;" />
+                            <input type="checkbox" name="preference" value="boutique" aria-label="Boutique hotels" style="width: 16px; height: 16px; cursor: pointer;" />
                             Boutique
                         </label>
                         <label style="display: flex; align-items: center; gap: 0.5rem; background: rgba(255, 255, 255, 0.2); padding: 0.5rem 0.75rem; border-radius: 8px; cursor: pointer; font-size: 0.85rem; color: white;">
-                            <input type="checkbox" style="width: 16px; height: 16px; cursor: pointer;" />
+                            <input type="checkbox" name="preference" value="luxury" aria-label="Luxury hotels" style="width: 16px; height: 16px; cursor: pointer;" />
                             Luxury
                         </label>
                         <label style="display: flex; align-items: center; gap: 0.5rem; background: rgba(255, 255, 255, 0.2); padding: 0.5rem 0.75rem; border-radius: 8px; cursor: pointer; font-size: 0.85rem; color: white;">
-                            <input type="checkbox" style="width: 16px; height: 16px; cursor: pointer;" />
+                            <input type="checkbox" name="preference" value="wellness" aria-label="Wellness-focused hotels" style="width: 16px; height: 16px; cursor: pointer;" />
                             Wellness
                         </label>
                         <label style="display: flex; align-items: center; gap: 0.5rem; background: rgba(255, 255, 255, 0.2); padding: 0.5rem 0.75rem; border-radius: 8px; cursor: pointer; font-size: 0.85rem; color: white;">
-                            <input type="checkbox" style="width: 16px; height: 16px; cursor: pointer;" />
+                            <input type="checkbox" name="preference" value="urban" aria-label="Urban hotels" style="width: 16px; height: 16px; cursor: pointer;" />
                             Urban
                         </label>
                         <label style="display: flex; align-items: center; gap: 0.5rem; background: rgba(255, 255, 255, 0.2); padding: 0.5rem 0.75rem; border-radius: 8px; cursor: pointer; font-size: 0.85rem; color: white;">
-                            <input type="checkbox" style="width: 16px; height: 16px; cursor: pointer;" />
+                            <input type="checkbox" name="preference" value="resort" aria-label="Resort hotels" style="width: 16px; height: 16px; cursor: pointer;" />
                             Resort
                         </label>
                         <label style="display: flex; align-items: center; gap: 0.5rem; background: rgba(255, 255, 255, 0.2); padding: 0.5rem 0.75rem; border-radius: 8px; cursor: pointer; font-size: 0.85rem; color: white;">
-                            <input type="checkbox" style="width: 16px; height: 16px; cursor: pointer;" />
+                            <input type="checkbox" name="preference" value="eco-friendly" aria-label="Eco-friendly hotels" style="width: 16px; height: 16px; cursor: pointer;" />
                             Eco-friendly
                         </label>
                     </div>
                 </div>
 
                 <!-- Search Button -->
-                <button style="background: white; color: #ff6b35; border: none; padding: 0.875rem 1.5rem; border-radius: 10px; font-weight: 600; font-size: 0.95rem; cursor: pointer; width: 100%; margin-top: auto; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); transition: all 0.2s ease;">
+                <button type="button" aria-label="Search for hotels based on selected preferences" style="background: white; color: #ff6b35; border: none; padding: 0.875rem 1.5rem; border-radius: 10px; font-weight: 600; font-size: 0.95rem; cursor: pointer; width: 100%; margin-top: auto; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); transition: all 0.2s ease;">
                     Search Hotels
                 </button>
             </div>
