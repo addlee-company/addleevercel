@@ -12,54 +12,27 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-            background: linear-gradient(135deg, #FFB347 0%, #FF8C42 25%, #FF7043 50%, #FF8C42 75%, #FFB347 100%);
-            background-size: 400% 400%;
-            animation: gradientMove 15s ease infinite;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #fafafa;
+            color: #000;
         }
 
-        @keyframes gradientMove {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
+        .header {
+            text-align: center;
+            padding: 4rem 2rem 2rem;
         }
 
-        .story-container {
-            max-width: 800px;
-            background: white;
-            padding: 4rem;
-            border-radius: 32px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-            animation: fadeIn 0.6s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .header h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 600;
+            margin-bottom: 1rem;
         }
 
         .logo {
             display: flex;
             align-items: center;
             gap: 1rem;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
             justify-content: center;
         }
 
@@ -93,20 +66,67 @@
             color: #000;
         }
 
-        h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #000;
-            margin-bottom: 2rem;
-            text-align: center;
+        .story-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .story-row {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            margin-bottom: 6rem;
+        }
+
+        .story-row.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .story-image {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .story-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
         }
 
         .story-text {
-            font-size: 1.3rem;
-            line-height: 2.7;
-            color: #000;
+            flex: 1;
+            min-width: 0;
+        }
+
+        .story-text p {
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .center-text {
             text-align: center;
-            white-space: pre-line;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 600;
+            margin: 6rem 0;
+            padding: 0 2rem;
+        }
+
+        .final-message {
+            text-align: center;
+            padding: 6rem 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .final-message p {
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 1rem;
         }
 
         .back-button {
@@ -133,19 +153,27 @@
 
         .button-container {
             text-align: center;
+            padding-bottom: 4rem;
         }
 
         @media (max-width: 768px) {
-            .story-container {
-                padding: 2rem;
+            .story-row,
+            .story-row.reverse {
+                flex-direction: column;
+                gap: 2rem;
+                margin-bottom: 4rem;
             }
 
-            h1 {
-                font-size: 2rem;
+            .story-image img {
+                height: 300px;
             }
 
-            .story-text {
-                font-size: 1.1rem;
+            .center-text {
+                margin: 4rem 0;
+            }
+
+            .final-message {
+                padding: 4rem 2rem;
             }
 
             .logo-text {
@@ -155,7 +183,7 @@
     </style>
 </head>
 <body>
-    <div class="story-container">
+    <header class="header">
         <div class="logo">
             <div class="logo-circles">
                 <div class="circle-large"></div>
@@ -163,27 +191,42 @@
             </div>
             <div class="logo-text">Addlee</div>
         </div>
-
         <h1>Our Story</h1>
+    </header>
 
-        <p class="story-text">For years, hotel content has been broken.
-Agencies decided which creators got work.
-Brands relied on guesswork.
-Content was inconsistent.
-Creators were undervalued.
-
-That era is ending with Addlee.
-
-Hotels and creators can connect directly.
-AI matches the right creators with the right hotels.
-
-The future is simple.
-Hotels get the content they need.
-Creators get the work they deserve.</p>
-
-        <div class="button-container">
-            <a href="index.html" class="back-button">Back to Home</a>
+    <section class="story-section">
+        <div class="story-row">
+            <div class="story-image">
+                <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800" alt="Hotel exterior">
+            </div>
+            <div class="story-text">
+                <p>For years, hotel content has been broken. Agencies decided which creators got work. Brands relied on guesswork. Content was inconsistent. Creators were undervalued.</p>
+            </div>
         </div>
+
+        <div class="story-row reverse">
+            <div class="story-image">
+                <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=800" alt="Hotel lobby">
+            </div>
+            <div class="story-text">
+                <p>That era is ending with Addlee. Hotels and creators can connect directly. AI matches the right creators with the right hotels.</p>
+            </div>
+        </div>
+
+        <p class="center-text">The future is simple.</p>
+
+        <div class="story-row">
+            <div class="story-image">
+                <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800" alt="Hotel room">
+            </div>
+            <div class="story-text">
+                <p>Hotels get the content they need. Creators get the work they deserve.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="button-container">
+        <a href="index.html" class="back-button">Back to Home</a>
     </div>
 </body>
 </html>
