@@ -1216,7 +1216,18 @@
             }
 
             .floating-blob {
-                display: none;
+                display: block;
+                opacity: 0.25;
+            }
+
+            .blob-1, .blob-3, .blob-5, .blob-7 {
+                width: 100px;
+                height: 80px;
+            }
+
+            .blob-2, .blob-4, .blob-6, .blob-8 {
+                width: 80px;
+                height: 70px;
             }
         }
     </style>
@@ -1238,8 +1249,8 @@
             <div class="logo-text">Addlee</div>
         </a>
 
-        <h1>Find creators. Build trust. Drive bookings.</h1>
-        <p class="subtitle">Consistently discover new creators with AI-powered matching<br class="desktop-br">designed to <br class="mobile-br">drive bookings and high-quality content.</p>
+        <h1>Find creators. Build trust.<br class="mobile-br"> Drive bookings.</h1>
+        <p class="subtitle">Consistently discover new creators with AI-powered matching<br class="desktop-br"><br class="mobile-br">designed to drive bookings and high-quality content.</p>
         
         <div class="hero-buttons">
             <a href="#waitlist" class="cta-bubble" role="button">Join Our Movement</a>
