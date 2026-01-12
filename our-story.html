@@ -277,6 +277,27 @@
             z-index: 1;
         }
 
+        .separator {
+            display: block;
+            width: 80%;
+            max-width: 400px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #ccc, transparent);
+            margin: 0.5rem auto;
+        }
+
+        .separator-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 4rem 0;
+            padding: 0 2rem;
+        }
+
+        .separator-container .center-text {
+            margin: 1rem 0;
+        }
+
         .final-message {
             text-align: center;
             padding: 6rem 2rem;
@@ -368,12 +389,16 @@
 
             .story-image {
                 flex: none;
-                max-width: 100%;
-                width: 100%;
+                max-width: 90%;
+                width: 90%;
+                margin: 0 auto;
+                display: block;
             }
 
             .story-image img {
                 height: 280px;
+                display: block;
+                margin: 0 auto;
             }
 
             .story-text {
@@ -391,6 +416,14 @@
             .center-text {
                 margin: 3rem 0;
                 font-size: 1rem;
+            }
+
+            .separator-container {
+                margin: 2rem 0;
+            }
+
+            .separator.mobile-hide {
+                display: none;
             }
 
             .final-message {
@@ -445,7 +478,13 @@
             </div>
         </div>
 
-        <p class="center-text">That era is ending with <em>Addlee</em>.</p>
+        <div class="separator-container">
+            <span class="separator"></span>
+            <span class="separator mobile-hide"></span>
+            <p class="center-text">That era is ending with <em>Addlee</em>.</p>
+            <span class="separator mobile-hide"></span>
+            <span class="separator"></span>
+        </div>
 
         <div class="story-row reverse">
             <div class="story-image">
@@ -465,7 +504,13 @@
             </div>
         </div>
 
-        <p class="center-text">The future is simple.</p>
+        <div class="separator-container">
+            <span class="separator"></span>
+            <span class="separator mobile-hide"></span>
+            <p class="center-text">The future is simple.</p>
+            <span class="separator mobile-hide"></span>
+            <span class="separator"></span>
+        </div>
 
         <div class="story-row reverse">
             <div class="story-image">
