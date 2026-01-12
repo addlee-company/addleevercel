@@ -178,6 +178,19 @@
             margin-bottom: 1rem;
         }
 
+        .logo-link {
+            display: block;
+            margin-bottom: 2rem;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .logo-image {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+        }
+
         .logo {
             display: flex;
             align-items: center;
@@ -210,9 +223,9 @@
         }
 
         .story-section {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 3rem 2rem;
+            padding: 4rem 3rem;
             position: relative;
             z-index: 1;
         }
@@ -220,8 +233,9 @@
         .story-row {
             display: flex;
             align-items: center;
-            gap: 4rem;
-            margin-bottom: 6rem;
+            justify-content: center;
+            gap: 5rem;
+            margin-bottom: 5rem;
         }
 
         .story-row.reverse {
@@ -229,26 +243,27 @@
         }
 
         .story-image {
-            flex: 1;
-            min-width: 0;
+            flex: 0 0 45%;
+            max-width: 450px;
         }
 
         .story-image img {
             width: 100%;
-            height: 400px;
+            height: 350px;
             object-fit: cover;
-            border-radius: 16px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.12);
         }
 
         .story-text {
-            flex: 1;
-            min-width: 0;
+            flex: 0 0 45%;
+            max-width: 450px;
+            text-align: center;
         }
 
         .story-text p {
-            font-size: clamp(1.1rem, 2vw, 1.3rem);
-            line-height: 2.2;
+            font-size: clamp(1.1rem, 2vw, 1.25rem);
+            line-height: 2.4;
             color: #333;
         }
 
@@ -256,10 +271,31 @@
             text-align: center;
             font-size: clamp(1.5rem, 3vw, 2rem);
             font-weight: 600;
-            margin: 6rem 0;
+            margin: 4rem 0;
             padding: 0 2rem;
             position: relative;
             z-index: 1;
+        }
+
+        .separator {
+            display: block;
+            width: 80%;
+            max-width: 400px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #ccc, transparent);
+            margin: 0.5rem auto;
+        }
+
+        .separator-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 4rem 0;
+            padding: 0 2rem;
+        }
+
+        .separator-container .center-text {
+            margin: 1rem 0;
         }
 
         .final-message {
@@ -300,9 +336,47 @@
 
         .button-container {
             text-align: center;
-            padding-bottom: 4rem;
+            padding-bottom: 2rem;
             position: relative;
             z-index: 1;
+        }
+
+        .social-footer {
+            background: linear-gradient(135deg, rgba(245, 247, 250, 0.9), rgba(240, 244, 248, 0.85));
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6b7280;
+            text-decoration: none;
+            padding: 1rem;
+            border-radius: 50%;
+            background: white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: #f8f9fa;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+            color: #4b5563;
+        }
+
+        .social-link svg {
+            width: 28px;
+            height: 28px;
         }
 
         @media (max-width: 768px) {
@@ -310,15 +384,44 @@
             .story-row.reverse {
                 flex-direction: column;
                 gap: 2rem;
-                margin-bottom: 4rem;
+                margin-bottom: 3rem;
+            }
+
+            .story-image {
+                flex: none;
+                max-width: 90%;
+                width: 90%;
+                margin: 0 auto;
+                display: block;
+                position: relative;
+                z-index: 2;
             }
 
             .story-image img {
-                height: 300px;
+                height: 280px;
+                display: block;
+                margin: 0 auto;
+            }
+
+            .story-text {
+                flex: none;
+                max-width: 100%;
+                width: 100%;
+            }
+
+            .story-text p {
+                text-align: center;
+                font-size: 0.85rem;
+                line-height: 2;
             }
 
             .center-text {
-                margin: 4rem 0;
+                margin: 3rem 0;
+                font-size: 1rem;
+            }
+
+            .separator-container {
+                margin: 2rem 0;
             }
 
             .final-message {
@@ -357,42 +460,58 @@
     </div>
 
     <header class="header">
-        <div class="logo">
-            <div class="logo-circles">
-                <div class="circle-large"></div>
-                <div class="circle-small"></div>
-            </div>
-        </div>
+        <a href="index.html" class="logo-link">
+            <img src="https://raw.githubusercontent.com/addlee-company/Images-/main/Screenshot%202026-01-11%20215403.png" alt="Addlee Logo" class="logo-image">
+        </a>
         <h1>Our Story</h1>
     </header>
 
     <section class="story-section">
         <div class="story-row">
             <div class="story-image">
-                <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800" alt="Hotel exterior">
+                <img src="https://raw.githubusercontent.com/addlee-company/Images-/main/Screenshot%202026-01-11%20204412.png" alt="Story image 1">
             </div>
             <div class="story-text">
-                <p>For years, hotel content has been broken. Agencies decided which creators got work. Brands relied on guesswork. Content was inconsistent. Creators were undervalued.</p>
+                <p>For years, hotel content has been broken.<br>Agencies decided which creators got work.</p>
             </div>
+        </div>
+
+        <div class="separator-container">
+            <span class="separator"></span>
+            <p class="center-text">That era is ending with <em>Addlee</em>.</p>
+            <span class="separator"></span>
         </div>
 
         <div class="story-row reverse">
             <div class="story-image">
-                <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=800" alt="Hotel lobby">
+                <img src="https://raw.githubusercontent.com/addlee-company/Images-/main/Welcome%20to%20FigJam%20(2).jpg" alt="Story image 2">
             </div>
             <div class="story-text">
-                <p>That era is ending with Addlee. Hotels and creators can connect directly. AI matches the right creators with the right hotels.</p>
+                <p>Brands relied on guesswork.<br>Content was inconsistent.<br>Creators were undervalued.</p>
             </div>
         </div>
 
-        <p class="center-text">The future is simple.</p>
-
         <div class="story-row">
             <div class="story-image">
-                <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800" alt="Hotel room">
+                <img src="https://raw.githubusercontent.com/addlee-company/Images-/main/Screenshot%202026-01-11%20204314.png" alt="Story image 3">
             </div>
             <div class="story-text">
-                <p>Hotels get the content they need. Creators get the work they deserve.</p>
+                <p>Hotels and creators can connect directly.<br>AI matches the right creators with the right hotels.</p>
+            </div>
+        </div>
+
+        <div class="separator-container">
+            <span class="separator"></span>
+            <p class="center-text">The future is simple.</p>
+            <span class="separator"></span>
+        </div>
+
+        <div class="story-row reverse">
+            <div class="story-image">
+                <img src="https://raw.githubusercontent.com/addlee-company/Images-/main/Screenshot%202026-01-11%20204452.png" alt="Story image 4">
+            </div>
+            <div class="story-text">
+                <p>Hotels get the content they need.<br>Creators get the work they deserve.</p>
             </div>
         </div>
     </section>
@@ -400,5 +519,22 @@
     <div class="button-container">
         <a href="index.html" class="back-button">Back to Home</a>
     </div>
+
+    <footer class="social-footer">
+        <div class="social-links">
+            <a href="https://www.instagram.com/addlee.co/?igsh=MWxncGExYTQ2OWJpag%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Follow us on Instagram">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+            </a>
+            <a href="https://www.tiktok.com/@addlee.co?_r=1&_t=ZP-92zm3hXmFf5" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Follow us on TikTok">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                </svg>
+            </a>
+        </div>
+    </footer>
 </body>
 </html>
