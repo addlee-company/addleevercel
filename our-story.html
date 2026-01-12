@@ -223,9 +223,9 @@
         }
 
         .story-section {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 3rem 2rem;
+            padding: 4rem 3rem;
             position: relative;
             z-index: 1;
         }
@@ -233,8 +233,9 @@
         .story-row {
             display: flex;
             align-items: center;
-            gap: 4rem;
-            margin-bottom: 6rem;
+            justify-content: center;
+            gap: 5rem;
+            margin-bottom: 5rem;
         }
 
         .story-row.reverse {
@@ -242,26 +243,27 @@
         }
 
         .story-image {
-            flex: 1;
-            min-width: 0;
+            flex: 0 0 45%;
+            max-width: 450px;
         }
 
         .story-image img {
             width: 100%;
-            height: 400px;
+            height: 350px;
             object-fit: cover;
-            border-radius: 16px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.12);
         }
 
         .story-text {
-            flex: 1;
-            min-width: 0;
+            flex: 0 0 45%;
+            max-width: 450px;
+            text-align: center;
         }
 
         .story-text p {
-            font-size: clamp(1.1rem, 2vw, 1.3rem);
-            line-height: 2.2;
+            font-size: clamp(1.1rem, 2vw, 1.25rem);
+            line-height: 2.4;
             color: #333;
         }
 
@@ -269,7 +271,7 @@
             text-align: center;
             font-size: clamp(1.5rem, 3vw, 2rem);
             font-weight: 600;
-            margin: 6rem 0;
+            margin: 4rem 0;
             padding: 0 2rem;
             position: relative;
             z-index: 1;
@@ -361,11 +363,23 @@
             .story-row.reverse {
                 flex-direction: column;
                 gap: 2rem;
-                margin-bottom: 4rem;
+                margin-bottom: 3rem;
+            }
+
+            .story-image {
+                flex: none;
+                max-width: 100%;
+                width: 100%;
             }
 
             .story-image img {
-                height: 300px;
+                height: 280px;
+            }
+
+            .story-text {
+                flex: none;
+                max-width: 100%;
+                width: 100%;
             }
 
             .story-text p {
@@ -375,7 +389,7 @@
             }
 
             .center-text {
-                margin: 4rem 0;
+                margin: 3rem 0;
             }
 
             .final-message {
