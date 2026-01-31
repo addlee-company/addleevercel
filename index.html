@@ -1034,6 +1034,246 @@
             margin-bottom: 0;
         }
 
+        /* Portal Tabs Styles */
+        .portal-tabs-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .portal-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            margin-bottom: 2rem;
+            background: #f0f0f0;
+            border-radius: 50px;
+            padding: 6px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .portal-tab {
+            flex: 1;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: none;
+            background: transparent;
+            color: #666;
+            cursor: pointer;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .portal-tab:hover {
+            color: #333;
+        }
+
+        .portal-tab.active {
+            background: white;
+            color: #333;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .portal-tab.creators-tab.active {
+            background: linear-gradient(135deg, #FFB347 0%, #FF8C42 100%);
+            color: white;
+        }
+
+        .portal-tab.hotels-tab.active {
+            background: linear-gradient(135deg, #7DD3FC 0%, #3B82F6 100%);
+            color: white;
+        }
+
+        .portal-tab svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .portal-content {
+            display: none;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .portal-content.active {
+            display: block;
+        }
+
+        .portal-panel {
+            background: white;
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .portal-panel.creators-panel {
+            border-top: 4px solid #FF8C42;
+        }
+
+        .portal-panel.hotels-panel {
+            border-top: 4px solid #3B82F6;
+        }
+
+        .portal-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .portal-header h3 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .creators-panel .portal-header h3 {
+            color: #FF8C42;
+        }
+
+        .hotels-panel .portal-header h3 {
+            color: #3B82F6;
+        }
+
+        .portal-header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .portal-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .portal-feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .portal-feature:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .portal-feature-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .creators-panel .portal-feature-icon {
+            background: linear-gradient(135deg, #FFB347 0%, #FF8C42 100%);
+        }
+
+        .hotels-panel .portal-feature-icon {
+            background: linear-gradient(135deg, #7DD3FC 0%, #3B82F6 100%);
+        }
+
+        .portal-feature-icon svg {
+            width: 24px;
+            height: 24px;
+            color: white;
+            stroke: white;
+            fill: none;
+        }
+
+        .portal-feature-content h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.25rem;
+        }
+
+        .portal-feature-content p {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .portal-cta {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .portal-cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .creators-panel .portal-cta-button {
+            background: linear-gradient(135deg, #FFB347 0%, #FF8C42 100%);
+            box-shadow: 0 8px 25px rgba(255, 140, 66, 0.35);
+        }
+
+        .creators-panel .portal-cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(255, 140, 66, 0.45);
+        }
+
+        .hotels-panel .portal-cta-button {
+            background: linear-gradient(135deg, #7DD3FC 0%, #3B82F6 100%);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.35);
+        }
+
+        .hotels-panel .portal-cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(59, 130, 246, 0.45);
+        }
+
+        @media (max-width: 768px) {
+            .portal-tabs-container {
+                padding: 1rem;
+            }
+
+            .portal-tabs {
+                max-width: 100%;
+            }
+
+            .portal-tab {
+                padding: 0.75rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .portal-panel {
+                padding: 1.5rem;
+            }
+
+            .portal-features {
+                grid-template-columns: 1fr;
+            }
+
+            .portal-feature {
+                padding: 1rem;
+            }
+        }
+
         .match-panel {
             background: white;
             padding: 4rem 2rem;
@@ -1331,6 +1571,171 @@
         </div>
     </section>
 
+    <!-- Portal Tabs Section -->
+    <section class="portal-section" style="background: #f8f9fa; padding: 4rem 0;">
+        <div class="portal-tabs-container">
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <h2 class="match-section-heading">Explore Our Portals</h2>
+                <p class="match-subtitle">Choose your path to success</p>
+            </div>
+
+            <div class="portal-tabs">
+                <button class="portal-tab creators-tab active" data-tab="creators">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    Creators Portal
+                </button>
+                <button class="portal-tab hotels-tab" data-tab="hotels">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 21h18"></path>
+                        <path d="M5 21V7l8-4v18"></path>
+                        <path d="M19 21V11l-6-4"></path>
+                        <path d="M9 9v.01"></path>
+                        <path d="M9 12v.01"></path>
+                        <path d="M9 15v.01"></path>
+                        <path d="M9 18v.01"></path>
+                    </svg>
+                    Hotels Portal
+                </button>
+            </div>
+
+            <!-- Creators Portal Content -->
+            <div id="creators-content" class="portal-content active">
+                <div class="portal-panel creators-panel">
+                    <div class="portal-header">
+                        <h3>Welcome to the Creators Portal</h3>
+                        <p>Discover exciting hotel partnerships and grow your content career</p>
+                    </div>
+                    <div class="portal-features">
+                        <div class="portal-feature">
+                            <div class="portal-feature-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="11" cy="11" r="8"></circle>
+                                    <path d="m21 21-4.3-4.3"></path>
+                                </svg>
+                            </div>
+                            <div class="portal-feature-content">
+                                <h4>Discover Opportunities</h4>
+                                <p>Find hotels looking for creators like you</p>
+                            </div>
+                        </div>
+                        <div class="portal-feature">
+                            <div class="portal-feature-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path>
+                                    <path d="m9 12 2 2 4-4"></path>
+                                </svg>
+                            </div>
+                            <div class="portal-feature-content">
+                                <h4>Verified Partnerships</h4>
+                                <p>Work with trusted hotel brands</p>
+                            </div>
+                        </div>
+                        <div class="portal-feature">
+                            <div class="portal-feature-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+                                    <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+                                    <path d="M4 22h16"></path>
+                                    <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path>
+                                    <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path>
+                                    <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path>
+                                </svg>
+                            </div>
+                            <div class="portal-feature-content">
+                                <h4>Build Your Portfolio</h4>
+                                <p>Showcase your best hospitality content</p>
+                            </div>
+                        </div>
+                        <div class="portal-feature">
+                            <div class="portal-feature-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                    <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                </svg>
+                            </div>
+                            <div class="portal-feature-content">
+                                <h4>AI-Powered Matching</h4>
+                                <p>Get matched with hotels that fit your style</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portal-cta">
+                        <a href="#waitlist" class="portal-cta-button">Join as a Creator</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hotels Portal Content -->
+            <div id="hotels-content" class="portal-content">
+                <div class="portal-panel hotels-panel">
+                    <div class="portal-header">
+                        <h3>Welcome to the Hotels Portal</h3>
+                        <p>Connect with verified creators to showcase your property</p>
+                    </div>
+                    <div class="portal-features">
+                        <div class="portal-feature">
+                            <div class="portal-feature-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                    <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                </svg>
+                            </div>
+                            <div class="portal-feature-content">
+                                <h4>Pre-Vetted Creators</h4>
+                                <p>Access a curated network of content creators</p>
+                            </div>
+                        </div>
+                        <div class="portal-feature">
+                            <div class="portal-feature-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path>
+                                    <path d="m9 12 2 2 4-4"></path>
+                                </svg>
+                            </div>
+                            <div class="portal-feature-content">
+                                <h4>Verified Stays</h4>
+                                <p>Ensure authentic content with verified visits</p>
+                            </div>
+                        </div>
+                        <div class="portal-feature">
+                            <div class="portal-feature-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M3 3v18h18"></path>
+                                    <path d="m19 9-5 5-4-4-3 3"></path>
+                                </svg>
+                            </div>
+                            <div class="portal-feature-content">
+                                <h4>Drive Bookings</h4>
+                                <p>Increase reservations with authentic content</p>
+                            </div>
+                        </div>
+                        <div class="portal-feature">
+                            <div class="portal-feature-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
+                                </svg>
+                            </div>
+                            <div class="portal-feature-content">
+                                <h4>Build Trust</h4>
+                                <p>Create genuine connections with audiences</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portal-cta">
+                        <a href="#waitlist" class="portal-cta-button">Join as a Hotel</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <div class="section-separator"></div>
 
     <section class="outdated-section">
@@ -1408,6 +1813,39 @@
                 }
                 
                 requestAnimationFrame(scrollAnimation);
+            });
+        });
+    </script>
+
+    <script>
+        // Portal Tabs functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.portal-tab');
+            const contents = document.querySelectorAll('.portal-content');
+            
+            tabs.forEach(function(tab) {
+                tab.addEventListener('click', function() {
+                    const targetTab = this.getAttribute('data-tab');
+                    
+                    // Remove active class from all tabs
+                    tabs.forEach(function(t) {
+                        t.classList.remove('active');
+                    });
+                    
+                    // Add active class to clicked tab
+                    this.classList.add('active');
+                    
+                    // Hide all content panels
+                    contents.forEach(function(content) {
+                        content.classList.remove('active');
+                    });
+                    
+                    // Show target content panel
+                    const targetContent = document.getElementById(targetTab + '-content');
+                    if (targetContent) {
+                        targetContent.classList.add('active');
+                    }
+                });
             });
         });
     </script>
