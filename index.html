@@ -18,6 +18,57 @@
             background: white;
         }
 
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .header-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .header-logo img {
+            height: 40px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .login-button {
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #333;
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .login-button:hover {
+            background: #f8f9fa;
+            border-color: #5BB8E6;
+            color: #5BB8E6;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(91, 184, 230, 0.2);
+        }
+
         .hero-section {
             min-height: 100vh;
             display: flex;
@@ -25,6 +76,7 @@
             justify-content: center;
             align-items: center;
             padding: 4rem 2rem;
+            padding-top: 8rem;
             text-align: center;
             background: #f8f9fa;
             position: relative;
@@ -138,15 +190,7 @@
         }
 
         .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 3rem;
-            animation: fadeIn 1s ease-out;
-            position: relative;
-            z-index: 1;
-            cursor: pointer;
-            text-decoration: none;
+            display: none;
         }
 
         .logo-image {
@@ -1275,10 +1319,33 @@
                 width: 80px;
                 height: 70px;
             }
+
+            .header {
+                padding: 1rem 1.5rem;
+            }
+
+            .header-logo img {
+                height: 35px;
+            }
+
+            .login-button {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
+            }
+
+            .hero-section {
+                padding-top: 7rem;
+            }
         }
     </style>
 </head>
 <body>
+    <header class="header">
+        <a href="#" class="header-logo" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">
+            <img src="https://raw.githubusercontent.com/addlee-company/Images-/main/nobackgroundlogo.png" alt="Addlee Logo">
+        </a>
+        <a href="#" class="login-button">Log in</a>
+    </header>
     <section class="hero-section">
         <div class="floating-blob blob-1"></div>
         <div class="floating-blob blob-2"></div>
@@ -1286,10 +1353,6 @@
         <div class="floating-blob blob-4"></div>
         <div class="floating-blob blob-5"></div>
         <div class="floating-blob blob-6"></div>
-        
-        <a href="#" class="logo" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">
-            <img src="https://raw.githubusercontent.com/addlee-company/Images-/main/nobackgroundlogo.png" alt="Addlee Logo" class="logo-image">
-        </a>
 
         <h1>Find creators. Build trust.<br class="mobile-br"> Drive bookings.</h1>
         <p class="subtitle">Consistently discover new creators with<br class="mobile-br"> AI-powered matching<br>designed to drive bookings and high-quality content.</p>
