@@ -1276,6 +1276,284 @@
                 height: 70px;
             }
         }
+
+        /* AI Matching System Styles */
+        .ai-match-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 6rem 2rem;
+            min-height: 80vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ai-match-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .ai-match-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .ai-match-header h2 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .ai-match-header p {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .match-interface {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .match-form-card {
+            background: white;
+            border-radius: 24px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .match-form-card h3 {
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .form-group select,
+        .form-group input {
+            width: 100%;
+            padding: 0.85rem 1.25rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: white;
+            color: #333;
+        }
+
+        .form-group select:focus,
+        .form-group input:focus {
+            outline: none;
+            border-color: #5BB8E6;
+            box-shadow: 0 0 0 3px rgba(91, 184, 230, 0.1);
+        }
+
+        .match-button {
+            width: 100%;
+            padding: 1.25rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: white;
+            background: linear-gradient(135deg, #5BB8E6, #3D5CE6);
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .match-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(61, 92, 230, 0.35);
+        }
+
+        .match-button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .results-container {
+            display: none;
+            margin-top: 3rem;
+        }
+
+        .results-container.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .results-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .results-header h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .match-score {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: linear-gradient(135deg, #E6B800, #E67A1E);
+            color: white;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-top: 1rem;
+        }
+
+        .matches-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .match-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .match-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            border-color: #5BB8E6;
+        }
+
+        .match-card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .match-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #5BB8E6, #E67A1E);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        .match-info h4 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.25rem;
+        }
+
+        .match-info p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .match-details {
+            margin-top: 1.5rem;
+        }
+
+        .match-detail-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .match-detail-item:last-child {
+            border-bottom: none;
+        }
+
+        .match-detail-label {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .match-detail-value {
+            color: #333;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .match-percentage {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            color: white;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-top: 1rem;
+        }
+
+        .loading-spinner {
+            display: none;
+            text-align: center;
+            padding: 3rem;
+        }
+
+        .loading-spinner.show {
+            display: block;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #5BB8E6;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            .match-interface {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .matches-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .ai-match-section {
+                padding: 4rem 1.5rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1305,6 +1583,7 @@
         <div class="match-panel">
             <h2 class="match-section-heading">Find your perfect match</h2>
             <p class="match-subtitle">Authentic creators tailored to your hotel's audience</p>
+            <a href="#ai-match" class="cta-bubble" style="margin-top: 2rem; display: inline-block;">Try AI Matching</a>
         </div>
         <div class="split-screen">
             <div class="split-side creators">
@@ -1327,6 +1606,134 @@
                     <li>Drive authentic bookings</li>
                     <li>Build trust with audiences</li>
                 </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="ai-match" class="ai-match-section">
+        <div class="floating-blob blob-1"></div>
+        <div class="floating-blob blob-2"></div>
+        <div class="floating-blob blob-3"></div>
+        <div class="floating-blob blob-4"></div>
+        
+        <div class="ai-match-container">
+            <div class="ai-match-header">
+                <h2>AI-Powered Matching</h2>
+                <p>Our intelligent algorithm analyzes preferences, audience demographics, and brand alignment to find your perfect match</p>
+            </div>
+
+            <div class="match-interface">
+                <div class="match-form-card">
+                    <h3>🏨 Hotel Profile</h3>
+                    <form id="hotelForm">
+                        <div class="form-group">
+                            <label for="hotelLocation">Location</label>
+                            <select id="hotelLocation" required>
+                                <option value="">Select location</option>
+                                <option value="beach">Beach Resort</option>
+                                <option value="city">City Hotel</option>
+                                <option value="mountain">Mountain Lodge</option>
+                                <option value="boutique">Boutique Hotel</option>
+                                <option value="luxury">Luxury Resort</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="hotelStyle">Style</label>
+                            <select id="hotelStyle" required>
+                                <option value="">Select style</option>
+                                <option value="modern">Modern</option>
+                                <option value="classic">Classic</option>
+                                <option value="rustic">Rustic</option>
+                                <option value="minimalist">Minimalist</option>
+                                <option value="bohemian">Bohemian</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="hotelAudience">Target Audience</label>
+                            <select id="hotelAudience" required>
+                                <option value="">Select audience</option>
+                                <option value="millennials">Millennials (25-40)</option>
+                                <option value="genz">Gen Z (18-25)</option>
+                                <option value="families">Families</option>
+                                <option value="luxury">Luxury Travelers</option>
+                                <option value="business">Business Travelers</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="hotelBudget">Content Budget Range</label>
+                            <select id="hotelBudget" required>
+                                <option value="">Select budget</option>
+                                <option value="low">$500 - $2,000</option>
+                                <option value="medium">$2,000 - $5,000</option>
+                                <option value="high">$5,000 - $10,000</option>
+                                <option value="premium">$10,000+</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="match-button">Find Matching Creators</button>
+                    </form>
+                </div>
+
+                <div class="match-form-card">
+                    <h3>✨ Creator Profile</h3>
+                    <form id="creatorForm">
+                        <div class="form-group">
+                            <label for="creatorNiche">Content Niche</label>
+                            <select id="creatorNiche" required>
+                                <option value="">Select niche</option>
+                                <option value="travel">Travel & Adventure</option>
+                                <option value="lifestyle">Lifestyle</option>
+                                <option value="luxury">Luxury Travel</option>
+                                <option value="budget">Budget Travel</option>
+                                <option value="wellness">Wellness & Spa</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="creatorPlatform">Primary Platform</label>
+                            <select id="creatorPlatform" required>
+                                <option value="">Select platform</option>
+                                <option value="instagram">Instagram</option>
+                                <option value="tiktok">TikTok</option>
+                                <option value="youtube">YouTube</option>
+                                <option value="multi">Multi-platform</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="creatorFollowers">Follower Range</label>
+                            <select id="creatorFollowers" required>
+                                <option value="">Select range</option>
+                                <option value="micro">10K - 50K</option>
+                                <option value="mid">50K - 200K</option>
+                                <option value="macro">200K - 1M</option>
+                                <option value="mega">1M+</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="creatorLocation">Preferred Location</label>
+                            <select id="creatorLocation" required>
+                                <option value="">Select location</option>
+                                <option value="beach">Beach Resorts</option>
+                                <option value="city">City Hotels</option>
+                                <option value="mountain">Mountain Lodges</option>
+                                <option value="boutique">Boutique Hotels</option>
+                                <option value="luxury">Luxury Resorts</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="match-button">Find Matching Hotels</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="loading-spinner" id="loadingSpinner">
+                <div class="spinner"></div>
+                <p>Analyzing matches with AI...</p>
+            </div>
+
+            <div class="results-container" id="resultsContainer">
+                <div class="results-header">
+                    <h3>Your Perfect Matches</h3>
+                    <div class="match-score" id="matchScore"></div>
+                </div>
+                <div class="matches-grid" id="matchesGrid"></div>
             </div>
         </div>
     </section>
@@ -1374,6 +1781,269 @@
     </footer>
 
     <script>
+        // AI Matching System
+        const creatorsDatabase = [
+            { id: 1, name: 'Sarah Travels', niche: 'travel', platform: 'instagram', followers: 'mid', location: 'beach', engagement: 4.2, style: 'modern', audience: 'millennials' },
+            { id: 2, name: 'Luxury Explorer', niche: 'luxury', platform: 'multi', followers: 'macro', location: 'luxury', engagement: 5.8, style: 'classic', audience: 'luxury' },
+            { id: 3, name: 'Wanderlust Life', niche: 'travel', platform: 'tiktok', followers: 'mid', location: 'city', engagement: 4.5, style: 'modern', audience: 'genz' },
+            { id: 4, name: 'Wellness Journey', niche: 'wellness', platform: 'instagram', followers: 'micro', location: 'mountain', engagement: 3.8, style: 'minimalist', audience: 'millennials' },
+            { id: 5, name: 'Budget Adventures', niche: 'budget', platform: 'youtube', followers: 'mid', location: 'boutique', engagement: 4.0, style: 'rustic', audience: 'genz' },
+            { id: 6, name: 'City Vibes', niche: 'lifestyle', platform: 'instagram', followers: 'macro', location: 'city', engagement: 5.2, style: 'modern', audience: 'millennials' },
+            { id: 7, name: 'Beach Dreams', niche: 'travel', platform: 'tiktok', followers: 'mid', location: 'beach', engagement: 4.7, style: 'bohemian', audience: 'genz' },
+            { id: 8, name: 'Elite Escapes', niche: 'luxury', platform: 'multi', followers: 'mega', location: 'luxury', engagement: 6.2, style: 'classic', audience: 'luxury' }
+        ];
+
+        const hotelsDatabase = [
+            { id: 1, name: 'Oceanview Resort', location: 'beach', style: 'modern', audience: 'millennials', budget: 'medium', rating: 4.5 },
+            { id: 2, name: 'Grand Luxury Hotel', location: 'luxury', style: 'classic', audience: 'luxury', budget: 'premium', rating: 5.0 },
+            { id: 3, name: 'Urban Boutique', location: 'city', style: 'modern', audience: 'genz', budget: 'medium', rating: 4.3 },
+            { id: 4, name: 'Mountain Retreat', location: 'mountain', style: 'rustic', audience: 'millennials', budget: 'high', rating: 4.7 },
+            { id: 5, name: 'Coastal Charm', location: 'beach', style: 'bohemian', audience: 'genz', budget: 'low', rating: 4.2 },
+            { id: 6, name: 'Metropolitan Suites', location: 'city', style: 'minimalist', audience: 'business', budget: 'high', rating: 4.6 },
+            { id: 7, name: 'Alpine Lodge', location: 'mountain', style: 'rustic', audience: 'families', budget: 'medium', rating: 4.4 },
+            { id: 8, name: 'Designer Boutique', location: 'boutique', style: 'modern', audience: 'millennials', budget: 'high', rating: 4.8 }
+        ];
+
+        function calculateMatchScore(hotel, creator) {
+            let score = 0;
+            let factors = [];
+
+            // Location match (30 points)
+            if (hotel.location === creator.location) {
+                score += 30;
+                factors.push({ name: 'Location Match', points: 30 });
+            } else {
+                factors.push({ name: 'Location Match', points: 0 });
+            }
+
+            // Style compatibility (20 points)
+            const styleMatches = {
+                'modern': ['modern', 'minimalist'],
+                'classic': ['classic', 'luxury'],
+                'rustic': ['rustic', 'bohemian'],
+                'minimalist': ['minimalist', 'modern'],
+                'bohemian': ['bohemian', 'rustic']
+            };
+            if (styleMatches[hotel.style]?.includes(creator.style)) {
+                score += 20;
+                factors.push({ name: 'Style Compatibility', points: 20 });
+            } else {
+                factors.push({ name: 'Style Compatibility', points: 0 });
+            }
+
+            // Audience alignment (25 points)
+            if (hotel.audience === creator.audience) {
+                score += 25;
+                factors.push({ name: 'Audience Alignment', points: 25 });
+            } else {
+                const compatibleAudiences = {
+                    'millennials': ['genz', 'millennials'],
+                    'genz': ['genz', 'millennials'],
+                    'luxury': ['luxury', 'millennials'],
+                    'families': ['millennials', 'families']
+                };
+                if (compatibleAudiences[hotel.audience]?.includes(creator.audience)) {
+                    score += 15;
+                    factors.push({ name: 'Audience Alignment', points: 15 });
+                } else {
+                    factors.push({ name: 'Audience Alignment', points: 0 });
+                }
+            }
+
+            // Engagement quality (15 points)
+            if (creator.engagement >= 5.0) {
+                score += 15;
+                factors.push({ name: 'High Engagement', points: 15 });
+            } else if (creator.engagement >= 4.0) {
+                score += 10;
+                factors.push({ name: 'Good Engagement', points: 10 });
+            } else {
+                factors.push({ name: 'Engagement', points: 5 });
+                score += 5;
+            }
+
+            // Platform relevance (10 points)
+            if (creator.platform === 'multi' || creator.platform === 'instagram') {
+                score += 10;
+                factors.push({ name: 'Platform Fit', points: 10 });
+            } else {
+                score += 5;
+                factors.push({ name: 'Platform Fit', points: 5 });
+            }
+
+            return { score: Math.min(score, 100), factors };
+        }
+
+        function findMatchingCreators(hotelData) {
+            const matches = creatorsDatabase.map(creator => {
+                const hotel = {
+                    location: hotelData.location,
+                    style: hotelData.style,
+                    audience: hotelData.audience,
+                    budget: hotelData.budget
+                };
+                const matchResult = calculateMatchScore(hotel, creator);
+                return {
+                    ...creator,
+                    matchPercentage: matchResult.score,
+                    matchFactors: matchResult.factors
+                };
+            });
+
+            return matches
+                .sort((a, b) => b.matchPercentage - a.matchPercentage)
+                .slice(0, 4);
+        }
+
+        function findMatchingHotels(creatorData) {
+            // Find creator in database to get full profile
+            const creatorProfile = creatorsDatabase.find(c => 
+                c.niche === creatorData.niche && 
+                c.location === creatorData.location
+            ) || creatorsDatabase[0];
+
+            const matches = hotelsDatabase.map(hotel => {
+                const matchResult = calculateMatchScore(hotel, creatorProfile);
+                return {
+                    ...hotel,
+                    matchPercentage: matchResult.score,
+                    matchFactors: matchResult.factors
+                };
+            });
+
+            return matches
+                .sort((a, b) => b.matchPercentage - a.matchPercentage)
+                .slice(0, 4);
+        }
+
+        function displayResults(matches, type) {
+            const resultsContainer = document.getElementById('resultsContainer');
+            const matchesGrid = document.getElementById('matchesGrid');
+            const matchScore = document.getElementById('matchScore');
+            const loadingSpinner = document.getElementById('loadingSpinner');
+
+            loadingSpinner.classList.remove('show');
+            matchesGrid.innerHTML = '';
+
+            const avgScore = Math.round(matches.reduce((sum, m) => sum + m.matchPercentage, 0) / matches.length);
+            matchScore.textContent = `Average Match Score: ${avgScore}%`;
+
+            matches.forEach(match => {
+                const card = document.createElement('div');
+                card.className = 'match-card';
+                
+                const name = type === 'creator' ? match.name : match.name;
+                const avatar = name.split(' ').map(n => n[0]).join('').substring(0, 2);
+                
+                let details = '';
+                if (type === 'creator') {
+                    details = `
+                        <div class="match-details">
+                            <div class="match-detail-item">
+                                <span class="match-detail-label">Niche:</span>
+                                <span class="match-detail-value">${match.niche.charAt(0).toUpperCase() + match.niche.slice(1)}</span>
+                            </div>
+                            <div class="match-detail-item">
+                                <span class="match-detail-label">Platform:</span>
+                                <span class="match-detail-value">${match.platform.charAt(0).toUpperCase() + match.platform.slice(1)}</span>
+                            </div>
+                            <div class="match-detail-item">
+                                <span class="match-detail-label">Followers:</span>
+                                <span class="match-detail-value">${match.followers === 'micro' ? '10K-50K' : match.followers === 'mid' ? '50K-200K' : match.followers === 'macro' ? '200K-1M' : '1M+'}</span>
+                            </div>
+                            <div class="match-detail-item">
+                                <span class="match-detail-label">Engagement:</span>
+                                <span class="match-detail-value">${match.engagement}%</span>
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    details = `
+                        <div class="match-details">
+                            <div class="match-detail-item">
+                                <span class="match-detail-label">Location:</span>
+                                <span class="match-detail-value">${match.location.charAt(0).toUpperCase() + match.location.slice(1)}</span>
+                            </div>
+                            <div class="match-detail-item">
+                                <span class="match-detail-label">Style:</span>
+                                <span class="match-detail-value">${match.style.charAt(0).toUpperCase() + match.style.slice(1)}</span>
+                            </div>
+                            <div class="match-detail-item">
+                                <span class="match-detail-label">Target Audience:</span>
+                                <span class="match-detail-value">${match.audience.charAt(0).toUpperCase() + match.audience.slice(1)}</span>
+                            </div>
+                            <div class="match-detail-item">
+                                <span class="match-detail-label">Rating:</span>
+                                <span class="match-detail-value">${match.rating} ⭐</span>
+                            </div>
+                        </div>
+                    `;
+                }
+
+                card.innerHTML = `
+                    <div class="match-card-header">
+                        <div class="match-avatar">${avatar}</div>
+                        <div class="match-info">
+                            <h4>${name}</h4>
+                            <p>${type === 'creator' ? 'Content Creator' : 'Hotel Partner'}</p>
+                        </div>
+                    </div>
+                    ${details}
+                    <div class="match-percentage">${match.matchPercentage}% Match</div>
+                `;
+                matchesGrid.appendChild(card);
+            });
+
+            resultsContainer.classList.add('show');
+            resultsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        // Hotel form handler
+        document.getElementById('hotelForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const loadingSpinner = document.getElementById('loadingSpinner');
+            const resultsContainer = document.getElementById('resultsContainer');
+            
+            resultsContainer.classList.remove('show');
+            loadingSpinner.classList.add('show');
+
+            const hotelData = {
+                location: document.getElementById('hotelLocation').value,
+                style: document.getElementById('hotelStyle').value,
+                audience: document.getElementById('hotelAudience').value,
+                budget: document.getElementById('hotelBudget').value
+            };
+
+            // Simulate AI processing delay
+            setTimeout(() => {
+                const matches = findMatchingCreators(hotelData);
+                displayResults(matches, 'creator');
+            }, 2000);
+        });
+
+        // Creator form handler
+        document.getElementById('creatorForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const loadingSpinner = document.getElementById('loadingSpinner');
+            const resultsContainer = document.getElementById('resultsContainer');
+            
+            resultsContainer.classList.remove('show');
+            loadingSpinner.classList.add('show');
+
+            const creatorData = {
+                niche: document.getElementById('creatorNiche').value,
+                platform: document.getElementById('creatorPlatform').value,
+                followers: document.getElementById('creatorFollowers').value,
+                location: document.getElementById('creatorLocation').value
+            };
+
+            // Simulate AI processing delay
+            setTimeout(() => {
+                const matches = findMatchingHotels(creatorData);
+                displayResults(matches, 'hotel');
+            }, 2000);
+        });
+
         // Slow smooth scroll for "Join Our Movement" button
         document.addEventListener('DOMContentLoaded', function() {
             var joinButton = document.querySelector('.cta-bubble[href="#waitlist"]');
