@@ -435,7 +435,7 @@
     <div class="coming-soon-overlay" id="coming-soon-overlay" onclick="if(event.target===this)this.classList.remove('active')">
         <div class="coming-soon-modal">
             <h2>Coming Soon</h2>
-            <p>Login functionality is coming soon. Stay tuned!</p>
+            <p>This feature is coming soon. Stay tuned!</p>
             <button onclick="document.getElementById('coming-soon-overlay').classList.remove('active')">Close</button>
         </div>
     </div>
@@ -751,69 +751,7 @@
         // Form submission
         matchForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            
-            const userType = document.querySelector('.user-type-btn.active').dataset.type;
-            const resultsContent = document.getElementById('results-content');
-            
-            // Show loading state
-            resultsContent.innerHTML = `
-                <div class="loading-state">
-                    <div class="loading-spinner"></div>
-                    <p>Analyzing matches with AI...</p>
-                </div>
-            `;
-
-            // Simulate AI processing delay
-            await new Promise(resolve => setTimeout(resolve, 2000));
-
-            if (userType === 'hotel') {
-                const hotelData = {
-                    location: document.getElementById('location').value,
-                    type: document.getElementById('hotel-type').value,
-                    targetAudience: document.getElementById('target-audience').value,
-                    contentType: document.getElementById('content-type').value,
-                    followerRange: document.getElementById('follower-range').value,
-                    description: document.getElementById('description').value
-                };
-
-                // Find matching creators
-                const matches = creatorsDatabase.map(creator => {
-                    const matchResult = calculateMatchScore(hotelData, creator);
-                    return {
-                        ...creator,
-                        matchScore: matchResult.score,
-                        factors: matchResult.factors
-                    };
-                })
-                .filter(match => match.matchScore >= 40)
-                .sort((a, b) => b.matchScore - a.matchScore)
-                .slice(0, 5);
-
-                displayCreatorResults(matches);
-            } else {
-                const creatorData = {
-                    location: document.getElementById('location').value,
-                    type: document.getElementById('hotel-type').value,
-                    targetAudience: document.getElementById('target-audience').value,
-                    contentType: document.getElementById('content-type').value,
-                    followerRange: document.getElementById('follower-range').value,
-                    description: document.getElementById('description').value
-                };
-
-                // Find matching hotels
-                const matches = hotelsDatabase.map(hotel => {
-                    const matchResult = calculateCreatorMatchScore(creatorData, hotel);
-                    return {
-                        ...hotel,
-                        matchScore: matchResult.score,
-                        factors: matchResult.factors
-                    };
-                })
-                .sort((a, b) => b.matchScore - a.matchScore)
-                .slice(0, 5);
-
-                displayHotelResults(matches);
-            }
+            document.getElementById('coming-soon-overlay').classList.add('active');
         });
 
         function displayCreatorResults(matches) {
