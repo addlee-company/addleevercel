@@ -174,7 +174,8 @@
             border: 1px solid rgba(77, 109, 255, 0.1);
         }
 
-        .login-dropdown:hover .login-dropdown-menu {
+        .login-dropdown:hover .login-dropdown-menu,
+        .login-dropdown:focus-within .login-dropdown-menu {
             display: block;
         }
 
@@ -681,7 +682,7 @@
     <div class="main-content">
         <header class="top-header">
             <div class="login-dropdown">
-                <span class="login-btn">Log In</span>
+                <span class="login-btn" tabindex="0" role="button" aria-haspopup="true">Log In</span>
                 <div class="login-dropdown-menu">
                     <a href="creator-portal.html" class="login-dropdown-item">🎨 Creator Login</a>
                     <a href="hotel-portal.html" class="login-dropdown-item">🏨 Hotel Login</a>
