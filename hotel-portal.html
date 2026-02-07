@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Addlee - Hotel Portal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #f5f7fa;
+            color: #333;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* ---- Sidebar ---- */
+        .sidebar {
+            width: 260px;
+            background: linear-gradient(180deg, #4D6DFF 0%, #3D5CE6 100%);
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            z-index: 100;
+            transition: transform 0.3s ease;
+        }
+
+        .sidebar-logo {
+            padding: 1.75rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+            text-decoration: none;
+        }
+
+        .sidebar-logo img {
+            height: 40px;
+            width: auto;
+            filter: brightness(0) invert(1);
+        }
+
+        .sidebar-logo span {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .sidebar-nav {
+            flex: 1;
+            padding: 1rem 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .sidebar-nav button {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            width: 100%;
+            padding: 0.9rem 1.5rem;
+            background: none;
+            border: none;
+            color: rgba(255,255,255,0.75);
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: left;
+            border-left: 3px solid transparent;
+        }
+
+        .sidebar-nav button:hover {
+            background: rgba(255,255,255,0.1);
+            color: white;
+        }
+
+        .sidebar-nav button.active {
+            background: rgba(255,255,255,0.15);
+            color: white;
+            font-weight: 600;
+            border-left: 3px solid white;
+        }
+
+        .sidebar-nav button .tab-label {
+            flex: 1;
+        }
+
+        .sidebar-footer {
+            padding: 1.25rem 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .sidebar-footer a {
+            display: block;
+            text-align: center;
+            padding: 0.7rem 1.5rem;
+            background: rgba(255,255,255,0.15);
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+        }
+
+        .sidebar-footer a:hover {
+            background: rgba(255,255,255,0.25);
+        }
+
+        /* ---- Main Content ---- */
+        .main-content {
+            flex: 1;
+            margin-left: 260px;
+            min-height: 100vh;
+        }
+
+        .top-header {
+            background: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .top-header .login-btn {
+            padding: 0.5rem 1.5rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #4D6DFF;
+            background: white;
+            border: 2px solid #4D6DFF;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .top-header .login-btn:hover {
+            background: #4D6DFF;
+            color: white;
+        }
+
+        .login-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .login-dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            margin-top: 0.5rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            min-width: 200px;
+            overflow: hidden;
+            z-index: 100;
+            border: 1px solid rgba(77, 109, 255, 0.1);
+        }
+
+        .login-dropdown:hover .login-dropdown-menu {
+            display: block;
+        }
+
+        .login-dropdown-item {
+            display: block;
+            padding: 0.85rem 1.25rem;
+            color: #333;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .login-dropdown-item:hover {
+            background: #f0f4ff;
+            color: #4D6DFF;
+        }
+
+        .login-dropdown-item + .login-dropdown-item {
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .page-content {
+            padding: 2rem;
+        }
+
+        /* ---- Tab Pages ---- */
+        .tab-page {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .tab-page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .page-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-subtitle {
+            font-size: 1.05rem;
+            color: #888;
+            margin-bottom: 2rem;
+        }
+
+        /* ---- Stats Row ---- */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+
+        .stat-card-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card-label {
+            font-size: 0.85rem;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1a1a2e;
+        }
+
+        .stat-card-change {
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 0.25rem;
+        }
+
+        .change-up { color: #22c55e; }
+
+        /* ---- Cards Grid ---- */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 1.75rem;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        }
+
+        .card-avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .card-name {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #1a1a2e;
+            margin-bottom: 0.35rem;
+        }
+
+        .card-type {
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 0.75rem;
+            color: #E67A1E;
+        }
+
+        .card-desc {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tag {
+            padding: 0.3rem 0.75rem;
+            background: #fff5eb;
+            color: #E67A1E;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .card-stats {
+            display: flex;
+            gap: 1.25rem;
+            padding-top: 0.75rem;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .stat {
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        .stat strong {
+            color: #333;
+        }
+
+        .card-action {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.55rem 1.25rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #5BB8E6, #3D5CE6);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(61, 92, 230, 0.3);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #4D6DFF;
+            border: 2px solid #4D6DFF;
+        }
+
+        .btn-secondary:hover {
+            background: #4D6DFF;
+            color: white;
+        }
+
+        /* ---- Search Bar ---- */
+        .search-bar {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.75rem;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 0.75rem 1.25rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: border-color 0.2s;
+            outline: none;
+        }
+
+        .search-input:focus {
+            border-color: #4D6DFF;
+        }
+
+        /* ---- Campaign Cards ---- */
+        .campaign-card {
+            background: white;
+            border-radius: 16px;
+            padding: 1.75rem;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            margin-bottom: 1.25rem;
+            transition: all 0.3s ease;
+        }
+
+        .campaign-card:hover {
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        }
+
+        .campaign-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+
+        .campaign-name {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #1a1a2e;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.25rem 0.7rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .status-active {
+            background: #dcfce7;
+            color: #16a34a;
+        }
+
+        .status-completed {
+            background: #dbeafe;
+            color: #2563eb;
+        }
+
+        .status-draft {
+            background: #f3f4f6;
+            color: #6b7280;
+        }
+
+        .campaign-desc {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .campaign-stats {
+            display: flex;
+            gap: 2rem;
+            padding-top: 0.75rem;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .campaign-stat-label {
+            font-size: 0.8rem;
+            color: #888;
+        }
+
+        .campaign-stat-value {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #1a1a2e;
+        }
+
+        /* ---- Chart ---- */
+        .chart-placeholder {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            margin-bottom: 1.5rem;
+        }
+
+        .chart-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 1.25rem;
+        }
+
+        .chart-bars {
+            display: flex;
+            align-items: flex-end;
+            gap: 0.75rem;
+            height: 180px;
+            padding-top: 1rem;
+        }
+
+        .chart-bar-group {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .chart-bar {
+            width: 100%;
+            max-width: 40px;
+            border-radius: 6px 6px 0 0;
+            transition: height 0.6s ease;
+        }
+
+        .chart-bar.blue {
+            background: linear-gradient(180deg, #4D6DFF, #7C9DFF);
+        }
+
+        .chart-bar.orange {
+            background: linear-gradient(180deg, #E67A1E, #FFB347);
+        }
+
+        .chart-bar-label {
+            font-size: 0.75rem;
+            color: #999;
+        }
+
+        /* ---- Analytics Table ---- */
+        .analytics-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+
+        .analytics-table th {
+            text-align: left;
+            padding: 0.85rem 1rem;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #888;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .analytics-table td {
+            padding: 0.85rem 1rem;
+            font-size: 0.95rem;
+            border-bottom: 1px solid #f5f5f5;
+        }
+
+        /* ---- Messages ---- */
+        .message-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .message-item {
+            background: white;
+            border-radius: 16px;
+            padding: 1.25rem 1.5rem;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .message-item:hover {
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        }
+
+        .message-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            font-weight: 700;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .message-info {
+            flex: 1;
+        }
+
+        .message-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #1a1a2e;
+            margin-bottom: 0.2rem;
+        }
+
+        .message-preview {
+            font-size: 0.9rem;
+            color: #888;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 400px;
+        }
+
+        .message-time {
+            font-size: 0.8rem;
+            color: #aaa;
+            flex-shrink: 0;
+        }
+
+        /* ---- Activity List ---- */
+        .activity-list {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+
+        .activity-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 1rem;
+        }
+
+        .activity-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #f5f5f5;
+        }
+
+        .activity-item:last-child {
+            border-bottom: none;
+        }
+
+        .activity-icon {
+            font-size: 1.25rem;
+        }
+
+        .activity-text {
+            flex: 1;
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        .activity-time {
+            font-size: 0.8rem;
+            color: #aaa;
+        }
+
+        /* ---- Mobile Toggle ---- */
+        .mobile-toggle {
+            display: none;
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 200;
+            background: #4D6DFF;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 0.6rem 0.8rem;
+            font-size: 1.25rem;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(77, 109, 255, 0.3);
+        }
+
+        /* ---- Responsive ---- */
+        @media (max-width: 900px) {
+            .mobile-toggle {
+                display: block;
+            }
+
+            .sidebar {
+                transform: translateX(-100%);
+            }
+
+            .sidebar.open {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .stats-row {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .campaign-stats {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .message-preview {
+                max-width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="mobile-toggle" onclick="toggleSidebar()">☰</button>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <a href="index.html" class="sidebar-logo">
+            <img src="https://raw.githubusercontent.com/addlee-company/Images-/main/nobackgroundlogo.png" alt="Addlee Logo">
+            <span>Addlee</span>
+        </a>
+        <nav class="sidebar-nav">
+            <button class="active" onclick="showTab('dashboard', this)">
+                <span class="tab-label">Dashboard</span>
+            </button>
+            <button onclick="showTab('find-creators', this)">
+                <span class="tab-label">Find Creators</span>
+            </button>
+            <button onclick="showTab('campaigns', this)">
+                <span class="tab-label">Campaigns</span>
+            </button>
+            <button onclick="showTab('analytics', this)">
+                <span class="tab-label">Analytics</span>
+            </button>
+            <button onclick="showTab('messages', this)">
+                <span class="tab-label">Messages</span>
+            </button>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="index.html">Back to Home</a>
+        </div>
+    </aside>
+
+    <!-- Main -->
+    <div class="main-content">
+        <header class="top-header">
+            <div class="login-dropdown">
+                <span class="login-btn">Log In</span>
+                <div class="login-dropdown-menu">
+                    <a href="creator-portal.html" class="login-dropdown-item">🎨 Creator Login</a>
+                    <a href="hotel-portal.html" class="login-dropdown-item">🏨 Hotel Login</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="page-content">
+            <!-- ===== DASHBOARD ===== -->
+            <div class="tab-page active" id="tab-dashboard">
+                <h1 class="page-title">Welcome back, Hotel Partner!</h1>
+                <p class="page-subtitle">Here's an overview of your Addlee activity</p>
+
+                <div class="stats-row">
+                    <div class="stat-card">
+                        <div class="stat-card-icon">📢</div>
+                        <div class="stat-card-label">Active Campaigns</div>
+                        <div class="stat-card-value">5</div>
+                        <div class="stat-card-change change-up">↑ 2 new this week</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-icon">🤝</div>
+                        <div class="stat-card-label">Creator Partnerships</div>
+                        <div class="stat-card-value">8</div>
+                        <div class="stat-card-change change-up">↑ 3 new this month</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-icon">👁️</div>
+                        <div class="stat-card-label">Total Impressions</div>
+                        <div class="stat-card-value">1.8M</div>
+                        <div class="stat-card-change change-up">↑ 24% vs last month</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-icon">🎯</div>
+                        <div class="stat-card-label">Bookings Driven</div>
+                        <div class="stat-card-value">456</div>
+                        <div class="stat-card-change change-up">↑ 18% vs last month</div>
+                    </div>
+                </div>
+
+                <div class="activity-list">
+                    <div class="activity-title">Recent Activity</div>
+                    <div class="activity-item">
+                        <span class="activity-icon">🎉</span>
+                        <span class="activity-text">New partnership with <strong>Jessica Martinez</strong> confirmed</span>
+                        <span class="activity-time">1 hour ago</span>
+                    </div>
+                    <div class="activity-item">
+                        <span class="activity-icon">📸</span>
+                        <span class="activity-text"><strong>David Reyes</strong> submitted content for the rooftop campaign</span>
+                        <span class="activity-time">3 hours ago</span>
+                    </div>
+                    <div class="activity-item">
+                        <span class="activity-icon">📊</span>
+                        <span class="activity-text">Summer campaign reached <strong>500K impressions</strong></span>
+                        <span class="activity-time">1 day ago</span>
+                    </div>
+                    <div class="activity-item">
+                        <span class="activity-icon">⭐</span>
+                        <span class="activity-text"><strong>Sophia Patel's</strong> content generated <strong>89 bookings</strong></span>
+                        <span class="activity-time">2 days ago</span>
+                    </div>
+                    <div class="activity-item">
+                        <span class="activity-icon">💬</span>
+                        <span class="activity-text">New message from <strong>Marcus Chen</strong> about collaboration</span>
+                        <span class="activity-time">3 days ago</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== FIND CREATORS ===== -->
+            <div class="tab-page" id="tab-find-creators">
+                <h1 class="page-title">Find Creators</h1>
+                <p class="page-subtitle">Discover talented creators for your hotel campaigns</p>
+
+                <div class="search-bar">
+                    <input type="text" class="search-input" id="creator-search" placeholder="Search creators...">
+                </div>
+
+                <div class="cards-grid" id="creators-grid">
+                    <div class="card">
+                        <div class="card-avatar" style="background: linear-gradient(135deg, #FF8C42, #E67A1E);">JM</div>
+                        <div class="card-name">Jessica Martinez</div>
+                        <div class="card-type">UGC Creator</div>
+                        <div class="card-desc">Travel and lifestyle creator specializing in boutique hotel experiences and authentic storytelling.</div>
+                        <div class="card-tags">
+                            <span class="tag">Travel</span>
+                            <span class="tag">Lifestyle</span>
+                            <span class="tag">Boutique</span>
+                        </div>
+                        <div class="card-stats">
+                            <div class="stat"><strong>48K</strong> followers</div>
+                            <div class="stat"><strong>4.2%</strong> eng. rate</div>
+                        </div>
+                        <button class="card-action btn-primary">Invite to Campaign</button>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-avatar" style="background: linear-gradient(135deg, #FFB347, #FF7043);">DR</div>
+                        <div class="card-name">David Reyes</div>
+                        <div class="card-type">UGC Creator</div>
+                        <div class="card-desc">Adventure and photography creator who turns hotel stays into cinematic short-form content.</div>
+                        <div class="card-tags">
+                            <span class="tag">Adventure</span>
+                            <span class="tag">Photography</span>
+                        </div>
+                        <div class="card-stats">
+                            <div class="stat"><strong>112K</strong> followers</div>
+                            <div class="stat"><strong>5.8%</strong> eng. rate</div>
+                        </div>
+                        <button class="card-action btn-primary">Invite to Campaign</button>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-avatar" style="background: linear-gradient(135deg, #E67A1E, #D1203A);">SP</div>
+                        <div class="card-name">Sophia Patel</div>
+                        <div class="card-type">UGC Creator</div>
+                        <div class="card-desc">Food and hospitality creator known for her honest hotel reviews and in-depth dining coverage.</div>
+                        <div class="card-tags">
+                            <span class="tag">Food</span>
+                            <span class="tag">Hospitality</span>
+                            <span class="tag">Reviews</span>
+                        </div>
+                        <div class="card-stats">
+                            <div class="stat"><strong>73K</strong> followers</div>
+                            <div class="stat"><strong>6.1%</strong> eng. rate</div>
+                        </div>
+                        <button class="card-action btn-primary">Invite to Campaign</button>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-avatar" style="background: linear-gradient(135deg, #A78BFA, #7C3AED);">MC</div>
+                        <div class="card-name">Marcus Chen</div>
+                        <div class="card-type">UGC Creator</div>
+                        <div class="card-desc">Luxury travel vlogger creating high-quality drone footage and immersive hotel walkthroughs.</div>
+                        <div class="card-tags">
+                            <span class="tag">Luxury</span>
+                            <span class="tag">Drone</span>
+                            <span class="tag">Video</span>
+                        </div>
+                        <div class="card-stats">
+                            <div class="stat"><strong>95K</strong> followers</div>
+                            <div class="stat"><strong>4.7%</strong> eng. rate</div>
+                        </div>
+                        <button class="card-action btn-primary">Invite to Campaign</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== CAMPAIGNS ===== -->
+            <div class="tab-page" id="tab-campaigns">
+                <h1 class="page-title">Campaigns</h1>
+                <p class="page-subtitle">Manage your creator marketing campaigns</p>
+
+                <div class="campaign-card">
+                    <div class="campaign-header">
+                        <div class="campaign-name">Summer Rooftop Bar Launch</div>
+                        <span class="status-badge status-active">Active</span>
+                    </div>
+                    <div class="campaign-desc">Showcase the newly renovated rooftop bar with sunset content, cocktail features, and skyline views. Targeting travel and lifestyle creators.</div>
+                    <div class="campaign-stats">
+                        <div>
+                            <div class="campaign-stat-label">Creators</div>
+                            <div class="campaign-stat-value">3</div>
+                        </div>
+                        <div>
+                            <div class="campaign-stat-label">Impressions</div>
+                            <div class="campaign-stat-value">520K</div>
+                        </div>
+                        <div>
+                            <div class="campaign-stat-label">Engagement</div>
+                            <div class="campaign-stat-value">5.2%</div>
+                        </div>
+                        <div>
+                            <div class="campaign-stat-label">Bookings</div>
+                            <div class="campaign-stat-value">128</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="campaign-card">
+                    <div class="campaign-header">
+                        <div class="campaign-name">Wellness Spa Experience</div>
+                        <span class="status-badge status-active">Active</span>
+                    </div>
+                    <div class="campaign-desc">Promote the new spa wing with wellness-focused creators. Content includes spa treatments, yoga sessions, and healthy dining options.</div>
+                    <div class="campaign-stats">
+                        <div>
+                            <div class="campaign-stat-label">Creators</div>
+                            <div class="campaign-stat-value">2</div>
+                        </div>
+                        <div>
+                            <div class="campaign-stat-label">Impressions</div>
+                            <div class="campaign-stat-value">310K</div>
+                        </div>
+                        <div>
+                            <div class="campaign-stat-label">Engagement</div>
+                            <div class="campaign-stat-value">6.1%</div>
+                        </div>
+                        <div>
+                            <div class="campaign-stat-label">Bookings</div>
+                            <div class="campaign-stat-value">89</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="campaign-card">
+                    <div class="campaign-header">
+                        <div class="campaign-name">Urban Explorer Weekend</div>
+                        <span class="status-badge status-completed">Completed</span>
+                    </div>
+                    <div class="campaign-desc">City exploration campaign featuring local restaurants, nightlife, and cultural attractions around the hotel. Partnered with urban lifestyle creators.</div>
+                    <div class="campaign-stats">
+                        <div>
+                            <div class="campaign-stat-label">Creators</div>
+                            <div class="campaign-stat-value">4</div>
+                        </div>
+                        <div>
+                            <div class="campaign-stat-label">Impressions</div>
+                            <div class="campaign-stat-value">890K</div>
+                        </div>
+                        <div>
+                            <div class="campaign-stat-label">Engagement</div>
+                            <div class="campaign-stat-value">4.8%</div>
+                        </div>
+                        <div>
+                            <div class="campaign-stat-label">Bookings</div>
+                            <div class="campaign-stat-value">239</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="campaign-card">
+                    <div class="campaign-header">
+                        <div class="campaign-name">Holiday Season Special</div>
+                        <span class="status-badge status-draft">Draft</span>
+                    </div>
+                    <div class="campaign-desc">Upcoming holiday campaign featuring festive decorations, seasonal menus, and winter activities. Looking for cozy content creators.</div>
+                    <div class="campaign-stats">
+                        <div>
+                            <div class="campaign-stat-label">Creators</div>
+                            <div class="campaign-stat-value">0</div>
+                        </div>
+                        <div>
+                            <div class="campaign-stat-label">Budget</div>
+                            <div class="campaign-stat-value">$5,000</div>
+                        </div>
+                        <div>
+                            <div class="campaign-stat-label">Target</div>
+                            <div class="campaign-stat-value">500K</div>
+                        </div>
+                        <div>
+                            <div class="campaign-stat-label">Status</div>
+                            <div class="campaign-stat-value">Planning</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== ANALYTICS ===== -->
+            <div class="tab-page" id="tab-analytics">
+                <h1 class="page-title">Analytics</h1>
+                <p class="page-subtitle">Monitor your campaign performance and ROI</p>
+
+                <div class="stats-row">
+                    <div class="stat-card">
+                        <div class="stat-card-label">Total Impressions</div>
+                        <div class="stat-card-value">1.8M</div>
+                        <div class="stat-card-change change-up">↑ 24% vs last month</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-label">Avg Engagement Rate</div>
+                        <div class="stat-card-value">5.4%</div>
+                        <div class="stat-card-change change-up">↑ 0.6% vs last month</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-label">Bookings Driven</div>
+                        <div class="stat-card-value">456</div>
+                        <div class="stat-card-change change-up">↑ 18% vs last month</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-label">ROI</div>
+                        <div class="stat-card-value">3.2x</div>
+                        <div class="stat-card-change change-up">↑ 0.4x vs last month</div>
+                    </div>
+                </div>
+
+                <div class="chart-placeholder">
+                    <div class="chart-title">Monthly Impressions</div>
+                    <div class="chart-bars">
+                        <div class="chart-bar-group">
+                            <div class="chart-bar blue" style="height: 35%;"></div>
+                            <div class="chart-bar-label">Sep</div>
+                        </div>
+                        <div class="chart-bar-group">
+                            <div class="chart-bar blue" style="height: 50%;"></div>
+                            <div class="chart-bar-label">Oct</div>
+                        </div>
+                        <div class="chart-bar-group">
+                            <div class="chart-bar blue" style="height: 42%;"></div>
+                            <div class="chart-bar-label">Nov</div>
+                        </div>
+                        <div class="chart-bar-group">
+                            <div class="chart-bar blue" style="height: 68%;"></div>
+                            <div class="chart-bar-label">Dec</div>
+                        </div>
+                        <div class="chart-bar-group">
+                            <div class="chart-bar blue" style="height: 60%;"></div>
+                            <div class="chart-bar-label">Jan</div>
+                        </div>
+                        <div class="chart-bar-group">
+                            <div class="chart-bar blue" style="height: 85%;"></div>
+                            <div class="chart-bar-label">Feb</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-placeholder">
+                    <div class="chart-title">Bookings by Campaign</div>
+                    <div class="chart-bars">
+                        <div class="chart-bar-group">
+                            <div class="chart-bar orange" style="height: 55%;"></div>
+                            <div class="chart-bar-label">Rooftop</div>
+                        </div>
+                        <div class="chart-bar-group">
+                            <div class="chart-bar orange" style="height: 38%;"></div>
+                            <div class="chart-bar-label">Spa</div>
+                        </div>
+                        <div class="chart-bar-group">
+                            <div class="chart-bar orange" style="height: 80%;"></div>
+                            <div class="chart-bar-label">Urban</div>
+                        </div>
+                        <div class="chart-bar-group">
+                            <div class="chart-bar orange" style="height: 25%;"></div>
+                            <div class="chart-bar-label">Beach</div>
+                        </div>
+                        <div class="chart-bar-group">
+                            <div class="chart-bar orange" style="height: 45%;"></div>
+                            <div class="chart-bar-label">Wellness</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="background: white; border-radius: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); overflow: hidden;">
+                    <div style="padding: 1.5rem 1.5rem 0.5rem; font-size: 1.1rem; font-weight: 700; color: #1a1a2e;">Creator Performance</div>
+                    <table class="analytics-table">
+                        <thead>
+                            <tr>
+                                <th>Creator</th>
+                                <th>Campaign</th>
+                                <th>Impressions</th>
+                                <th>Engagement</th>
+                                <th>Bookings</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Jessica Martinez</td>
+                                <td>Rooftop Bar Launch</td>
+                                <td>340K</td>
+                                <td>5.8%</td>
+                                <td>128</td>
+                            </tr>
+                            <tr>
+                                <td>Sophia Patel</td>
+                                <td>Wellness Spa</td>
+                                <td>215K</td>
+                                <td>6.3%</td>
+                                <td>89</td>
+                            </tr>
+                            <tr>
+                                <td>David Reyes</td>
+                                <td>Urban Explorer</td>
+                                <td>480K</td>
+                                <td>4.9%</td>
+                                <td>156</td>
+                            </tr>
+                            <tr>
+                                <td>Marcus Chen</td>
+                                <td>Urban Explorer</td>
+                                <td>410K</td>
+                                <td>4.7%</td>
+                                <td>83</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- ===== MESSAGES ===== -->
+            <div class="tab-page" id="tab-messages">
+                <h1 class="page-title">Messages</h1>
+                <p class="page-subtitle">Your conversations with creators</p>
+
+                <div class="message-list">
+                    <div class="message-item">
+                        <div class="message-avatar" style="background: linear-gradient(135deg, #FF8C42, #E67A1E);">JM</div>
+                        <div class="message-info">
+                            <div class="message-name">Jessica Martinez</div>
+                            <div class="message-preview">I've uploaded the rooftop bar content — let me know if you'd like any edits!</div>
+                        </div>
+                        <div class="message-time">1h ago</div>
+                    </div>
+                    <div class="message-item">
+                        <div class="message-avatar" style="background: linear-gradient(135deg, #FFB347, #FF7043);">DR</div>
+                        <div class="message-info">
+                            <div class="message-name">David Reyes</div>
+                            <div class="message-preview">The drone shots from the rooftop came out amazing. Sending the final cut tonight.</div>
+                        </div>
+                        <div class="message-time">4h ago</div>
+                    </div>
+                    <div class="message-item">
+                        <div class="message-avatar" style="background: linear-gradient(135deg, #E67A1E, #D1203A);">SP</div>
+                        <div class="message-info">
+                            <div class="message-name">Sophia Patel</div>
+                            <div class="message-preview">Would love to discuss extending the spa campaign for another month. The results have been great!</div>
+                        </div>
+                        <div class="message-time">1d ago</div>
+                    </div>
+                    <div class="message-item">
+                        <div class="message-avatar" style="background: linear-gradient(135deg, #A78BFA, #7C3AED);">MC</div>
+                        <div class="message-info">
+                            <div class="message-name">Marcus Chen</div>
+                            <div class="message-preview">Thanks for the invite! I'd love to join the holiday campaign. When can we chat about the brief?</div>
+                        </div>
+                        <div class="message-time">2d ago</div>
+                    </div>
+                    <div class="message-item">
+                        <div class="message-avatar" style="background: linear-gradient(135deg, #4D6DFF, #3D5CE6);">AP</div>
+                        <div class="message-info">
+                            <div class="message-name">Addlee Platform</div>
+                            <div class="message-preview">Your hotel profile has been verified. You can now invite creators to campaigns!</div>
+                        </div>
+                        <div class="message-time">1w ago</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabId, btn) {
+            document.querySelectorAll('.tab-page').forEach(function(page) {
+                page.classList.remove('active');
+            });
+            document.querySelectorAll('.sidebar-nav button').forEach(function(b) {
+                b.classList.remove('active');
+            });
+            document.getElementById('tab-' + tabId).classList.add('active');
+            btn.classList.add('active');
+            if (window.innerWidth <= 900) {
+                document.getElementById('sidebar').classList.remove('open');
+            }
+        }
+
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('open');
+        }
+
+        // Search functionality for Find Creators
+        document.getElementById('creator-search').addEventListener('input', function() {
+            var query = this.value.toLowerCase();
+            document.querySelectorAll('#creators-grid .card').forEach(function(card) {
+                var text = card.textContent.toLowerCase();
+                card.style.display = text.includes(query) ? '' : 'none';
+            });
+        });
+    </script>
+</body>
+</html>
