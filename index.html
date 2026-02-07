@@ -47,10 +47,6 @@
             object-fit: contain;
         }
 
-        .login-dropdown {
-            position: relative;
-        }
-
         .login-button {
             padding: 0.75rem 1.5rem;
             font-size: 1rem;
@@ -74,54 +70,63 @@
             box-shadow: 0 4px 12px rgba(91, 184, 230, 0.2);
         }
 
-        .login-dropdown-menu {
-            position: absolute;
-            top: calc(100% + 0.5rem);
-            right: 0;
+        .coming-soon-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .coming-soon-overlay.active {
+            display: flex;
+        }
+
+        .coming-soon-modal {
             background: white;
-            border-radius: 12px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-            min-width: 200px;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-10px);
-            transition: all 0.3s ease;
-            z-index: 1001;
-            overflow: hidden;
+            border-radius: 16px;
+            padding: 3rem 4rem;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: modalPop 0.3s ease;
         }
 
-        .login-dropdown:hover .login-dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .login-dropdown-item {
-            display: block;
-            padding: 1rem 1.5rem;
+        .coming-soon-modal h2 {
+            font-size: 2rem;
             color: #333;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.2s ease;
-            border-bottom: 1px solid #f0f0f0;
+            margin: 0 0 1rem;
         }
 
-        .login-dropdown-item:last-child {
-            border-bottom: none;
+        .coming-soon-modal p {
+            font-size: 1rem;
+            color: #666;
+            margin: 0 0 1.5rem;
         }
 
-        .login-dropdown-item:hover {
-            background: #f8f9fa;
-            color: #5BB8E6;
-            padding-left: 1.75rem;
+        .coming-soon-modal button {
+            padding: 0.6rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: white;
+            background: #5BB8E6;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background 0.3s ease;
         }
 
-        .login-dropdown-item.creator {
-            border-left: 4px solid #E67A1E;
+        .coming-soon-modal button:hover {
+            background: #4aa3d1;
         }
 
-        .login-dropdown-item.hotel {
-            border-left: 4px solid #5BB8E6;
+        @keyframes modalPop {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
         }
 
         .hero-section {
@@ -1399,14 +1404,16 @@
         <a href="#" class="header-logo" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">
             <img src="https://raw.githubusercontent.com/addlee-company/Images-/main/nobackgroundlogo.png" alt="Addlee Logo">
         </a>
-        <div class="login-dropdown">
-            <a href="#" class="login-button">Log in</a>
-            <div class="login-dropdown-menu">
-                <a href="creator-login.html" class="login-dropdown-item creator">Creator Login</a>
-                <a href="hotel-login.html" class="login-dropdown-item hotel">Hotel Login</a>
-            </div>
-        </div>
+        <a href="#" class="login-button" onclick="document.getElementById('coming-soon-overlay').classList.add('active'); return false;">Log in</a>
     </header>
+
+    <div class="coming-soon-overlay" id="coming-soon-overlay" onclick="if(event.target===this)this.classList.remove('active')">
+        <div class="coming-soon-modal">
+            <h2>Coming Soon</h2>
+            <p>Login functionality is coming soon. Stay tuned!</p>
+            <button onclick="document.getElementById('coming-soon-overlay').classList.remove('active')">Close</button>
+        </div>
+    </div>
     <section class="hero-section">
         <div class="floating-blob blob-1"></div>
         <div class="floating-blob blob-2"></div>

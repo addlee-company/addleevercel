@@ -68,6 +68,65 @@
             box-shadow: 0 4px 12px rgba(91, 184, 230, 0.2);
         }
 
+        .coming-soon-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .coming-soon-overlay.active {
+            display: flex;
+        }
+
+        .coming-soon-modal {
+            background: white;
+            border-radius: 16px;
+            padding: 3rem 4rem;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: modalPop 0.3s ease;
+        }
+
+        .coming-soon-modal h2 {
+            font-size: 2rem;
+            color: #333;
+            margin: 0 0 1rem;
+        }
+
+        .coming-soon-modal p {
+            font-size: 1rem;
+            color: #666;
+            margin: 0 0 1.5rem;
+        }
+
+        .coming-soon-modal button {
+            padding: 0.6rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: white;
+            background: #5BB8E6;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .coming-soon-modal button:hover {
+            background: #4aa3d1;
+        }
+
+        @keyframes modalPop {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
         .match-container {
             max-width: 1400px;
             margin: 0 auto;
@@ -370,8 +429,16 @@
         <a href="index.html" class="header-logo">
             <img src="https://raw.githubusercontent.com/addlee-company/Images-/main/nobackgroundlogo.png" alt="Addlee Logo">
         </a>
-        <a href="#" class="login-button">Log in</a>
+        <a href="#" class="login-button" onclick="document.getElementById('coming-soon-overlay').classList.add('active'); return false;">Log in</a>
     </header>
+
+    <div class="coming-soon-overlay" id="coming-soon-overlay" onclick="if(event.target===this)this.classList.remove('active')">
+        <div class="coming-soon-modal">
+            <h2>Coming Soon</h2>
+            <p>Login functionality is coming soon. Stay tuned!</p>
+            <button onclick="document.getElementById('coming-soon-overlay').classList.remove('active')">Close</button>
+        </div>
+    </div>
 
     <div class="match-container">
         <div class="match-header">
