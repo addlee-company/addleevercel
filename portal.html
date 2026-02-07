@@ -153,6 +153,50 @@
             color: white;
         }
 
+        .login-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .login-dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            margin-top: 0.5rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            min-width: 200px;
+            overflow: hidden;
+            z-index: 100;
+            border: 1px solid rgba(77, 109, 255, 0.1);
+        }
+
+        .login-dropdown:hover .login-dropdown-menu,
+        .login-dropdown:focus-within .login-dropdown-menu {
+            display: block;
+        }
+
+        .login-dropdown-item {
+            display: block;
+            padding: 0.85rem 1.25rem;
+            color: #333;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .login-dropdown-item:hover {
+            background: #f0f4ff;
+            color: #4D6DFF;
+        }
+
+        .login-dropdown-item + .login-dropdown-item {
+            border-top: 1px solid #f0f0f0;
+        }
+
         .page-content {
             padding: 2rem;
         }
@@ -845,7 +889,13 @@
     <!-- Main -->
     <div class="main-content">
         <header class="top-header">
-            <a href="#" class="login-btn">Log In</a>
+            <div class="login-dropdown">
+                <span class="login-btn" tabindex="0" role="button" aria-haspopup="true">Log In</span>
+                <div class="login-dropdown-menu">
+                    <a href="creator-portal.html" class="login-dropdown-item">🎨 Creator Login</a>
+                    <a href="hotel-portal.html" class="login-dropdown-item">🏨 Hotel Login</a>
+                </div>
+            </div>
         </header>
 
         <div class="page-content">
