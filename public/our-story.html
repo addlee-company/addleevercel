@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Story - Addlee</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #f8f9fa;
+            color: #000;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .bubbles-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .floating-blob {
+            position: absolute;
+            opacity: 0.20;
+            animation: float 12s infinite ease-in-out;
+            filter: blur(8px);
+        }
+
+        .blob-1 {
+            width: 340px;
+            height: 300px;
+            background: radial-gradient(ellipse at center, rgba(255, 200, 0, 0.55) 0%, rgba(255, 130, 30, 0.35) 40%, rgba(230, 40, 70, 0.2) 70%, transparent 100%);
+            border-radius: 60% 40% 70% 30% / 40% 50% 60% 50%;
+            top: 2%;
+            left: 2%;
+            animation-delay: 0s;
+        }
+
+        .blob-2 {
+            width: 180px;
+            height: 160px;
+            background: radial-gradient(ellipse at center, rgba(80, 190, 255, 0.55) 0%, rgba(60, 140, 255, 0.35) 40%, rgba(50, 90, 255, 0.2) 70%, transparent 100%);
+            border-radius: 40% 60% 30% 70% / 60% 30% 70% 40%;
+            top: 5%;
+            right: 5%;
+            animation-delay: 1.5s;
+        }
+
+        .blob-3 {
+            width: 260px;
+            height: 230px;
+            background: radial-gradient(ellipse at center, rgba(255, 130, 30, 0.55) 0%, rgba(230, 40, 70, 0.35) 40%, transparent 100%);
+            border-radius: 70% 30% 50% 50% / 30% 60% 40% 70%;
+            top: 18%;
+            left: 60%;
+            animation-delay: 3s;
+        }
+
+        .blob-4 {
+            width: 150px;
+            height: 130px;
+            background: radial-gradient(ellipse at center, rgba(50, 90, 255, 0.55) 0%, rgba(60, 140, 255, 0.35) 40%, transparent 100%);
+            border-radius: 50% 50% 70% 30% / 50% 70% 30% 50%;
+            top: 25%;
+            left: 8%;
+            animation-delay: 0.5s;
+        }
+
+        .blob-5 {
+            width: 200px;
+            height: 180px;
+            background: radial-gradient(ellipse at center, rgba(255, 200, 0, 0.55) 0%, rgba(255, 130, 30, 0.35) 40%, transparent 100%);
+            border-radius: 30% 70% 40% 60% / 70% 30% 60% 40%;
+            top: 35%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+
+        .blob-6 {
+            width: 280px;
+            height: 250px;
+            background: radial-gradient(ellipse at center, rgba(80, 190, 255, 0.55) 0%, rgba(50, 90, 255, 0.35) 40%, transparent 100%);
+            border-radius: 60% 40% 50% 50% / 40% 60% 50% 50%;
+            top: 45%;
+            left: 15%;
+            animation-delay: 4s;
+        }
+
+        .blob-7 {
+            width: 220px;
+            height: 200px;
+            background: radial-gradient(ellipse at center, rgba(255, 200, 0, 0.55) 0%, rgba(255, 130, 30, 0.35) 40%, transparent 100%);
+            border-radius: 45% 55% 60% 40% / 55% 45% 50% 50%;
+            top: 55%;
+            right: 20%;
+            animation-delay: 1s;
+        }
+
+        .blob-8 {
+            width: 190px;
+            height: 170px;
+            background: radial-gradient(ellipse at center, rgba(80, 190, 255, 0.55) 0%, rgba(60, 140, 255, 0.35) 40%, transparent 100%);
+            border-radius: 55% 45% 40% 60% / 40% 60% 55% 45%;
+            top: 65%;
+            left: 5%;
+            animation-delay: 2.5s;
+        }
+
+        .blob-9 {
+            width: 300px;
+            height: 270px;
+            background: radial-gradient(ellipse at center, rgba(255, 130, 30, 0.55) 0%, rgba(230, 40, 70, 0.35) 40%, transparent 100%);
+            border-radius: 50% 50% 45% 55% / 60% 40% 55% 45%;
+            top: 75%;
+            right: 8%;
+            animation-delay: 3.5s;
+        }
+
+        .blob-10 {
+            width: 170px;
+            height: 150px;
+            background: radial-gradient(ellipse at center, rgba(50, 90, 255, 0.55) 0%, rgba(60, 140, 255, 0.35) 40%, transparent 100%);
+            border-radius: 60% 40% 55% 45% / 45% 55% 40% 60%;
+            top: 85%;
+            left: 40%;
+            animation-delay: 0s;
+        }
+
+        .blob-11 {
+            width: 240px;
+            height: 210px;
+            background: radial-gradient(ellipse at center, rgba(255, 200, 0, 0.55) 0%, rgba(255, 130, 30, 0.35) 40%, transparent 100%);
+            border-radius: 40% 60% 50% 50% / 50% 50% 60% 40%;
+            top: 92%;
+            left: 70%;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg) scale(1);
+            }
+            20% {
+                transform: translate(15px, -20px) rotate(5deg) scale(1.05);
+            }
+            40% {
+                transform: translate(-10px, -35px) rotate(-3deg) scale(0.98);
+            }
+            60% {
+                transform: translate(20px, -15px) rotate(4deg) scale(1.02);
+            }
+            80% {
+                transform: translate(-5px, -25px) rotate(-2deg) scale(1.03);
+            }
+        }
+
+        .header {
+            text-align: center;
+            padding: 4rem 2rem 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .logo-link {
+            display: block;
+            margin-bottom: 2rem;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .logo-image {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            justify-content: center;
+        }
+
+        .logo-circles {
+            position: relative;
+            width: 60px;
+            height: 60px;
+        }
+
+        .circle-large {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #FFCA04 0%, #FB7F22 50%, #F52347 100%);
+        }
+
+        .circle-small {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #6DD0FF 0%, #5EA2FF 50%, #4D6DFF 100%);
+            bottom: 0;
+            right: -8px;
+        }
+
+        .story-section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 4rem 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .story-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5rem;
+            margin-bottom: 5rem;
+        }
+
+        .story-row.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .story-image {
+            flex: 0 0 50%;
+            max-width: 550px;
+        }
+
+        .story-image img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.12);
+        }
+
+        .story-text {
+            flex: 0 0 45%;
+            max-width: 450px;
+            text-align: center;
+        }
+
+        .story-text p {
+            font-size: clamp(1.1rem, 2vw, 1.25rem);
+            line-height: 2.4;
+            color: #333;
+        }
+
+        .center-text {
+            text-align: center;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 600;
+            margin: 4rem 0;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .separator {
+            display: block;
+            width: 80%;
+            max-width: 400px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #ccc, transparent);
+            margin: 0.5rem auto;
+        }
+
+        .separator-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 4rem 0;
+            padding: 0 2rem;
+        }
+
+        .separator-container .center-text {
+            margin: 1rem 0;
+        }
+
+        .final-message {
+            text-align: center;
+            padding: 6rem 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .final-message p {
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+            line-height: 2.2;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-top: 3rem;
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: white;
+            background: linear-gradient(135deg, #6DD0FF, #4D6DFF);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(77, 109, 255, 0.3);
+            border: none;
+            text-decoration: none;
+        }
+
+        .back-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(77, 109, 255, 0.4);
+            background: linear-gradient(135deg, #5EA2FF, #4D6DFF);
+        }
+
+        .button-container {
+            text-align: center;
+            padding-bottom: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .social-footer {
+            background: linear-gradient(135deg, rgba(245, 247, 250, 0.9), rgba(240, 244, 248, 0.85));
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6b7280;
+            text-decoration: none;
+            padding: 1rem;
+            border-radius: 50%;
+            background: white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: #f8f9fa;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+            color: #4b5563;
+        }
+
+        .social-link svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        @media (max-width: 768px) {
+            .story-row,
+            .story-row.reverse {
+                flex-direction: column;
+                gap: 2rem;
+                margin-bottom: 3rem;
+            }
+
+            .story-image {
+                flex: none;
+                max-width: 90%;
+                width: 90%;
+                margin: 0 auto;
+                display: block;
+                position: relative;
+                z-index: 2;
+            }
+
+            .story-image img {
+                height: 280px;
+                display: block;
+                margin: 0 auto;
+            }
+
+            .story-text {
+                flex: none;
+                max-width: 100%;
+                width: 100%;
+            }
+
+            .story-text p {
+                text-align: center;
+                font-size: 0.85rem;
+                line-height: 2;
+            }
+
+            .center-text {
+                margin: 3rem 0;
+                font-size: 0.85rem;
+                white-space: nowrap;
+            }
+
+            .separator-container {
+                margin: 2rem 0;
+            }
+
+            .final-message {
+                padding: 4rem 2rem;
+            }
+
+            .floating-blob {
+                opacity: 0.25;
+            }
+
+            .blob-1, .blob-3, .blob-5, .blob-7, .blob-9, .blob-11 {
+                width: 100px;
+                height: 80px;
+            }
+
+            .blob-2, .blob-4, .blob-6, .blob-8, .blob-10 {
+                width: 80px;
+                height: 70px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bubbles-container">
+        <div class="floating-blob blob-1"></div>
+        <div class="floating-blob blob-2"></div>
+        <div class="floating-blob blob-3"></div>
+        <div class="floating-blob blob-4"></div>
+        <div class="floating-blob blob-5"></div>
+        <div class="floating-blob blob-6"></div>
+        <div class="floating-blob blob-7"></div>
+        <div class="floating-blob blob-8"></div>
+        <div class="floating-blob blob-9"></div>
+        <div class="floating-blob blob-10"></div>
+        <div class="floating-blob blob-11"></div>
+    </div>
+
+    <header class="header">
+        <a href="index.html" class="logo-link">
+            <img src="https://raw.githubusercontent.com/addlee-company/Images-/main/Subject.png" alt="Addlee Logo" class="logo-image">
+        </a>
+        <h1>Our Story</h1>
+    </header>
+
+    <section class="story-section">
+        <div class="story-row">
+            <div class="story-image">
+                <img src="https://raw.githubusercontent.com/addlee-company/Images-/main/Screenshot%202026-01-11%20204412.png" alt="Story image 1">
+            </div>
+            <div class="story-text">
+                <p>For years, hotel content has been broken.<br>Agencies decided which creators got work.</p>
+            </div>
+        </div>
+
+        <div class="separator-container">
+            <span class="separator"></span>
+            <p class="center-text">That era is ending with Addlee.</p>
+            <span class="separator"></span>
+        </div>
+
+        <div class="story-row reverse">
+            <div class="story-image">
+                <img src="https://raw.githubusercontent.com/addlee-company/Images-/main/Screenshot%202026-01-11%20225840.png" alt="Story image 2">
+            </div>
+            <div class="story-text">
+                <p>Brands relied on guesswork.<br>Content was inconsistent.<br>Creators were undervalued.</p>
+            </div>
+        </div>
+
+        <div class="story-row">
+            <div class="story-image">
+                <img src="https://raw.githubusercontent.com/addlee-company/Images-/main/Screenshot%202026-01-11%20204314.png" alt="Story image 3">
+            </div>
+            <div class="story-text">
+                <p>Hotels and creators can connect directly.<br>AI matches the right creators with the right hotels.</p>
+            </div>
+        </div>
+
+        <div class="separator-container">
+            <span class="separator"></span>
+            <p class="center-text">The future is simple.</p>
+            <span class="separator"></span>
+        </div>
+
+        <div class="story-row reverse">
+            <div class="story-image">
+                <img src="https://raw.githubusercontent.com/addlee-company/Images-/main/Screenshot%202026-01-11%20204452.png" alt="Story image 4">
+            </div>
+            <div class="story-text">
+                <p>Hotels get the content they need.<br>Creators get the work they deserve.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="button-container">
+        <a href="index.html" class="back-button">Back to Home</a>
+    </div>
+
+    <footer class="social-footer">
+        <div class="social-links">
+            <a href="https://www.instagram.com/addlee.co/?igsh=MWxncGExYTQ2OWJpag%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Follow us on Instagram">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+            </a>
+            <a href="https://www.tiktok.com/@addlee.co?_r=1&_t=ZP-92zm3hXmFf5" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Follow us on TikTok">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                </svg>
+            </a>
+        </div>
+    </footer>
+</body>
+</html>
