@@ -18,6 +18,131 @@
             background: white;
         }
 
+        .top-nav {
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 1.25rem 2rem;
+            z-index: 100;
+        }
+
+        .login-wrapper {
+            position: relative;
+        }
+
+        .login-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.65rem 1.5rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #333;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border: 1.5px solid rgba(0, 0, 0, 0.08);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-family: inherit;
+        }
+
+        .login-button:hover {
+            background: white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-button svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .login-dropdown {
+            position: absolute;
+            top: calc(100% + 0.5rem);
+            right: 0;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+            min-width: 220px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-8px);
+            transition: all 0.25s ease;
+            overflow: hidden;
+        }
+
+        .login-wrapper:hover .login-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .login-dropdown a {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 1.25rem;
+            color: #333;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: background 0.2s ease;
+        }
+
+        .login-dropdown a:first-child {
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .login-dropdown a:hover {
+            background: #f8f9fa;
+        }
+
+        .login-dropdown .dropdown-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .login-dropdown .dropdown-icon.creator {
+            background: linear-gradient(135deg, #FFB347, #FF7043);
+        }
+
+        .login-dropdown .dropdown-icon.hotel {
+            background: linear-gradient(135deg, #7DD3FC, #3B82F6);
+        }
+
+        .login-dropdown .dropdown-icon svg {
+            width: 18px;
+            height: 18px;
+            color: white;
+        }
+
+        .login-dropdown .dropdown-label {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .login-dropdown .dropdown-label span:first-child {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .login-dropdown .dropdown-label span:last-child {
+            font-size: 0.8rem;
+            color: #888;
+            margin-top: 0.15rem;
+        }
+
         .hero-section {
             min-height: 100vh;
             display: flex;
@@ -1279,6 +1404,35 @@
     </style>
 </head>
 <body>
+    <nav class="top-nav">
+        <div class="login-wrapper">
+            <button class="login-button">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                Login
+            </button>
+            <div class="login-dropdown">
+                <a href="creator-login.html">
+                    <div class="dropdown-icon creator">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                    </div>
+                    <div class="dropdown-label">
+                        <span>Creator Login</span>
+                        <span>For UGC creators</span>
+                    </div>
+                </a>
+                <a href="hotel-login.html">
+                    <div class="dropdown-icon hotel">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M3 7v14"/><path d="M21 7v14"/><path d="M3 7l9-4 9 4"/><rect x="7" y="11" width="4" height="4"/><rect x="13" y="11" width="4" height="4"/></svg>
+                    </div>
+                    <div class="dropdown-label">
+                        <span>Hotel Login</span>
+                        <span>For hotel partners</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </nav>
+
     <section class="hero-section">
         <div class="floating-blob blob-1"></div>
         <div class="floating-blob blob-2"></div>
