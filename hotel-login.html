@@ -150,6 +150,73 @@
             color: #5BB8E6;
         }
 
+        .step {
+            display: none;
+        }
+
+        .step.active {
+            display: block;
+        }
+
+        .phone-input-group {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .phone-input-group input {
+            flex: 1;
+        }
+
+        .code-input-container {
+            display: flex;
+            gap: 0.75rem;
+            justify-content: center;
+            margin: 1.5rem 0;
+        }
+
+        .code-input {
+            width: 50px;
+            height: 60px;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 600;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .code-input:focus {
+            outline: none;
+            border-color: #5BB8E6;
+            box-shadow: 0 0 0 3px rgba(91, 184, 230, 0.1);
+        }
+
+        .resend-code {
+            text-align: center;
+            margin-top: 1rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .resend-code a {
+            color: #5BB8E6;
+            text-decoration: none;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .resend-code a:hover {
+            text-decoration: underline;
+        }
+
+        .info-text {
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
         @media (max-width: 768px) {
             .login-container {
                 padding: 2rem 1.5rem;
@@ -157,6 +224,12 @@
 
             .login-header h1 {
                 font-size: 1.5rem;
+            }
+
+            .code-input {
+                width: 45px;
+                height: 55px;
+                font-size: 1.25rem;
             }
         }
     </style>
@@ -167,10 +240,11 @@
         <div class="login-header">
             <img src="https://raw.githubusercontent.com/addlee-company/Images-/main/nobackgroundlogo.png" alt="Addlee Logo">
             <h1>Hotel Portal</h1>
-            <p>Welcome back! Sign in to your account</p>
+            <p id="step-description">Welcome back! Sign in to your account</p>
         </div>
 
-        <form id="hotel-login-form">
+        <!-- Step 1: Email and Password -->
+        <form id="hotel-login-form" class="step active">
             <div class="form-group">
                 <label for="email">Email</label>
                 <input type="email" id="email" placeholder="your.email@example.com" required>
@@ -181,8 +255,37 @@
                 <input type="password" id="password" placeholder="Enter your password" required>
             </div>
 
-            <button type="submit" class="login-button">Sign In</button>
+            <button type="submit" class="login-button">Continue</button>
         </form>
+
+        <!-- Step 2: Phone Number -->
+        <div id="phone-step" class="step">
+            <div class="info-text">We'll send a verification code to your phone number</div>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <div class="phone-input-group">
+                    <input type="tel" id="phone" placeholder="+1 (555) 123-4567" required>
+                </div>
+            </div>
+            <button type="button" class="login-button" id="send-code-btn">Send Verification Code</button>
+        </div>
+
+        <!-- Step 3: Verification Code -->
+        <div id="code-step" class="step">
+            <div class="info-text">Enter the 6-digit code sent to <span id="phone-display"></span></div>
+            <div class="code-input-container">
+                <input type="text" class="code-input" maxlength="1" pattern="[0-9]" inputmode="numeric" required>
+                <input type="text" class="code-input" maxlength="1" pattern="[0-9]" inputmode="numeric" required>
+                <input type="text" class="code-input" maxlength="1" pattern="[0-9]" inputmode="numeric" required>
+                <input type="text" class="code-input" maxlength="1" pattern="[0-9]" inputmode="numeric" required>
+                <input type="text" class="code-input" maxlength="1" pattern="[0-9]" inputmode="numeric" required>
+                <input type="text" class="code-input" maxlength="1" pattern="[0-9]" inputmode="numeric" required>
+            </div>
+            <button type="button" class="login-button" id="verify-code-btn">Verify Code</button>
+            <div class="resend-code">
+                Didn't receive the code? <a href="#" id="resend-code-link">Resend</a>
+            </div>
+        </div>
 
         <div class="divider">
             <span>or</span>
@@ -194,10 +297,99 @@
     </div>
 
     <script>
+        let verificationCode = '';
+        let userPhone = '';
+
+        // Generate random 6-digit code
+        function generateCode() {
+            return Math.floor(100000 + Math.random() * 900000).toString();
+        }
+
+        // Step 1: Email/Password submission
         document.getElementById('hotel-login-form').addEventListener('submit', function(e) {
             e.preventDefault();
-            // Add your login logic here
-            alert('Hotel login functionality will be connected to your backend');
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            // Validate credentials (in production, this would check with backend)
+            if (email && password) {
+                // Move to phone step
+                document.getElementById('hotel-login-form').classList.remove('active');
+                document.getElementById('phone-step').classList.add('active');
+                document.getElementById('step-description').textContent = 'Verify your phone number';
+            }
+        });
+
+        // Step 2: Send verification code
+        document.getElementById('send-code-btn').addEventListener('click', function() {
+            const phone = document.getElementById('phone').value;
+            if (phone) {
+                userPhone = phone;
+                verificationCode = generateCode();
+                
+                // In production, send code via SMS API
+                console.log('Verification code sent to', phone, ':', verificationCode);
+                alert('Verification code sent! (Check console for demo code: ' + verificationCode + ')');
+                
+                // Move to code verification step
+                document.getElementById('phone-step').classList.remove('active');
+                document.getElementById('code-step').classList.add('active');
+                document.getElementById('phone-display').textContent = phone;
+                
+                // Focus first code input
+                document.querySelectorAll('.code-input')[0].focus();
+            }
+        });
+
+        // Code input handling - auto-advance
+        const codeInputs = document.querySelectorAll('.code-input');
+        codeInputs.forEach((input, index) => {
+            input.addEventListener('input', function(e) {
+                if (e.target.value && index < codeInputs.length - 1) {
+                    codeInputs[index + 1].focus();
+                }
+            });
+
+            input.addEventListener('keydown', function(e) {
+                if (e.key === 'Backspace' && !e.target.value && index > 0) {
+                    codeInputs[index - 1].focus();
+                }
+            });
+
+            input.addEventListener('paste', function(e) {
+                e.preventDefault();
+                const pastedData = e.clipboardData.getData('text').slice(0, 6);
+                pastedData.split('').forEach((char, i) => {
+                    if (codeInputs[i] && /[0-9]/.test(char)) {
+                        codeInputs[i].value = char;
+                    }
+                });
+                codeInputs[Math.min(pastedData.length, codeInputs.length - 1)].focus();
+            });
+        });
+
+        // Step 3: Verify code
+        document.getElementById('verify-code-btn').addEventListener('click', function() {
+            const enteredCode = Array.from(codeInputs).map(input => input.value).join('');
+            
+            if (enteredCode === verificationCode) {
+                // Success - redirect to hotel questionnaire
+                window.location.href = 'hotel-questionnaire.html';
+            } else {
+                alert('Invalid code. Please try again.');
+                codeInputs.forEach(input => input.value = '');
+                codeInputs[0].focus();
+            }
+        });
+
+        // Resend code
+        document.getElementById('resend-code-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            verificationCode = generateCode();
+            console.log('New verification code:', verificationCode);
+            alert('New code sent! (Check console for demo code: ' + verificationCode + ')');
+            codeInputs.forEach(input => input.value = '');
+            codeInputs[0].focus();
         });
     </script>
 </body>
