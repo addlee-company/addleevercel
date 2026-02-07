@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creator Login - Addlee</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #FFB347 0%, #FF8C42 50%, #FF7043 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .login-container {
+            background: white;
+            border-radius: 24px;
+            padding: 3rem;
+            max-width: 450px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .login-header img {
+            height: 50px;
+            width: auto;
+            margin-bottom: 1rem;
+        }
+
+        .login-header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .login-header p {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.875rem 1.25rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #E67A1E;
+            box-shadow: 0 0 0 3px rgba(230, 122, 30, 0.1);
+        }
+
+        .login-button {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: white;
+            background: linear-gradient(135deg, #E67A1E, #E6A600);
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .login-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(230, 122, 30, 0.35);
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 2rem 0;
+            color: #999;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: #e0e0e0;
+        }
+
+        .divider span {
+            padding: 0 1rem;
+            font-size: 0.9rem;
+        }
+
+        .signup-link {
+            text-align: center;
+            margin-top: 1.5rem;
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .signup-link a {
+            color: #E67A1E;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .signup-link a:hover {
+            text-decoration: underline;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 1rem;
+            color: #666;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: #E67A1E;
+        }
+
+        .step {
+            display: none;
+        }
+
+        .step.active {
+            display: block;
+        }
+
+        .phone-input-group {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .phone-input-group input {
+            flex: 1;
+        }
+
+        .code-input-container {
+            display: flex;
+            gap: 0.75rem;
+            justify-content: center;
+            margin: 1.5rem 0;
+        }
+
+        .code-input {
+            width: 50px;
+            height: 60px;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 600;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .code-input:focus {
+            outline: none;
+            border-color: #E67A1E;
+            box-shadow: 0 0 0 3px rgba(230, 122, 30, 0.1);
+        }
+
+        .resend-code {
+            text-align: center;
+            margin-top: 1rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .resend-code a {
+            color: #E67A1E;
+            text-decoration: none;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .resend-code a:hover {
+            text-decoration: underline;
+        }
+
+        .info-text {
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .login-container {
+                padding: 2rem 1.5rem;
+            }
+
+            .login-header h1 {
+                font-size: 1.5rem;
+            }
+
+            .code-input {
+                width: 45px;
+                height: 55px;
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <a href="index.html" class="back-link">← Back to Home</a>
+        <div class="login-header">
+            <img src="https://raw.githubusercontent.com/addlee-company/Images-/main/nobackgroundlogo.png" alt="Addlee Logo">
+            <h1>Creator Portal</h1>
+            <p id="step-description">Welcome back! Sign in to your account</p>
+        </div>
+
+        <!-- Step 1: Email and Password -->
+        <form id="creator-login-form" class="step active">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="your.email@example.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter your password" required>
+            </div>
+
+            <button type="submit" class="login-button">Continue</button>
+        </form>
+
+        <!-- Step 2: Phone Number -->
+        <div id="phone-step" class="step">
+            <div class="info-text">We'll send a verification code to your phone number</div>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <div class="phone-input-group">
+                    <input type="tel" id="phone" placeholder="+1 (555) 123-4567" required>
+                </div>
+            </div>
+            <button type="button" class="login-button" id="send-code-btn">Send Verification Code</button>
+        </div>
+
+        <!-- Step 3: Verification Code -->
+        <div id="code-step" class="step">
+            <div class="info-text">Enter the 6-digit code sent to <span id="phone-display"></span></div>
+            <div class="code-input-container">
+                <input type="text" class="code-input" maxlength="1" pattern="[0-9]" inputmode="numeric" required>
+                <input type="text" class="code-input" maxlength="1" pattern="[0-9]" inputmode="numeric" required>
+                <input type="text" class="code-input" maxlength="1" pattern="[0-9]" inputmode="numeric" required>
+                <input type="text" class="code-input" maxlength="1" pattern="[0-9]" inputmode="numeric" required>
+                <input type="text" class="code-input" maxlength="1" pattern="[0-9]" inputmode="numeric" required>
+                <input type="text" class="code-input" maxlength="1" pattern="[0-9]" inputmode="numeric" required>
+            </div>
+            <button type="button" class="login-button" id="verify-code-btn">Verify Code</button>
+            <div class="resend-code">
+                Didn't receive the code? <a href="#" id="resend-code-link">Resend</a>
+            </div>
+        </div>
+
+        <div class="divider">
+            <span>or</span>
+        </div>
+
+        <div class="signup-link">
+            Don't have an account? <a href="#waitlist">Join as a Creator</a>
+        </div>
+    </div>
+
+    <script>
+        let verificationCode = '';
+        let userPhone = '';
+
+        // Generate random 6-digit code
+        function generateCode() {
+            return Math.floor(100000 + Math.random() * 900000).toString();
+        }
+
+        // Step 1: Email/Password submission
+        document.getElementById('creator-login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            // Validate credentials (in production, this would check with backend)
+            if (email && password) {
+                // Move to phone step
+                document.getElementById('creator-login-form').classList.remove('active');
+                document.getElementById('phone-step').classList.add('active');
+                document.getElementById('step-description').textContent = 'Verify your phone number';
+            }
+        });
+
+        // Step 2: Send verification code
+        document.getElementById('send-code-btn').addEventListener('click', function() {
+            const phone = document.getElementById('phone').value;
+            if (phone) {
+                userPhone = phone;
+                verificationCode = generateCode();
+                
+                // In production, send code via SMS API
+                console.log('Verification code sent to', phone, ':', verificationCode);
+                alert('Verification code sent! (Check console for demo code: ' + verificationCode + ')');
+                
+                // Move to code verification step
+                document.getElementById('phone-step').classList.remove('active');
+                document.getElementById('code-step').classList.add('active');
+                document.getElementById('phone-display').textContent = phone;
+                
+                // Focus first code input
+                document.querySelectorAll('.code-input')[0].focus();
+            }
+        });
+
+        // Code input handling - auto-advance
+        const codeInputs = document.querySelectorAll('.code-input');
+        codeInputs.forEach((input, index) => {
+            input.addEventListener('input', function(e) {
+                if (e.target.value && index < codeInputs.length - 1) {
+                    codeInputs[index + 1].focus();
+                }
+            });
+
+            input.addEventListener('keydown', function(e) {
+                if (e.key === 'Backspace' && !e.target.value && index > 0) {
+                    codeInputs[index - 1].focus();
+                }
+            });
+
+            input.addEventListener('paste', function(e) {
+                e.preventDefault();
+                const pastedData = e.clipboardData.getData('text').slice(0, 6);
+                pastedData.split('').forEach((char, i) => {
+                    if (codeInputs[i] && /[0-9]/.test(char)) {
+                        codeInputs[i].value = char;
+                    }
+                });
+                codeInputs[Math.min(pastedData.length, codeInputs.length - 1)].focus();
+            });
+        });
+
+        // Step 3: Verify code
+        document.getElementById('verify-code-btn').addEventListener('click', function() {
+            const enteredCode = Array.from(codeInputs).map(input => input.value).join('');
+            
+            if (enteredCode === verificationCode) {
+                // Success - redirect to creator dashboard
+                alert('Login successful! Redirecting to Creator Dashboard...');
+                // window.location.href = 'creator-dashboard.html';
+            } else {
+                alert('Invalid code. Please try again.');
+                codeInputs.forEach(input => input.value = '');
+                codeInputs[0].focus();
+            }
+        });
+
+        // Resend code
+        document.getElementById('resend-code-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            verificationCode = generateCode();
+            console.log('New verification code:', verificationCode);
+            alert('New code sent! (Check console for demo code: ' + verificationCode + ')');
+            codeInputs.forEach(input => input.value = '');
+            codeInputs[0].focus();
+        });
+    </script>
+</body>
+</html>
