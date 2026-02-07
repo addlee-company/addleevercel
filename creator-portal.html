@@ -22,7 +22,7 @@
         /* ---- Sidebar ---- */
         .sidebar {
             width: 260px;
-            background: linear-gradient(180deg, #4D6DFF 0%, #3D5CE6 100%);
+            background: linear-gradient(180deg, #FF8C42 0%, #E67A1E 100%);
             display: flex;
             flex-direction: column;
             position: fixed;
@@ -128,7 +128,6 @@
             background: white;
             padding: 1rem 2rem;
             display: flex;
-            justify-content: flex-end;
             align-items: center;
             box-shadow: 0 1px 4px rgba(0,0,0,0.06);
             position: sticky;
@@ -604,14 +603,14 @@
             top: 1rem;
             left: 1rem;
             z-index: 200;
-            background: #4D6DFF;
+            background: #FF8C42;
             color: white;
             border: none;
             border-radius: 10px;
             padding: 0.6rem 0.8rem;
             font-size: 1.25rem;
             cursor: pointer;
-            box-shadow: 0 2px 10px rgba(77, 109, 255, 0.3);
+            box-shadow: 0 2px 10px rgba(255, 140, 66, 0.3);
         }
 
         /* ---- Responsive ---- */
@@ -681,6 +680,10 @@
     <!-- Main -->
     <div class="main-content">
         <header class="top-header">
+            <div class="portal-label" style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; font-weight: 600; color: #E67A1E; background: #FFF5EB; padding: 0.4rem 1rem; border-radius: 50px;">
+                <span>🎨</span> Creator Portal
+            </div>
+            <div style="flex: 1;"></div>
             <div class="login-dropdown">
                 <span class="login-btn" tabindex="0" role="button" aria-haspopup="true">Log In</span>
                 <div class="login-dropdown-menu">
