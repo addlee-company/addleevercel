@@ -137,6 +137,35 @@
             }
         }
 
+        .top-bar {
+            position: absolute;
+            top: 1.5rem;
+            right: 2rem;
+            z-index: 10;
+        }
+
+        .login-btn {
+            display: inline-block;
+            padding: 0.6rem 1.75rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #4D6DFF;
+            background: white;
+            border: 2px solid #4D6DFF;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            box-shadow: 0 2px 10px rgba(77, 109, 255, 0.15);
+        }
+
+        .login-btn:hover {
+            background: #4D6DFF;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(77, 109, 255, 0.3);
+        }
+
         .logo {
             display: flex;
             align-items: center;
@@ -1280,6 +1309,9 @@
 </head>
 <body>
     <section class="hero-section">
+        <div class="top-bar">
+            <a href="portal.html" class="login-btn">Log In</a>
+        </div>
         <div class="floating-blob blob-1"></div>
         <div class="floating-blob blob-2"></div>
         <div class="floating-blob blob-3"></div>
